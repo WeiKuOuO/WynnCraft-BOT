@@ -18,10 +18,10 @@ module.exports.run = async (bot, message, args) => {
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
                         .setDescription(`公會等級 **Level${guild.level}** | 經驗值 **${guild.xp}%**`)
-                        .addField(":pager:  工會名稱",`${guild.name}`,true)
-                        .addField(":calendar_spiral: 創建日期",`${guild.createdFriendly}`,true)
-                        .addField(":mega: 公會前綴",`${guild.prefix}`,true)
-                        
+                        .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
+                        .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
+                        .addField(":mega: 公會前綴",`\`\`\`fix\n${guild.prefix}\`\`\``,true)
+
                     message.channel.send(guildInfo)
                 }
             })
