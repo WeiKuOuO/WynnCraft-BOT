@@ -1,10 +1,11 @@
 const Discord = require("discord.js")
+const request = require('request');
 
 module.exports.run = async (bot, message, args, request) => {
   
         const guildName = args.join(" ");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
-            request(urlMain,async function(err, response, guild) {
+            request(urlMain, function(err, response, guild) {
                 if(err) {
                     console.log(err);
                     return message.channel.send('在查詢時出了點問題:P');
