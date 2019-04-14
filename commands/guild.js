@@ -15,9 +15,9 @@ module.exports.run = async (bot, message, args) => {
                     message.channel.send("你輸入了錯誤的工會名稱,可能是大小寫錯誤了")
                 }else{
                     let guildInfo = new Discord.RichEmbed()
-                        .setColor("RANDOM")
+                        .setColor(0xFF7800)
                         .setTitle(`${guild.name} 的資訊`)
-                        .setDescription(`公會等級 **Level${guild.level}** | 經驗值 ${guild.xp}%`)
+                        .setDescription(`公會等級 **Level${guild.level}** | 經驗值 **${guild.xp}%**`)
                     message.channel.send(guildInfo)
                 }
             })
