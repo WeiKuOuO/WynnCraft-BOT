@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
                         .addField(":earth_asia: 領地數量",`\`\`\`fix\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
-                        .addField(":seedling: 經驗值",`\`\`\`diff\n-     ${guild.xp}%    -\`\`\``,true)
+                        .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
                     message.channel.send(guildInfo)
                 }
             })
