@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 
         // })
 
-        const ip = args.join(" ");
+    const ip = args.join(" ");
     const text = "**★  " + (ip) + "** 的狀態";
     const urlTitle = "**IP** - " + (ip);
     const urlMain = "https://mcapi.us/server/status?ip=" + (ip);
@@ -72,58 +72,9 @@ module.exports.run = async (bot, message, args) => {
     });
     message.delete().catch(O_o=>{});
     }
-    //玩家資訊
-    if(command === "user"){
-    message.delete().catch(O_o=>{});
-    const id = args.join(" ");
-    const uuid = await mcapi.usernameToUUID(id);
-    const url1 = "https://visage.surgeplay.com/face/400/" + (uuid)
-    const url2 = "https://visage.surgeplay.com/head/400/" + (uuid)
-    const url3 = "https://visage.surgeplay.com/full/400/" + (uuid)
-    const url4 = "https://visage.surgeplay.com/frontfull/400/" + (uuid)
-    if(!id)
-      return message.channel.send("請輸入玩家名稱，不可空白");
-    if(uuid === undefined)
-      return message.channel.send("查無此玩家資訊，請確認玩家是否存在");
-    message.channel.send({embed: {
-      title: "玩家資訊",
-      description: "這裡可以讓你知道**玩家**的資訊\n此系統**正在開發中**，有問題請見諒",
-      color: 3447003,
-      author: {
-        name: (id) + "的資訊",
-        icon_url: (url1)
-      },
-      fields: [{
-          name: "• 名稱",
-          value: (id),
-          inline: true
-        },
-        {
-          name: "• UUID",
-          value: (uuid),
-          inline: true
-        },
-        {
-          name: "• Skin",
-          value: "此玩家的Skin",
-          inline: true
-        },
-      ],
-      image :{
-        url: (url3)
-      },
-      thumbnail :{
-        url: (url2)
-      },
-      timestamp: new Date(),
-      footer: {
-        icon_url: bot.user.avatarURL,
-        text: bot.user.username
-      }
-    }})
+    
         
 //moment.duration(guild.duration).format(" D [天], H [時], m [分], s [秒]")
-}
 
 module.exports.help = {
   name: 'guild',
