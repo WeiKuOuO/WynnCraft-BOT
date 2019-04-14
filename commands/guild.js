@@ -17,7 +17,6 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
-                        .setDescription(`公會等級 **** | 經驗值 ****`)
                         .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
                         .addField(":mega: 公會前綴",`\`\`\`fix\n${guild.prefix}\`\`\``,true)
                         .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+   Level${guild.level}  +\`\`\``,true)
