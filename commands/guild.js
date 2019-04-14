@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor("RANDOM")
                         .setTitle(`${guild.name} 的資訊`)
+                        .setDescription(`公會等級 **Level${guild.level}** | 經驗值 ${guild.xp}%`)
                     message.channel.send(guildInfo)
                 }
             })
