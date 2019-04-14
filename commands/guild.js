@@ -17,11 +17,13 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
-                        .setDescription(`公會等級 **Level${guild.level}** | 經驗值 **${guild.xp}%**`)
+                        .setDescription(`公會等級 **** | 經驗值 ****`)
                         .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
-                        .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":mega: 公會前綴",`\`\`\`fix\n${guild.prefix}\`\`\``,true)
-
+                        .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n + Level${guild.level}\`\`\``,true)
+                        .addField(":earth_asia: 領地數量",`\`\`\`fix\n${guild.territories}\`\`\``,true)
+                        .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
+                        .addField(":seedling: 經驗值",`\`\`\`diff\n  - ${guild.xp}%\`\`\``,true)
                     message.channel.send(guildInfo)
                 }
             })
