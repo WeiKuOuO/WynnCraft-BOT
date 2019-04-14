@@ -1,4 +1,4 @@
-const discord = require("discord.js")
+const Discord = require("discord.js")
 
 module.exports.run = async (bot, message, args) => {
   
@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
                 let guildInfo = new Discord.RichEmbed()
                     .setColor("RANDOM")
                     .setTitle(`${guild.name} 的資訊`)
+                message.channel.send(guildInfo)
             }
 
         })
