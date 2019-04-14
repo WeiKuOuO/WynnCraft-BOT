@@ -33,7 +33,7 @@ fs.readdir("./commands/", (err,files) => {
     console.log("找不到任何指令");
     return;
   }  
-
+  
   jsfile.forEach((f, i) => {
     let props = require(`./commands/${f}`);
     console.log(`${f} 載入成功!`)
