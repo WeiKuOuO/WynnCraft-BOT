@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
-require('request');
+var request = require('request');
 
-module.exports.run = async (bot, message, args, request) => {
+module.exports.run = async (bot, message, args) => {
   
         const guildName = args.join(" ");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
