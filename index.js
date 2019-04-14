@@ -19,7 +19,7 @@ bot.on('ready', function() {
         `機器人製作 | 微苦 ♪`,
         `歡迎使用WynnCraft中文資訊站 ♪`
       ]
-      bot.user.setActivity(statuslist[index], { type: "STREAMING", url: "https://www.youtube.com/c/微苦/live"});
+      bot.user.setActivity(statuslist[index], { type: "STREAMING", url: "https://www.twitch.tv/weikuouo"});
       index++
       if (index === statuslist.length) index = 0;
   }, 3000)
