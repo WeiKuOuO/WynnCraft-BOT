@@ -11,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
                     return message.channel.send('在查詢時出了點問題:P');
                 } 
                 player = JSON.parse(player);
+                console.log(player.data)
                 if(!player.data[0]['username']){
                     message.channel.send("你輸入了錯誤的玩家名稱,請重新確認是否有打錯ID")
                 }else{
