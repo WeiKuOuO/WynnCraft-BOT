@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
                 player = JSON.parse(player);
                 console.log(urlMain)
                 console.log(player.data)
+                console.log(player.data.username)
             })
         }  
 //moment.duration(guild.duration).format(" D [天], H [時], m [分], s [秒]")
