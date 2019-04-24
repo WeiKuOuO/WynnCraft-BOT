@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
                 }
                 player = JSON.parse(player);
                 console.log(urlMain)
-                console.log(player.data)
+                console.log(player.data[0].username)
                 console.log(player.data.username)
             })
         }  
