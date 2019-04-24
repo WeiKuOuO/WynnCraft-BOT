@@ -5,6 +5,7 @@ module.exports.run = async (bot, message, args) => {
   
         const guildName = args.join("");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
+        console.log(guildName)
         if(guildName == ""){
             message.channel.send("你並沒有輸入公會名稱")
             return
