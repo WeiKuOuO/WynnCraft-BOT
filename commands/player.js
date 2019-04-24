@@ -11,6 +11,9 @@ module.exports.run = async (bot, message, args) => {
                     return message.channel.send('在查詢時出了點問題:P');
                 }
                 player = JSON.parse(player);
+                new Object([data])
+                console.log(Object.keys(username))
+                console.log(player.data[0['username']])
                 console.log(urlMain)
                 console.log(player.data[0].username)
                 console.log(player.data.username)
