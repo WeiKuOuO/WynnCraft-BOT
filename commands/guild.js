@@ -3,8 +3,12 @@ var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
   
-        const guildName = args.join(" ");
+        const guildName = args.join("");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
+        if(guildName == ""){
+            message.channel.send("你並沒有輸入公會名稱")
+            return
+        } 
             request(urlMain, function(err, response, guild) {
                 if(err) {
                     console.log(err);
@@ -12,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
                 }
                 guild = JSON.parse(guild);
                 if(guild.error){
-                    message.channel.send("你輸入了錯誤的工會名稱,可能是大小寫錯誤了")
+                    message.channel.send("你輸入了錯誤的公會名稱,可能是大小寫錯誤了")
                 }else{
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
