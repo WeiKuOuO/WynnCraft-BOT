@@ -27,6 +27,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":earth_asia: 領地數量",`\`\`\`fix\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
+                        console.log(guild.member[0].name)
                     message.channel.send(guildInfo)
                 }
             })
