@@ -7,8 +7,7 @@ module.exports.run = async (bot, message, args) => {
         const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
         if(!playerName == ""){
             message.channel.send("你並未輸入玩家名稱...")
-            return
-        }
+        }else{
             request(urlMain, function(err, response, player) {
                 if(err) {
                     console.log(err);
@@ -30,7 +29,9 @@ module.exports.run = async (bot, message, args) => {
                     message.channel.send(guildInfo)
                 }
             })
-        }  
+        }
+    }
+              
  
 module.exports.help = {
   name: 'guild',
