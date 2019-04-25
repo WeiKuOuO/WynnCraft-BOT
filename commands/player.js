@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
   
         const playerName = args.join("");
         const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
-        if(!playerName == ""){
+        if(playerName == ""){
             message.channel.send("你並未輸入玩家名稱...")
         }else{
             request(urlMain, function(err, response, player) {
