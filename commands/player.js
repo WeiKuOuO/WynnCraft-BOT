@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
                     return message.channel.send('在查詢時出了點問題:P');
                 }
                 player = JSON.parse(player);
-                if(!player.data[0].username){
+                if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
                 }else{
                     let guildInfo = new Discord.RichEmbed()
