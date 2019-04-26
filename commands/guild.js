@@ -44,6 +44,13 @@ module.exports.run = async (bot, message, args) => {
                                 tmp3 = tmp3 + "\n" + member.name;
                             }
                         }
+                        if (member.rank === "RECRUIT") {
+                            if (tmp4 == null) {
+                                tmp4 = member.name;
+                            } else {
+                                tmp4 = tmp4 + "," + member.name;
+                            }
+                        }
                     });
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
