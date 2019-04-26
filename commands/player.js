@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${player.data[0].username} 的資訊`)
+                        .addField(":levels:  等級",`\`\`\`css\n${player.classes[0].level}\`\`\``,true)
                         // .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
                         // .addField(":mega: 公會前綴",`\`\`\`fix\n${guild.prefix}\`\`\``,true)
                         // .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
