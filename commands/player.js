@@ -14,18 +14,18 @@ module.exports.run = async (bot, message, args) => {
                 }
                 const classes = args[1]
                 player = JSON.parse(player);
+                let onlinecheck = player.data[0].meta.location.online
+                if ( typeof onlinecheck !== 'false' && onlinecheck )
+                {
+                  let onlineserver = player.data[0].meta.location.server
+                }
+                else
+                {
+                  let onlineserver = `玩家名: ${player.data[0].username} 不在線上`
+                }
                 if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
                 }else{
-                  let onlinecheck = player.data[0].meta.location.online
-                  if ( typeof onlinecheck !== 'false' && onlinecheck )
-                  {
-                    let onlineserver = player.data[0].meta.location.server
-                  }
-                  else
-                  {
-                    let onlineserver = `玩家名: ${player.data[0].username} 不在線上`
-                  }
                   let guildInfo = new Discord.RichEmbed()
                       setColor(0x34AB00)
                       .setTitle(`${player.data[0].username} 的資訊`)
