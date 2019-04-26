@@ -18,6 +18,17 @@ module.exports.run = async (bot, message, args) => {
                 if(guild.error){
                     message.channel.send("你輸入了錯誤的公會名稱,可能是大小寫錯誤了")
                 }else{
+                    let tmp;
+                    guild.members.forEach(function(member) {
+                        if (member.rank === "CHIEF") {
+                            if (tmp == null) {
+                                tmp = member.name;
+                            } else {
+                                tmp = tmp + "\n" + member.name;
+                            }
+                        }
+                    });
+                    console.log(tmp);
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
@@ -27,7 +38,6 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":earth_asia: 領地數量",`\`\`\`fix\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
-                        console.log(guild.member[0].name)
                     message.channel.send(guildInfo)
                 }
             })
