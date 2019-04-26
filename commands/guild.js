@@ -64,6 +64,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
                         .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
                         .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
+                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp4}\`\`\``,true)
                     message.channel.send(guildInfo)
                 }
             })
