@@ -30,6 +30,20 @@ module.exports.run = async (bot, message, args) => {
                                 tmp1 = tmp1 + "\n" + member.name;
                             }
                         }
+                        if (member.rank === "CHIEF") {
+                            if (tmp2 == null) {
+                                tmp2 = member.name;
+                            } else {
+                                tmp2 = tmp2 + "\n" + member.name;
+                            }
+                        }
+                        if (member.rank === "CAPTAIN") {
+                            if (tmp3 == null) {
+                                tmp3 = member.name;
+                            } else {
+                                tmp3 = tmp3 + "\n" + member.name;
+                            }
+                        }
                     });
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
@@ -40,7 +54,9 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
-                        .addField(":bust_in_silhouette: 創建者",`\`\`\`fix\n${tmp1}\`\`\``,true)
+                        .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
+                        .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
+                        .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
                     message.channel.send(guildInfo)
                 }
             })
