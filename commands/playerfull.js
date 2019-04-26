@@ -22,6 +22,10 @@ module.exports.run = async (bot, message, args) => {
                         .setTitle(`${player.data[0].username} 的資訊`)
                         .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[0].name} 資訊`)
                         .addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``)
+                        message.channel.send(guildInfo)
+                        let playerInfo = new Discord.RichEmbed()
+                        .setColor(0x34AB00)
+                        .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[0].name} 資訊`)
                         .addField("戰鬥等級",`\`\`\`css\n${player.data[0].classes[0].professions.combat.level}\`\`\``,true)
                         .addField("煉金等級",`\`\`\`css\n${player.data[0].classes[0].professions.alchemism.level}\`\`\``,true)
                         .addField("廚藝等級",`\`\`\`css\n${player.data[0].classes[0].professions.cooking.level}\`\`\``,true)
@@ -35,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField("木工等級",`\`\`\`css\n${player.data[0].classes[0].professions.woodworking.level}\`\`\``,true)
                         .addField("釣魚等級",`\`\`\`css\n${player.data[0].classes[0].professions.armouring.level}\`\`\``,true)
                         .addField("飾品等級",`\`\`\`css\n${player.data[0].classes[0].professions.jeweling.level}\`\`\``,true);
-                        message.channel.send(guildInfo)
+                        message.channel.send(playerInfo)
                         const data1 = player.data[0].classes[1]
                         if ( typeof data1 !== 'undefined' && data1 )
                         {
