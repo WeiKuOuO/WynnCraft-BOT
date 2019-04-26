@@ -17,11 +17,11 @@ module.exports.run = async (bot, message, args) => {
                 let onlinecheck = player.data[0].meta.location.online
                 if ( typeof onlinecheck !== 'false' && onlinecheck )
                 {
-                  let onlineserver = player.data[0].meta.location.server
+                  var onlineserver = player.data[0].meta.location.server
                 }
                 else
                 {
-                  let onlineserver = `玩家名: ${player.data[0].username} 不在線上`
+                  var onlineserver = `玩家名: ${player.data[0].username} 不在線上`
                 }
                 if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
