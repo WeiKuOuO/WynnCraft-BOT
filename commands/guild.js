@@ -18,16 +18,29 @@ module.exports.run = async (bot, message, args) => {
                 if(guild.error){
                     message.channel.send("你輸入了錯誤的公會名稱,可能是大小寫錯誤了")
                 }else{
+                    let tmp1;
+                    let tmp2;
+                    let tmp3;
+                    let tmp4;
+                    guild.members.forEach(function(member) {
+                        if (member.rank === "OWNER") {
+                            if (tmp1 == null) {
+                                tmp1 = member.name;
+                            } else {
+                                tmp1 = tmp1 + "\n" + member.name;
+                            }
+                        }
+                    });
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
                         .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
-                        .addField(":mega: 公會前綴",`\`\`\`fix\n${guild.prefix}\`\`\``,true)
+                        .addField(":mega: 公會前綴",`\`\`\`md\n#${guild.prefix}\`\`\``,true)
                         .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
-                        .addField(":earth_asia: 領地數量",`\`\`\`fix\n${guild.territories}\`\`\``,true)
+                        .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
-                        console.log(guild.member[0].name)
+                        .addField(":bust_in_silhouette: 創建者",`\`\`\`fix\n${tmp1}\`\`\``,true)
                     message.channel.send(guildInfo)
                 }
             })
