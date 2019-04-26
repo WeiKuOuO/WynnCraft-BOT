@@ -41,7 +41,6 @@ module.exports.run = async (bot, message, args) => {
                         {
                           let playerinfo1 = new Discord.RichEmbed()
                               .setColor(0x34AB00)
-                              .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[1].name} 資訊`)
                               .addField("戰鬥等級",`\`\`\`css\n${player.data[0].classes[1].professions.combat.level}\`\`\``,true)
                               .addField("煉金等級",`\`\`\`css\n${player.data[0].classes[1].professions.alchemism.level}\`\`\``,true)
                               .addField("廚藝等級",`\`\`\`css\n${player.data[0].classes[1].professions.cooking.level}\`\`\``,true)
@@ -68,7 +67,6 @@ module.exports.run = async (bot, message, args) => {
                         {
                           let playerinfo2 = new Discord.RichEmbed()
                               .setColor(0x34AB00)
-                              .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[1].name} 資訊`)
                               .addField("戰鬥等級",`\`\`\`css\n${data2.professions.combat.level}\`\`\``,true)
                               .addField("煉金等級",`\`\`\`css\n${data2.professions.alchemism.level}\`\`\``,true)
                               .addField("廚藝等級",`\`\`\`css\n${data2.professions.cooking.level}\`\`\``,true)
