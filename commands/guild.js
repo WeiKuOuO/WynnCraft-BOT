@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
-                        .addField(":bust_in_silhouette: 創建者",`\`\`\`fix\n${guild.member.rank === "OWNER"}\`\`\``,true)
+                        .addField(":bust_in_silhouette: 創建者",`\`\`\`fix\n${tmp1}\`\`\``,true)
                     message.channel.send(guildInfo)
                 }
             })
