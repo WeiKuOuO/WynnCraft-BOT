@@ -44,19 +44,10 @@ module.exports.run = async (bot, message, args) => {
                 if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
                 }else{
-                  if ( typeof onlinecheck !== 'false' && onlinecheck )
-                  {
-                    var onlineserver = player.data[0].meta.location.server
-                  }
-                  else
-                  {
-                    var onlineserver = `玩家名: ${player.data[0].username} 不在線上`
-                  }
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${player.data[0].username} 的資訊`)
                         .addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``)
-                        .addField("所在分流",`\`\`\`css\n${onlineserver}\`\`\``)
                         message.channel.send(guildInfo)
                         let playerInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
