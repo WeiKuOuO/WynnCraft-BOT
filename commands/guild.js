@@ -10,6 +10,20 @@ module.exports.run = async (bot, message, args) => {
             return
         } 
             request(urlMain, function(err, response, guild) {
+                const request = require('request')
+                const url = 'https://wynncraft.com/stats/guild/' + (guildName);
+                request(url, (err, res, body) => {
+                console.log(body)
+            })
+            const cheerio = require('cheerio')
+            // 把 body 放進 cheerio 準備分析
+            const $ = cheerio.load(body)
+            let weathers = []
+            $('#guildModal .bannerRender i').each(function(i, elem) {
+                weathers.push($(this).text().split('\n'))
+            })
+            console.log(weathers)
+                
                 if(err) {
                     console.log(err);
                     return message.channel.send('在查詢時出了點問題:P');
