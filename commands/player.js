@@ -33,6 +33,9 @@ module.exports.run = async (bot, message, args) => {
                 const text = [
                   `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]`
                 ]  
+                let playerInfo = new Discord.RichEmbed()
+                  .addField(`${player.data[0].classes[0].name} 的等級資訊`,text,true)
+                message.channel.send(playerInfo)
             })
         }
     }
