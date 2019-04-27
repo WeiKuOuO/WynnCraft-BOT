@@ -1,32 +1,22 @@
 const Discord = require("discord.js")
 var request = require('request');
 
+
 module.exports.run = async (bot, message, args) => {
   
         const guildName = args.join("");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
+
         if(guildName == ""){
             message.channel.send("你並沒有輸入公會名稱")
             return
         } 
-            request(urlMain, function(err, response, guild) {
-                const request = require('request')
-                const url = 'https://wynncraft.com/stats/guild/' + (guildName);
-                request(url, (err, res, body) => {
-                console.log(body)
-            })
-            const cheerio = require('cheerio')
-            // 把 body 放進 cheerio 準備分析
-            const $ = cheerio.load(body)
-            let weathers = []
-            $('#guildModal .bannerRender i').each(function(i, elem) {
-                weathers.push($(this).text().split('\n'))
-            })
-            message.channel.send(weathers)
-                
-                if(err) {
-                    console.log(err);
-                    return message.channel.send('在查詢時出了點問題:P');
+        
+
+        request(urlMain, function(err, response, guild) {
+            if(err) {
+                console.log(err);
+                return message.channel.send('在查詢時出了點問題:P');
                 }
                 guild = JSON.parse(guild);
                 if(guild.error){
@@ -77,7 +67,6 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
-                        .setThumbnail(`https://mysterious-ridge-74146.herokuapp.com/images/${guild.name}.png`)
                         .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
                         .addField(":mega: 公會前綴",`\`\`\`md\n#${guild.prefix}\`\`\``,true)
                         .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
@@ -90,14 +79,11 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
                         .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
                     message.channel.send(guildInfo)
-
-
-                    /////////////////////
-
-                    
                 }
             })
         }  
+//moment.duration(guild.duration).format(" D [天], H [時], m [分], s [秒]")
+
 module.exports.help = {
   name: 'guild',
 };

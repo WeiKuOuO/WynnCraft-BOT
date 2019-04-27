@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 var request = require('request');
+var request = require('cheerio');
 
 
 module.exports.run = async (bot, message, args) => {
@@ -11,7 +12,20 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("你並沒有輸入公會名稱")
             return
         } 
-        
+        request(urlMain, function(err, response, guild) {
+            const request = require('request')
+            const url = 'https://wynncraft.com/stats/guild/' + (guildName);
+            request(url, (err, res, body) => {
+            console.log(body)
+        })
+    });
+        const cheerio = require('cheerio')
+        // 把 body 放進 cheerio 準備分析
+        const $ = cheerio.load(body)
+        let weathers = []
+        $('#guildModal .bannerRender i').each(function(i, elem) {
+            weathers.push($(this).text().split('\n'))
+        })
 
         request(urlMain, function(err, response, guild) {
             if(err) {
