@@ -63,6 +63,7 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
+                        .setThumbnail(`https://mysterious-ridge-74146.herokuapp.com/images/${guild.name}.png`)
                         .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
                         .addField(":mega: 公會前綴",`\`\`\`md\n#${guild.prefix}\`\`\``,true)
                         .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
@@ -75,11 +76,61 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
                         .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
                     message.channel.send(guildInfo)
+
+                    let pages = [
+                        'test1 fuck u', 
+                        'test2 fuck u 2', 
+                        'test3 did u think i will say fuck u 3?', 
+                        'test4 Maybe', 
+                        '**test5 I want to say fuck u 10**'
+                       ]; 
+                       let page = 1; 
+                      
+                       const embed = new Discord.RichEmbed() 
+                         .setColor(0xffffff)
+                         .setFooter(`Page ${page} of ${pages.length}`) 
+                         .setDescription(pages[page-1])
+                      
+                       message.channel.send(embed).then(msg => { 
+                        
+                         msg.react('⏪').then( r => { 
+                           msg.react('⏩') 
+                          
+                           const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
+                           const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
+                          
+                           const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
+                           const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
+                          
+                           
+                           backwards.on('collect', r => { 
+                             if (page === 1) return; 
+                             page--; 
+                             embed.setDescription(pages[page-1]); 
+                             embed.setFooter(`Page ${page} of ${pages.length}`);
+                             msg.delete()
+                             msg.channel.send(embed) 
+                             msg.react('⏩') 
+                             msg.react('⏪')
+                           })
+                          
+                           forwards.on('collect', r => { 
+                             if (page === pages.length) return; 
+                             page++; 
+                             embed.setDescription(pages[page-1]); 
+                             embed.setFooter(`Page ${page} of ${pages.length}`); 
+                             msg.delete()
+                             msg.channel.send(embed) 
+                             msg.react('⏩') 
+                             msg.react('⏪')
+                           })
+                        
+                         })
+                      
+                       })
                 }
             })
         }  
-//moment.duration(guild.duration).format(" D [天], H [時], m [分], s [秒]")
-
 module.exports.help = {
   name: 'guild',
 };
