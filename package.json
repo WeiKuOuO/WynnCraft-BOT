@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "cpu-stat": "^2.0.1",
     "dblapi.js": "^2.3.0",
     "discord-rich-presence": "0.0.7",

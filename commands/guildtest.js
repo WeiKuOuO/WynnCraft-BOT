@@ -1,18 +1,22 @@
 const Discord = require("discord.js")
 var request = require('request');
 
+
 module.exports.run = async (bot, message, args) => {
   
         const guildName = args.join("");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
+
         if(guildName == ""){
             message.channel.send("你並沒有輸入公會名稱")
             return
         } 
-            request(urlMain, function(err, response, guild) {
-                if(err) {
-                    console.log(err);
-                    return message.channel.send('在查詢時出了點問題:P');
+        
+
+        request(urlMain, function(err, response, guild) {
+            if(err) {
+                console.log(err);
+                return message.channel.send('在查詢時出了點問題:P');
                 }
                 guild = JSON.parse(guild);
                 if(guild.error){
