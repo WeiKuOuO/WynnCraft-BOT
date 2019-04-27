@@ -59,6 +59,15 @@ module.exports.run = async (bot, message, args) => {
                                 tmp5 = tmp5 + "\n" + member.name;
                             }
                         }
+                        if (!tmp2){
+                            tmp1 = "無此職位的人"
+                        }
+                        if (!tmp3){
+                            tmp1 = "無此職位的人"
+                        }
+                        if (!tmp4){
+                            tmp1 = "無此職位的人"
+                        }
                     });
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
