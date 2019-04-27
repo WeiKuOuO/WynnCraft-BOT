@@ -33,40 +33,31 @@ module.exports.run = async (bot, message, args) => {
                         }
                         if (member.rank === "CHIEF") {
                             if (tmp2 == null) {
-                                tmp2 = member.name;
+                                tmp2 = "無此職位的人";
                             } else {
                                 tmp2 = tmp2 + "\n" + member.name;
                             }
                         }
                         if (member.rank === "CAPTAIN") {
                             if (tmp3 == null) {
-                                tmp3 = member.name;
+                                tmp3 = "無此職位的人";
                             } else {
                                 tmp3 = tmp3 + "\n" + member.name;
                             }
                         }
                         if (member.rank === "RECRUITER") {
                             if (tmp4 == null) {
-                                tmp4 = member.name;
+                                tmp4 = "無此職位的人";
                             } else {
                                 tmp4 = tmp4 + "\n" + member.name;
                             }
                         }
                         if (member.rank === "RECRUIT") {
                             if (tmp5 == null) {
-                                tmp5 = member.name;
+                                tmp5 = "無此職位的人";
                             } else {
                                 tmp5 = tmp5 + "\n" + member.name;
                             }
-                        }
-                        if (!tmp2){
-                            var tmp2 = "無此職位的人"
-                        }
-                        if (!tmp3){
-                            var tmp3 = "無此職位的人"
-                        }
-                        if (!tmp4){
-                            var tmp4 = "無此職位的人"
                         }
                     });
                     let guildInfo = new Discord.RichEmbed()
