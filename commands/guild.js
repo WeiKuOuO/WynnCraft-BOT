@@ -44,11 +44,18 @@ module.exports.run = async (bot, message, args) => {
                                 tmp3 = tmp3 + "\n" + member.name;
                             }
                         }
-                        if (member.rank === "RECRUIT") {
+                        if (member.rank === "RECRUITER") {
                             if (tmp4 == null) {
                                 tmp4 = member.name;
                             } else {
                                 tmp4 = tmp4 + "," + member.name;
+                            }
+                        }
+                        if (member.rank === "RECRUIT") {
+                            if (tmp5 == null) {
+                                tmp5 = member.name;
+                            } else {
+                                tmp5 = tmp5 + "," + member.name;
                             }
                         }
                     });
@@ -64,7 +71,8 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
                         .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
                         .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
-                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp4}\`\`\``,true)
+                        .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
+                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
                     message.channel.send(guildInfo)
                 }
             })

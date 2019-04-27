@@ -13,39 +13,22 @@ module.exports.run = async (bot, message, args) => {
                     return message.channel.send('在查詢時出了點問題:P');
                 }
                 player = JSON.parse(player);
-
-                const profession = [
-                  player.data[0].classes[0].professions
-                ]
-                if(player.data[0].classes[1].professions){
-                  var profession = [
-                    player.data[0].classes[0].professions,
-                    player.data[0].classes[1].professions,
-                  ]
-                }
-                if(player.data[0].classes[2].professions){
-                  var profession = [
-                    player.data[0].classes[0].professions,
-                    player.data[0].classes[1].professions,
-                    player.data[0].classes[2].professions
-                  ]
-                }
                 const xp0 = [
-                  profession[0].combat,
-                  profession[0].woodcutting,
-                  profession[0].mining,
-                  profession[0].fishing,
-                  profession[0].farming,
-                  profession[0].alchemism,
-                  profession[0].armouring,
-                  profession[0].cooking,
-                  profession[0].jeweling,
-                  profession[0].scribing,
-                  profession[0].tailoring,
-                  profession[0].weaponsmithing,
-                  profession[0].woodworking,
-                  profession[0].profession,
-                  profession[0].overall
+                  player.data[0].classes[0].professions.combat,
+                  player.data[0].classes[0].professions.woodcutting,
+                  player.data[0].classes[0].professions.mining,
+                  player.data[0].classes[0].professions.fishing,
+                  player.data[0].classes[0].professions.farming,
+                  player.data[0].classes[0].professions.alchemism,
+                  player.data[0].classes[0].professions.armouring,
+                  player.data[0].classes[0].professions.cooking,
+                  player.data[0].classes[0].professions.jeweling,
+                  player.data[0].classes[0].professions.scribing,
+                  player.data[0].classes[0].professions.tailoring,
+                  player.data[0].classes[0].professions.weaponsmithing,
+                  player.data[0].classes[0].professions.woodworking,
+                  player.data[0].classes[0].professions.profession,
+                  player.data[0].classes[0].professions.overall
                 ]
                 const text = [
                   `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]`
