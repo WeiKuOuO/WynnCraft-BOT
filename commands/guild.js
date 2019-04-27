@@ -60,6 +60,23 @@ module.exports.run = async (bot, message, args) => {
                             }
                         }
                     });
+                    let guildInfo = new Discord.RichEmbed()
+                        .setColor(0x34AB00)
+                        .setTitle(`${guild.name} 的資訊`)
+                        .setThumbnail(`https://mysterious-ridge-74146.herokuapp.com/images/${guild.name}.png`)
+                        .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
+                        .addField(":mega: 公會前綴",`\`\`\`md\n#${guild.prefix}\`\`\``,true)
+                        .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
+                        .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
+                        .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
+                        .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
+                        .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
+                        .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
+                        .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
+                        .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
+                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
+                    message.channel.send(guildInfo)
+
                     let pages = [
                         'test1 fuck u', 
                         'test2 fuck u 2', 
@@ -90,9 +107,11 @@ module.exports.run = async (bot, message, args) => {
                              if (page === 1) return; 
                              page--; 
                              embed.setDescription(pages[page-1]); 
-                             embed.setFooter(`Page ${page} of ${pages.length}`); 
+                             embed.setFooter(`Page ${page} of ${pages.length}`);
                              msg.delete()
                              msg.channel.send(embed) 
+                             msg.react('⏩') 
+                             msg.react('⏪')
                            })
                           
                            forwards.on('collect', r => { 
@@ -102,27 +121,13 @@ module.exports.run = async (bot, message, args) => {
                              embed.setFooter(`Page ${page} of ${pages.length}`); 
                              msg.delete()
                              msg.channel.send(embed) 
+                             msg.react('⏩') 
+                             msg.react('⏪')
                            })
                         
                          })
                       
                        })
-                    let guildInfo = new Discord.RichEmbed()
-                        .setColor(0x34AB00)
-                        .setTitle(`${guild.name} 的資訊`)
-                        .setThumbnail(`https://mysterious-ridge-74146.herokuapp.com/images/${guild.name}.png`)
-                        .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
-                        .addField(":mega: 公會前綴",`\`\`\`md\n#${guild.prefix}\`\`\``,true)
-                        .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
-                        .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
-                        .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
-                        .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
-                        .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
-                        .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
-                        .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
-                        .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
-                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
-                    message.channel.send(guildInfo)
                 }
             })
         }  
