@@ -14,6 +14,34 @@ module.exports.run = async (bot, message, args) => {
                 }
                 const classes = args[1]
                 player = JSON.parse(player);
+
+                const profession = [
+                  player.data[0].classes[0].professions,
+                  player.data[0].classes[1].professions,
+                  player.data[0].classes[2].professions
+                ]
+
+                const xp0 = [
+                  profession[0].combat,
+                  profession[0].woodcutting,
+                  profession[0].mining,
+                  profession[0].fishing,
+                  profession[0].farming,
+                  profession[0].alchemism,
+                  profession[0].armouring,
+                  profession[0].cooking,
+                  profession[0].jeweling,
+                  profession[0].scribing,
+                  profession[0].tailoring,
+                  profession[0].weaponsmithing,
+                  profession[0].woodworking,
+                  profession[0].profession,
+                  profession[0].overall
+                ]
+                const text = [
+                  `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]`
+                ]
+
                 let onlinecheck = player.data[0].meta.location.online
                 if ( typeof onlinecheck !== 'false' && onlinecheck )
                 {
@@ -29,18 +57,10 @@ module.exports.run = async (bot, message, args) => {
                   let guildInfo = new Discord.RichEmbed()
                       .setColor(0x34AB00)
                       .setTitle(`${player.data[0].username} 的資訊`)
+                      .addField(`${player.data[0].classes[0].name}`,text[1],true)
                       .addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``)
-                      .addField("所在分流",`\`\`\`css\n${onlineserver}\`\`\``)
+                      .addField("所在分流",`\`\`\`css\n${onlineserver}\`\`\``) 
                   message.channel.send(guildInfo)
-
-
-                        //.addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``,true)
-                        // .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
-                        // .addField(":mega: 公會前綴",`\`\`\`fix\n${guild.prefix}\`\`\``,true)
-                        // .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
-                        // .addField(":earth_asia: 領地數量",`\`\`\`fix\n${guild.territories}\`\`\``,true)
-                        // .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
-                        // .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
 
                 }
             })
@@ -49,5 +69,5 @@ module.exports.run = async (bot, message, args) => {
 
 
 module.exports.help = {
-  name: 'guild',
+  name: 'player',
 };
