@@ -114,10 +114,10 @@ module.exports.run = async (bot, message, args) => {
                                 page--; 
                                 embed.setDescription(pages[page-1]); 
                                 embed.setFooter(`Page ${page} of ${pages.length}`); 
+                                msg.edit(embed) 
                                 embed.clearReactions();
                                 msg.react('◀') 
                                 msg.react('▶')
-                                msg.edit(embed) 
                             })
                           
                             forwards.on('collect', r => { 
@@ -125,10 +125,10 @@ module.exports.run = async (bot, message, args) => {
                                 page++; 
                                 embed.setDescription(pages[page-1]); 
                                 embed.setFooter(`Page ${page} of ${pages.length}`);
+                                msg.edit(embed)
                                 embed.clearReactions();
                                 msg.react('◀') 
                                 msg.react('▶')
-                                msg.edit(embed) 
                             })
                         })
                     })
