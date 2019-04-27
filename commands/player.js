@@ -13,6 +13,11 @@ module.exports.run = async (bot, message, args) => {
                     return message.channel.send('在查詢時出了點問題:P');
                 }
                 player = JSON.parse(player);
+                const xp = [
+                  xp0,
+                  xp1,
+                  xp2
+                ]
                 const xp0 = [
                   player.data[0].classes[0].professions.combat,
                   player.data[0].classes[0].professions.woodcutting,
@@ -31,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
                   player.data[0].classes[0].professions.overall
                 ]
                 const text = [
-                  `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]\`\`\``
+                  `\`\`\`css\n戰鬥 / Combat | [${xp[0][0].level} - ${xp[0][0].xp}]\`\`\``
                 ]  
                 if(!player.data[0].classes[0].name){
                    message.channel.send("此玩家並沒有創建角色")
