@@ -1,22 +1,18 @@
 const Discord = require("discord.js")
 var request = require('request');
 
-
 module.exports.run = async (bot, message, args) => {
   
         const guildName = args.join("");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
-
         if(guildName == ""){
             message.channel.send("你並沒有輸入公會名稱")
             return
         } 
-        
-
-        request(urlMain, function(err, response, guild) {
-            if(err) {
-                console.log(err);
-                return message.channel.send('在查詢時出了點問題:P');
+            request(urlMain, function(err, response, guild) {
+                if(err) {
+                    console.log(err);
+                    return message.channel.send('在查詢時出了點問題:P');
                 }
                 guild = JSON.parse(guild);
                 if(guild.error){
@@ -67,6 +63,7 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
+                        .setThumbnail(`https://mysterious-ridge-74146.herokuapp.com/images/${guild.name}.png`)
                         .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
                         .addField(":mega: 公會前綴",`\`\`\`md\n#${guild.prefix}\`\`\``,true)
                         .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
@@ -79,11 +76,42 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
                         .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
                     message.channel.send(guildInfo)
+
+                    const reactionControls = {
+                        NEXT_PAGE: '▶',
+                        PREV_PAGE: '◀',
+                        STOP: '⏹',
+                    }
+                    
+                    const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
+                        time: 60000, // stop automatically after one minute 
+                    });
+                    
+                    collector.on('collect', (reaction, user) => {
+                        switch (reaction.emoji.name) {
+                            case emojis.NEXT_PAGE: {
+                                // code for displaying next page here
+                                message.channel.send("hello")
+                                break; 
+                            }
+                            case emojis.PREV_PAGE: {
+                                // code for displaying previous page here
+                                message.channel.send("hello2")
+                                break;
+                            }
+                            case emojis.STOP: {
+                                // stop listening for reactions
+                                collector.stop();
+                                break;
+                            }
+                                
+                    }});
+                    collector.on('stop', async () => {
+                        await message.clearReactions();
+                    });
                 }
             })
         }  
-//moment.duration(guild.duration).format(" D [天], H [時], m [分], s [秒]")
-
 module.exports.help = {
   name: 'guild',
 };
