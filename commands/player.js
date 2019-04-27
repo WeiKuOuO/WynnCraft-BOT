@@ -31,11 +31,37 @@ module.exports.run = async (bot, message, args) => {
                   player.data[0].classes[0].professions.overall
                 ]
                 const text = [
-                  `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]`
+                  `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]\`\`\``
                 ]  
-                let playerInfo = new Discord.RichEmbed()
-                  .addField(`${player.data[0].classes[0].name} 的等級資訊`,text,true)
-                message.channel.send(playerInfo)
+                if(!player.data[0].classes[0].name){
+                   message.channel.send("此玩家並沒有創建角色")
+                } else {
+                  if(player.data[0].classes[4].name){
+                    
+                  }else{
+                    if(player.data[0].classes[3].name){
+                    
+                    }else{
+                      if(player.data[0].classes[2].name){
+                    
+                      }else{
+                        if(player.data[0].classes[1].name){
+                          var role1
+                          if(player.data[0].classes[1].name == "assassin"){
+                            var role1 = ":dagger: 刺客 / Assassin"
+                          }
+                          if(player.data[0].classes[1].name == "assassin"){
+                            var role1 = ":dagger: 刺客 / Assassin"
+                            let playerInfo = new Discord.RichEmbed()
+                              .setTitle(`${player.data[0].username} 的玩家資訊`)
+                              .addField(`${role1} 的等級資訊`,text,true)
+                            message.channel.send(playerInfo)
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
             })
         }
     }
