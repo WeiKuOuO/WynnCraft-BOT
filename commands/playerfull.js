@@ -15,28 +15,28 @@ module.exports.run = async (bot, message, args) => {
                 const classes = args[1]
                 player = JSON.parse(player);
 
-                const professions = [
+                const profession = [
                   player.data[0].classes[0].professions,
                   player.data[0].classes[1].professions,
                   player.data[0].classes[2].professions
                 ]
 
                 const xp0 = [
-                  professions[0].combat,
-                  professions[0].woodcutting,
-                  professions[0].mining,
-                  professions[0].fishing,
-                  professions[0].farming,
-                  professions[0].alchemism,
-                  professions[0].armouring,
-                  professions[0].cooking,
-                  professions[0].jeweling,
-                  professions[0].scribing,
-                  professions[0].tailoring,
-                  professions[0].weaponsmithing,
-                  professions[0].woodworking,
-                  professions[0].profession,
-                  professions[0].overall
+                  profession[0].combat,
+                  profession[0].woodcutting,
+                  profession[0].mining,
+                  profession[0].fishing,
+                  profession[0].farming,
+                  profession[0].alchemism,
+                  profession[0].armouring,
+                  profession[0].cooking,
+                  profession[0].jeweling,
+                  profession[0].scribing,
+                  profession[0].tailoring,
+                  profession[0].weaponsmithing,
+                  profession[0].woodworking,
+                  profession[0].profession,
+                  profession[0].overall
                 ]
                 const text = [
                   `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]`
