@@ -13,16 +13,17 @@ module.exports.run = async (bot, message, args) => {
         request(urlMain, function(err, response, guild) {
             const url = 'https://wynncraft.com/stats/guild/' + (guildName);
             request(url, (err, res, body) => {
-            console.log(body)
+                const cheerio = require('cheerio')
+                // 把 body 放進 cheerio 準備分析
+                const $ = cheerio.load(body)
+                let weathers = []
+                $('#guildModal .bannerRender .modal-dialog .modal-content .modal-inner .modal-body').each(function(i, elem) {
+                    weathers.push($(this).text().split('\n'))
+                })
+                
         })
     });
-        const cheerio = require('cheerio')
-        // 把 body 放進 cheerio 準備分析
-        const $ = cheerio.load(body)
-        let weathers = []
-        $('#guildModal .bannerRender .modal-dialog .modal-content .modal-inner .modal-body section').each(function(i, elem) {
-            weathers.push($(this).text().split('\n'))
-        })
+
 
         request(urlMain, function(err, response, guild) {
             if(err) {
