@@ -33,28 +33,28 @@ module.exports.run = async (bot, message, args) => {
                         }
                         if (member.rank === "CHIEF") {
                             if (tmp2 == null) {
-                                tmp2 = "無此職位的人";
+                                tmp2 = member.name;
                             } else {
                                 tmp2 = tmp2 + "\n" + member.name;
                             }
                         }
                         if (member.rank === "CAPTAIN") {
                             if (tmp3 == null) {
-                                tmp3 = "無此職位的人";
+                                tmp3 = member.name;
                             } else {
                                 tmp3 = tmp3 + "\n" + member.name;
                             }
                         }
                         if (member.rank === "RECRUITER") {
                             if (tmp4 == null) {
-                                tmp4 = "無此職位的人";
+                                tmp4 = member.name;
                             } else {
                                 tmp4 = tmp4 + "\n" + member.name;
                             }
                         }
                         if (member.rank === "RECRUIT") {
                             if (tmp5 == null) {
-                                tmp5 = "無此職位的人";
+                                tmp5 = member.name;
                             } else {
                                 tmp5 = tmp5 + "\n" + member.name;
                             }
