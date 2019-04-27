@@ -34,6 +34,7 @@ module.exports.run = (bot, message, args, tools) => {
         embed.setDescription(pages[page-1]); 
         embed.setFooter(`Page ${page} of ${pages.length}`); 
         msg.edit(embed) 
+        embed.clearReactions();
       })
      
       forwards.on('collect', r => { 
@@ -42,6 +43,7 @@ module.exports.run = (bot, message, args, tools) => {
         embed.setDescription(pages[page-1]); 
         embed.setFooter(`Page ${page} of ${pages.length}`); 
         msg.edit(embed) 
+        embed.clearReactions();
       })
    
     })
