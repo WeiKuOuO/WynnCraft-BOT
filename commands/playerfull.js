@@ -14,6 +14,33 @@ module.exports.run = async (bot, message, args) => {
                 }
                 const classes = args[1]
                 player = JSON.parse(player);
+
+                const professions = [
+                  player.data[0].classes[0].professions,
+                  player.data[0].classes[1].professions,
+                  player.data[0].classes[2].professions
+                ]
+
+                const xp0 = [
+                  professions[0].combat,
+                  professions[0].woodcutting,
+                  professions[0].mining,
+                  professions[0].fishing,
+                  professions[0].farming,
+                  professions[0].alchemism,
+                  professions[0].armouring,
+                  professions[0].cooking,
+                  professions[0].jeweling,
+                  professions[0].scribing,
+                  professions[0].tailoring,
+                  professions[0].weaponsmithing,
+                  professions[0].woodworking,
+                  professions[0].profession,
+                  professions[0].overall
+                ]
+                const text = [
+                  `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]`
+                ]
                 if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
                 }else{
@@ -34,6 +61,7 @@ module.exports.run = async (bot, message, args) => {
                         let playerInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[0].name} 資訊`)
+                        .addField("")
                         .addField("戰鬥等級",`\`\`\`css\n${player.data[0].classes[0].professions.combat.level}\`\`\``,true)
                         .addField("煉金等級",`\`\`\`css\n${player.data[0].classes[0].professions.alchemism.level}\`\`\``,true)
                         .addField("廚藝等級",`\`\`\`css\n${player.data[0].classes[0].professions.cooking.level}\`\`\``,true)
