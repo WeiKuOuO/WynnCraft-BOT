@@ -16,11 +16,21 @@ module.exports.run = async (bot, message, args) => {
                 player = JSON.parse(player);
 
                 const profession = [
-                  player.data[0].classes[0].professions,
-                  player.data[0].classes[1].professions,
-                  player.data[0].classes[2].professions
+                  player.data[0].classes[0].professions
                 ]
-
+                if(player.data[0].classes[1].professions){
+                  var profession = [
+                    player.data[0].classes[0].professions,
+                    player.data[0].classes[1].professions,
+                  ]
+                }
+                if(player.data[0].classes[2].professions){
+                  var profession = [
+                    player.data[0].classes[0].professions,
+                    player.data[0].classes[1].professions,
+                    player.data[0].classes[2].professions
+                  ]
+                }
                 const xp0 = [
                   profession[0].combat,
                   profession[0].woodcutting,
