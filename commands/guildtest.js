@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
                 // 把 body 放進 cheerio 準備分析
                 const $ = cheerio.load(body)
                 let weathers = []
-                $('#guildModal .modal-body section').each(function(i, elem) {
+                $('#guildModal .modal-body .col-xs-6s section').each(function(i, elem) {
                     weathers.push($(this).text().split('\n'))
                 })
                 console.log(weathers)
