@@ -77,57 +77,99 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
                     message.channel.send(guildInfo)
 
-                    let pages = [
-                        'test1 fuck u', 
-                        'test2 fuck u 2', 
-                        'test3 did u think i will say fuck u 3?', 
-                        'test4 Maybe', 
-                        '**test5 I want to say fuck u 10**'
-                       ]; 
-                       let page = 1; 
-                      
-                       const embed = new Discord.RichEmbed() 
-                         .setColor(0xffffff)
-                         .setFooter(`Page ${page} of ${pages.length}`) 
-                         .setDescription(pages[page-1])
-                      
-                       message.channel.send(embed).then(msg => { 
+
+                    /////////////////////
+
+                    const options = {
+                        limit: 15 * 1000,
+                        min: 1,
+                        max: 2, // there will be 2 pages
+                        page: 1
+                    }
+
+                    const m = await msg.channel.send({ embed: pages[options.page] });
+
+                    await m.react('⬅');
+                    await m.react('➡');
+                    await m.react('🗑');
+
+                    const pages = {
+                        1: { title: ':one:', description: 'This is page one!' }, 
+                        2: { title: ':two:', description: 'This is page two!' }
+                    }
+
+                    const filter = (reaction, user) => {
+                        return ['⬅', '➡', '🗑'].includes(reaction.emoji.name) && user.id == msg.author.id;
+                    };
+                    
+                    awaitReactions(msg, m, options, filter);
+
+                    const awaitReactions = async (msg, m, options, filter) => {
+                        const { min, max, page, limit } = options;
                         
-                         msg.react('⏪').then( r => { 
-                           msg.react('⏩') 
-                          
-                           const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
-                           const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
-                          
-                           const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
-                           const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
-                          
-                           
-                           backwards.on('collect', r => { 
-                             if (page === 1) return; 
-                             page--; 
-                             embed.setDescription(pages[page-1]); 
-                             embed.setFooter(`Page ${page} of ${pages.length}`);
-                             msg.delete()
-                             msg.channel.send(embed) 
-                             msg.react('⏩') 
-                             msg.react('⏪')
-                           })
-                          
-                           forwards.on('collect', r => { 
-                             if (page === pages.length) return; 
-                             page++; 
-                             embed.setDescription(pages[page-1]); 
-                             embed.setFooter(`Page ${page} of ${pages.length}`); 
-                             msg.delete()
-                             msg.channel.send(embed) 
-                             msg.react('⏩') 
-                             msg.react('⏪')
-                           })
+                        m.awaitReactions(filter, { max: 1, time: limit, errors: ['time'] })
+                        .then(async (collected) => {
+                        }).catch(() => {});
+                    }
+
+                    const reaction = collected.first();
+
+
+                    if (reaction.emoji.name === '⬅') {
+                      // a.       
+                    }
+                    else if (reaction.emoji.name === '➡') {
+                      // b.
+                    }
+                    else if (reaction.emoji.name === '🗑') {
+                          // c.
+                    }
+                    else {
+                      // d.
+                    }
+                    const removeReaction = async (m, msg, emoji) => {
+                        try { m.reactions.find(r => r.emoji.name == emoji).users.remove(msg.author.id); } catch(err) {}
+                    }
+
+                    if (reaction.emoji.name === '⬅') {
+                        // remove the back reaction if possible
+                        await removeReaction(m, msg, '⬅');
                         
-                         })
-                      
-                       })
+                        // check if the page can go back one
+                        if (page != min) {
+                            // change the page
+                            page = page - 1;
+                            await m.edit({ embed: pages[page] });
+                        }
+                       
+                        // restart the listener 
+                        awaitReactions(msg, m, options, filter);
+                    }
+
+                    else if (reaction.emoji.name === '➡') {
+                        // remove the back reaction if possible
+                        await removeReaction(m, msg, '➡');
+                        
+                        // check if the page can go forward one
+                        if (page != max) {
+                            // change the page
+                            page = page + 1;
+                            await m.edit({ embed: pages[page] });
+                        }
+                       
+                        // restart the listener 
+                        awaitReactions(msg, m, options, filter);
+                    }
+
+                    else if (reaction.emoji.name === '🗑') {
+                        // trash the message instantly, returning so the listener fully stops
+                        return await m.delete();
+                    }
+
+                    else {
+                        awaitReactions(msg, m, options, filter);
+                    };
+                    /////////////////////////
                 }
             })
         }  
