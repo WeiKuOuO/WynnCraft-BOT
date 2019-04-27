@@ -22,6 +22,7 @@ module.exports.run = async (bot, message, args) => {
                     let tmp2;
                     let tmp3;
                     let tmp4;
+                    let tmp5;
                     guild.members.forEach(function(member) {
                         if (member.rank === "OWNER") {
                             if (tmp1 == null) {
