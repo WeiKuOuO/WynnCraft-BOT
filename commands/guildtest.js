@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
         // 把 body 放進 cheerio 準備分析
         const $ = cheerio.load(body)
         let weathers = []
-        $('#guildModal .bannerRender i').each(function(i, elem) {
+        $('#guildModal .bannerRender .banner').each(function(i, elem) {
             weathers.push($(this).text().split('\n'))
         })
 
