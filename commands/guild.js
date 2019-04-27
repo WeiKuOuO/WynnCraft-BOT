@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
                             if (tmp5 == null) {
                                 tmp5 = member.name;
                             } else {
-                                tmp5 = tmp5 + "," + member.name;
+                                tmp5 = tmp5 + "\n" + member.name;
                             }
                         }
                     });
