@@ -33,10 +33,18 @@ module.exports.run = async (bot, message, args) => {
                     player.data[0].classes[0].professions.profession,
                     player.data[0].classes[0].professions.overall
                   ]
-                  const xp1
-                  const xp2
-                  const xp3
-                  const xp4
+                  const xp1 = [
+                    player.data[0].classes[1].professions.combat,
+                  ]
+                  const xp2 = [
+                    player.data[0].classes[2].professions.combat,
+                  ]
+                  const xp3 = [
+                    player.data[0].classes[3].professions.combat,
+                  ]
+                  const xp4 = [
+                    player.data[0].classes[4].professions.combat,
+                  ]
                   const xp = [
                     xp0,
                     xp1,
