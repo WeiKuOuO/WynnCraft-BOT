@@ -60,13 +60,13 @@ module.exports.run = async (bot, message, args) => {
                             }
                         }
                         if (!tmp2){
-                            tmp2 = "無此職位的人"
+                            var tmp2 = "無此職位的人"
                         }
                         if (!tmp3){
-                            tmp3 = "無此職位的人"
+                            var tmp3 = "無此職位的人"
                         }
                         if (!tmp4){
-                            tmp4 = "無此職位的人"
+                            var tmp4 = "無此職位的人"
                         }
                     });
                     let guildInfo = new Discord.RichEmbed()
