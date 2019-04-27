@@ -20,6 +20,8 @@ module.exports.run = async (bot, message, args) => {
                 $('#guildModal .bannerRender i').each(function(i, elem) {
                     weathers.push($(this).text().split('\n'))
                 })
+                console.log(weathers)
+
                 
         })
     });
