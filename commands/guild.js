@@ -63,6 +63,7 @@ module.exports.run = async (bot, message, args) => {
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
+                        .setThumbnail(`https://mysterious-ridge-74146.herokuapp.com/images/${guild.name}.png`)
                         .addField(":pager:  工會名稱",`\`\`\`css\n${guild.name}\`\`\``,true)
                         .addField(":mega: 公會前綴",`\`\`\`md\n#${guild.prefix}\`\`\``,true)
                         .addField(":evergreen_tree: 公會等級",`\`\`\`diff\n+    Level${guild.level}   +\`\`\``,true)
@@ -78,8 +79,6 @@ module.exports.run = async (bot, message, args) => {
                 }
             })
         }  
-//moment.duration(guild.duration).format(" D [天], H [時], m [分], s [秒]")
-
 module.exports.help = {
   name: 'guild',
 };
