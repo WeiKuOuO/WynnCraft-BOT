@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
                             if (tmp4 == null) {
                                 tmp4 = member.name;
                             } else {
-                                tmp4 = tmp4 + "," + member.name;
+                                tmp4 = tmp4 + "\n" + member.name;
                             }
                         }
                         if (member.rank === "RECRUIT") {
