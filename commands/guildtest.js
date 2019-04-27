@@ -1,7 +1,5 @@
 const Discord = require("discord.js")
 var request = require('request');
-var request = require('cheerio');
-
 
 module.exports.run = async (bot, message, args) => {
   
@@ -13,7 +11,6 @@ module.exports.run = async (bot, message, args) => {
             return
         } 
         request(urlMain, function(err, response, guild) {
-            const request = require('request')
             const url = 'https://wynncraft.com/stats/guild/' + (guildName);
             request(url, (err, res, body) => {
             console.log(body)
@@ -23,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         // 把 body 放進 cheerio 準備分析
         const $ = cheerio.load(body)
         let weathers = []
-        $('#guildModal .bannerRender .banner').each(function(i, elem) {
+        $('#guildModal .bannerRender #banner').each(function(i, elem) {
             weathers.push($(this).text().split('\n'))
         })
 
