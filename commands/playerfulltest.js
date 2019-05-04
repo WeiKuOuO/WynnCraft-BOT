@@ -7,15 +7,11 @@ module.exports.run = async (bot, message, args) => {
         if(playerName == ""){
             message.channel.send("你並未輸入玩家名稱...")
         }else{
-            collector.on('stop', async () => {
-                await message.clearReactions();
-            });
             request(urlMain, function(err, response, player) {
                 if(err) {
                     console.log(err);
                     return message.channel.send('在查詢時出了點問題:P');
                 }
-
                 const classes = args[1]
                 player = JSON.parse(player);
 

@@ -1,14 +1,9 @@
 const Discord = require('discord.js'); 
  
 module.exports.run = (bot, message, args, tools) => {
+  
  
-  let pages = [
-   'test1 fuck u', 
-   'test2 fuck u 2', 
-   'test3 did u think i will say fuck u 3?', 
-   'test4 Maybe', 
-   '**test5 I want to say fuck u 10**'
-  ]; 
+  let pages = ['test1 fuck u', 'test2 fuck u 2', 'test3 did u think i will say fuck u 3?', 'test4 Maybe', '**test5 I want to say fuck u 10**']; 
   let page = 1; 
  
   const embed = new Discord.RichEmbed() 
