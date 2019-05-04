@@ -13,3 +13,6 @@ module.exports.run = async (bot, message, args) => {
       msg.react('❎')
     });
 }
+module.exports.help = {
+  name: "vote"
+}
