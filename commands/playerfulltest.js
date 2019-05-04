@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
                         .setTitle(`${player.data[0].username} 的資訊`)
                         .addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``);
                         message.channel.send(guildInfo)
-                        new rm.menu(message.channel, message.author.id, [playerInfo, playerinfo1, playerinfo2]);  
+                        new rm.menu(message.channel, [playerinfo, playerinfo1, playerinfo2]);  
                         var playerInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[0].name} 資訊`)
