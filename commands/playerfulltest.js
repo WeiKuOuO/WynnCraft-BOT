@@ -15,32 +15,7 @@ module.exports.run = async (bot, message, args) => {
                 const classes = args[1]
                 player = JSON.parse(player);
 
-                const profession = [
-                  player.data[0].classes[0].professions,
-                  player.data[0].classes[1].professions,
-                  player.data[0].classes[2].professions
-                ]
 
-                const xp0 = [
-                  profession[0].combat,
-                  profession[0].woodcutting,
-                  profession[0].mining,
-                  profession[0].fishing,
-                  profession[0].farming,
-                  profession[0].alchemism,
-                  profession[0].armouring,
-                  profession[0].cooking,
-                  profession[0].jeweling,
-                  profession[0].scribing,
-                  profession[0].tailoring,
-                  profession[0].weaponsmithing,
-                  profession[0].woodworking,
-                  profession[0].profession,
-                  profession[0].overall
-                ]
-                const text = [
-                  `\`\`\`css\n戰鬥 / Combat | [${xp0[1].level} - ${xp0[1].xp}]`
-                ]
                 if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
                 }else{            
