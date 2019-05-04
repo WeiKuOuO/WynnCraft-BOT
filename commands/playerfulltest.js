@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 var request = require('request');
-
+const rm = require('discord.js-reaction-menu');
 module.exports.run = async (bot, message, args) => {
         const playerName = args.join("");
         const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
@@ -43,12 +43,13 @@ module.exports.run = async (bot, message, args) => {
                 ]
                 if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
-                }else{
+                }else{            
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${player.data[0].username} 的資訊`)
-                        .addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``)
+                        .addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``);
                         message.channel.send(guildInfo)
+                        new rm.menu(message.channel, message.author.id, [playerInfo, playerinfo1,playerinfo2]);  
                         let playerInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[0].name} 資訊`)
@@ -66,11 +67,10 @@ module.exports.run = async (bot, message, args) => {
                         .addField("木工等級",`\`\`\`css\n${player.data[0].classes[0].professions.woodworking.level}\`\`\``,true)
                         .addField("釣魚等級",`\`\`\`css\n${player.data[0].classes[0].professions.armouring.level}\`\`\``,true)
                         .addField("飾品等級",`\`\`\`css\n${player.data[0].classes[0].professions.jeweling.level}\`\`\``,true);
-                        message.channel.send(playerInfo)
                         const data1 = player.data[0].classes[1]
                         if ( typeof data1 !== 'undefined' && data1 )
                         {
-                          let playerinfo1 = new Discord.RichEmbed()
+                          var playerinfo1 = new Discord.RichEmbed()
                               .setColor(0x34AB00)
                               .setDescription(`${player.data[0].username} 的 ${player.data[0].classes[1].name} 資訊`)
                               .addField("戰鬥等級",`\`\`\`css\n${player.data[0].classes[1].professions.combat.level}\`\`\``,true)
@@ -85,19 +85,17 @@ module.exports.run = async (bot, message, args) => {
                               .addField("製劍等級",`\`\`\`css\n${player.data[0].classes[1].professions.weaponsmithing.level}\`\`\``,true)
                               .addField("木工等級",`\`\`\`css\n${player.data[0].classes[1].professions.woodworking.level}\`\`\``,true)
                               .addField("釣魚等級",`\`\`\`css\n${player.data[0].classes[1].professions.armouring.level}\`\`\``,true)
-                              message.channel.send(playerinfo1);
                         }
                         else
                         {
-                          let playerinfo1 = new Discord.RichEmbed()
+                          var playerinfo1 = new Discord.RichEmbed()
                           .setDescription(`${player.data[0].username} 的資訊`)
                           .addField(`無`,"此玩家無此職業");
-                          message.channel.send(playerinfo1);
                         }
                         const data2 = player.data[0].classes[2]
                         if ( typeof data2 !== 'undefined' && data2 )
                         {
-                          let playerinfo2 = new Discord.RichEmbed()
+                          var playerinfo2 = new Discord.RichEmbed()
                               .setColor(0x34AB00)
                               .setDescription(`${player.data[0].username} 的 ${data2.name} 資訊`)
                               .addField("戰鬥等級",`\`\`\`css\n${data2.professions.combat.level}\`\`\``,true)
@@ -112,14 +110,12 @@ module.exports.run = async (bot, message, args) => {
                               .addField("製劍等級",`\`\`\`css\n${data2.professions.weaponsmithing.level}\`\`\``,true)
                               .addField("木工等級",`\`\`\`css\n${data2.professions.woodworking.level}\`\`\``,true)
                               .addField("釣魚等級",`\`\`\`css\n${data2.professions.armouring.level}\`\`\``,true)
-                              message.channel.send(playerinfo2);
                         }
                         else
                         {
-                          let playerinfo2 = new Discord.RichEmbed()
+                          var playerinfo2 = new Discord.RichEmbed()
                           .setDescription(`${player.data[0].username} 的資訊`)
                           .addField(`無`,"此玩家無此職業");
-                          message.channel.send(playerinfo2);
                         }
 
 
