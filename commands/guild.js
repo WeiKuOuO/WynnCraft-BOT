@@ -71,7 +71,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
                         .setFooter(`頁數 | ${page} / ${pages.length}`); 
-                        
+
                     let guildRole1 = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
@@ -84,7 +84,7 @@ module.exports.run = async (bot, message, args) => {
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
-                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,false)
+                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
                         .setFooter(`頁數 | ${page} / ${pages.length}`); 
 
                     let pages = [
