@@ -74,7 +74,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
-                        .setFooter(`頁數 | ${page} / ${pages.length}`); 
+                        .setFooter(`頁數 | ${page} / ${pageslength}`); 
 
                     let guildRole1 = new Discord.RichEmbed()
                         .setColor(0x34AB00)
@@ -82,7 +82,7 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
                         .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
                         .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
-                        .setFooter(`頁數 | ${page} / ${pages.length}`); 
+                        .setFooter(`頁數 | ${page} / ${pageslength}`); 
 
                     let guildRole2 = new Discord.RichEmbed()
                         .setColor(0x34AB00)
