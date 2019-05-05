@@ -62,6 +62,7 @@ module.exports.run = async (bot, message, args) => {
                     });
 
                     let page = 1; 
+                    let pageslength = 3;
 
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
@@ -88,7 +89,7 @@ module.exports.run = async (bot, message, args) => {
                         .setTitle(`${guild.name} 的資訊`)
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
                         .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
-                        .setFooter(`頁數 | ${page} / ${pages.length}`); 
+                        .setFooter(`頁數 | ${page} / ${pageslength}`); 
 
                     let pages = [
                         guildInfo, 
