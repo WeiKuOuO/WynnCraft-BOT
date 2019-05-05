@@ -117,7 +117,7 @@ module.exports.run = async (bot, message, args) => {
                                 page++; 
                                 embed.setDescription(pages[page-1]); 
                                 embed.setFooter(`Page ${page} of ${pages.length}`); 
-                                msg.edit(pages[page-1) 
+                                msg.edit(pages[page-1]) 
                             })
                         
                         })
