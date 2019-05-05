@@ -101,7 +101,7 @@ module.exports.run = async (bot, message, args) => {
                         }
 
                         let pages = [
-                          playerinfo, 
+                          playerInfo, 
                           playerinfo1, 
                           playerinfo2, 
                       ]
