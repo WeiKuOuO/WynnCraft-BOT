@@ -60,6 +60,9 @@ module.exports.run = async (bot, message, args) => {
                             }
                         }
                     });
+
+                    let page = 1; 
+
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
@@ -91,8 +94,7 @@ module.exports.run = async (bot, message, args) => {
                         guildInfo, 
                         guildRole1, 
                         guildRole2, 
-                       ]
-                    let page = 1; 
+                    ]
                       
                     message.channel.send(pages[page-1]).then(msg => { 
                         
