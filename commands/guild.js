@@ -92,7 +92,7 @@ module.exports.run = async (bot, message, args) => {
                        ]
                     let page = 1; 
                       
-                    message.channel.send(pages[page-1).then(msg => { 
+                    message.channel.send(pages[page-1]).then(msg => { 
                         
                         msg.react('⏪').then( r => { 
                             msg.react('⏩') 
