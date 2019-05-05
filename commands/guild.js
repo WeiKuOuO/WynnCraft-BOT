@@ -83,7 +83,6 @@ module.exports.run = async (bot, message, args) => {
                         .setTitle(`${guild.name} 的資訊`)
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
                         .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,false)
-                    message.channel.send(guildInfo)
 
                     let pages = [
                         guildInfo, 
