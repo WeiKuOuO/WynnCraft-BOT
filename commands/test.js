@@ -47,25 +47,8 @@ module.exports.run = (bot, message, args, tools) => {
     })
  
   })
-let index = 0;
-const interactiveMessage = await message.channel.send(embedArray[index]);
-
-collector.on('collect', async(r) => {
-  clearTimeout("60000"); //Reset timeout
-
-  if (r.emoji.name === "◀") { //index commands page
-
-      await interactiveMessage.edit({ embed: mainCommands });
-
-  } else if (r.emoji.name === "▶") { //help commands page
-
-      await interactiveMessage.edit({ embed: helpCommands });
-
-  } else if (r.emoji.name === "▶") { //fun commands page
-
-      await interactiveMessage.edit({ embed: funCommands });
-
-  }
+ 
+}
 
 module.exports.help = {
     name: "test"
