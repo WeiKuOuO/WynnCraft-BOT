@@ -70,26 +70,26 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
+
+                    let guildRole1 = new Discord.RichEmbed()
+                        .setColor(0x34AB00)
+                        .setTitle(`${guild.name} 的資訊`)
                         .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
                         .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
                         .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
+
+                    let guildRole2 = new Discord.RichEmbed()
+                        .setColor(0x34AB00)
+                        .setTitle(`${guild.name} 的資訊`)
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
-                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
+                        .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,false)
                     message.channel.send(guildInfo)
 
-                    const reactionControls = {
-                        NEXT_PAGE: '▶',
-                        PREV_PAGE: '◀',
-                        STOP: '⏹',
-                    }
-                    
                     let pages = [
-                        'test1 fuck u', 
-                        'test2 fuck u 2', 
-                        'test3 did u think i will say fuck u 3?', 
-                        'test4 Maybe', 
-                        '**test5 I want to say fuck u 10**'
-                    ]; 
+                        guildInfo, 
+                        guildRole1, 
+                        guildRole2, 
+                       ]
                     let page = 1; 
                       
                     const embed = new Discord.RichEmbed() 
@@ -97,10 +97,10 @@ module.exports.run = async (bot, message, args) => {
                         .setFooter(`Page ${page} of ${pages.length}`) 
                         .setDescription(pages[page-1])
                       
-                     message.channel.send(embed).then(msg => { 
+                    message.channel.send(embed).then(msg => { 
                         
-                        msg.react('◀') .then( r => {
-                            msg.react('▶')
+                        msg.react('⏪').then( r => { 
+                            msg.react('⏩') 
                           
                             const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
                             const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
@@ -121,10 +121,12 @@ module.exports.run = async (bot, message, args) => {
                                 if (page === pages.length) return; 
                                 page++; 
                                 embed.setDescription(pages[page-1]); 
-                                embed.setFooter(`Page ${page} of ${pages.length}`);
-                                msg.edit(embed)
+                                embed.setFooter(`Page ${page} of ${pages.length}`); 
+                                msg.edit(embed) 
                             })
+                        
                         })
+                      
                     })
                 }
             })
