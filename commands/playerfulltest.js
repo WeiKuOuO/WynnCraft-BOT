@@ -41,7 +41,8 @@ module.exports.run = async (bot, message, args) => {
                         .addField("製劍等級",`\`\`\`css\n${player.data[0].classes[0].professions.weaponsmithing.level}\`\`\``,true)
                         .addField("木工等級",`\`\`\`css\n${player.data[0].classes[0].professions.woodworking.level}\`\`\``,true)
                         .addField("釣魚等級",`\`\`\`css\n${player.data[0].classes[0].professions.armouring.level}\`\`\``,true)
-                        .addField("飾品等級",`\`\`\`css\n${player.data[0].classes[0].professions.jeweling.level}\`\`\``,true);
+                        .addField("飾品等級",`\`\`\`css\n${player.data[0].classes[0].professions.jeweling.level}\`\`\``,true)
+                        .setFooter(`頁數 | ${page} / ${pageslength}`); 
                         const data1 = player.data[0].classes[1]
                         if ( typeof data1 !== 'undefined' && data1 )
                         {
@@ -60,12 +61,14 @@ module.exports.run = async (bot, message, args) => {
                               .addField("製劍等級",`\`\`\`css\n${player.data[0].classes[1].professions.weaponsmithing.level}\`\`\``,true)
                               .addField("木工等級",`\`\`\`css\n${player.data[0].classes[1].professions.woodworking.level}\`\`\``,true)
                               .addField("釣魚等級",`\`\`\`css\n${player.data[0].classes[1].professions.armouring.level}\`\`\``,true)
+                              .setFooter(`頁數 | ${page} / ${pageslength}`); 
                         }
                         else
                         {
                           var playerinfo1 = new Discord.RichEmbed()
                           .setDescription(`${player.data[0].username} 的資訊`)
-                          .addField(`無`,"此玩家無此職業");
+                          .addField(`無`,"此玩家無此職業")
+                          .setFooter(`頁數 | ${page} / ${pageslength}`); 
                         }
                         const data2 = player.data[0].classes[2]
                         if ( typeof data2 !== 'undefined' && data2 )
@@ -85,13 +88,52 @@ module.exports.run = async (bot, message, args) => {
                               .addField("製劍等級",`\`\`\`css\n${data2.professions.weaponsmithing.level}\`\`\``,true)
                               .addField("木工等級",`\`\`\`css\n${data2.professions.woodworking.level}\`\`\``,true)
                               .addField("釣魚等級",`\`\`\`css\n${data2.professions.armouring.level}\`\`\``,true)
+                              .setFooter(`頁數 | ${page} / ${pageslength}`); 
                         }
                         else
                         {
                           var playerinfo2 = new Discord.RichEmbed()
                           .setDescription(`${player.data[0].username} 的資訊`)
-                          .addField(`無`,"此玩家無此職業");
+                          .addField(`無`,"此玩家無此職業")
+                          .setFooter(`頁數 | ${page} / ${pageslength}`); 
                         }
+                        let page = 1; 
+                        let pageslength = 3;
+                        let pages = [
+                          playerinfo, 
+                          playerinfo1, 
+                          playerinfo2, 
+                      ]
+                        
+                      message.channel.send(pages[page-1]).then(msg => { 
+                          
+                          msg.react('⏪').then( r => { 
+                              msg.react('⏩') 
+                            
+                              const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
+                              const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
+                            
+                              const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
+                              const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
+                            
+                             
+                              backwards.on('collect', r => { 
+                                  if (page === 1) return; 
+                                  page--; 
+                                  pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                                  msg.edit(pages[page-1]) 
+                              })
+                            
+                              forwards.on('collect', r => { 
+                                  if (page === pages.length) return; 
+                                  page++; 
+                                  pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                                  msg.edit(pages[page-1]) 
+                              })
+                          
+                          })
+                        
+                      })
 
 
                         //.addField("等級",`\`\`\`css\n${player.data[0].classes[0].level}\`\`\``,true)
@@ -101,6 +143,7 @@ module.exports.run = async (bot, message, args) => {
                         // .addField(":earth_asia: 領地數量",`\`\`\`fix\n${guild.territories}\`\`\``,true)
                         // .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         // .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
+                        
 
                 }
             })
