@@ -9,6 +9,7 @@
     "dblapi.js": "^2.3.0",
     "discord-rich-presence": "0.0.7",
     "discord.js": "^11.4.2",
+    "discord.js-reaction-menu": "^1.0.0",
     "figlet": "^1.2.1",
     "fs": "0.0.1-security",
     "moment": "^2.22.2",
