@@ -92,12 +92,7 @@ module.exports.run = async (bot, message, args) => {
                        ]
                     let page = 1; 
                       
-                    const embed = new Discord.RichEmbed() 
-                        .setColor(0xffffff)
-                        .setFooter(`Page ${page} of ${pages.length}`) 
-                        .setDescription(pages[page-1])
-                      
-                    message.channel.send(embed).then(msg => { 
+                    message.channel.send(pages[page-1).then(msg => { 
                         
                         msg.react('⏪').then( r => { 
                             msg.react('⏩') 
@@ -114,7 +109,7 @@ module.exports.run = async (bot, message, args) => {
                                 page--; 
                                 embed.setDescription(pages[page-1]); 
                                 embed.setFooter(`Page ${page} of ${pages.length}`); 
-                                msg.edit(embed) 
+                                msg.edit(pages[page-1]) 
                             })
                           
                             forwards.on('collect', r => { 
@@ -122,7 +117,7 @@ module.exports.run = async (bot, message, args) => {
                                 page++; 
                                 embed.setDescription(pages[page-1]); 
                                 embed.setFooter(`Page ${page} of ${pages.length}`); 
-                                msg.edit(embed) 
+                                msg.edit(pages[page-1) 
                             })
                         
                         })
