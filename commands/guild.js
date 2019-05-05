@@ -107,16 +107,14 @@ module.exports.run = async (bot, message, args) => {
                             backwards.on('collect', r => { 
                                 if (page === 1) return; 
                                 page--; 
-                                embed.setDescription(pages[page-1]); 
-                                embed.setFooter(`Page ${page} of ${pages.length}`); 
+                                pages[page-1].setFooter(`Page ${page} of ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
                             })
                           
                             forwards.on('collect', r => { 
                                 if (page === pages.length) return; 
                                 page++; 
-                                embed.setDescription(pages[page-1]); 
-                                embed.setFooter(`Page ${page} of ${pages.length}`); 
+                                pages[page-1].setFooter(`Page ${page} of ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
                             })
                         
