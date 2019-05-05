@@ -18,7 +18,9 @@ module.exports.run = async (bot, message, args) => {
 
                 if(player.message == "Bad Request"){
                     message.channel.send("你輸入了錯誤的玩家ID")
-                }else{            
+                }else{         
+                  let page = 1; 
+                  let pageslength = 3;   
                     let guildInfo = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${player.data[0].username} 的資訊`)
@@ -97,8 +99,7 @@ module.exports.run = async (bot, message, args) => {
                           .addField(`無`,"此玩家無此職業")
                           .setFooter(`頁數 | ${page} / ${pageslength}`); 
                         }
-                        let page = 1; 
-                        let pageslength = 3;
+
                         let pages = [
                           playerinfo, 
                           playerinfo1, 
