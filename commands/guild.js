@@ -70,19 +70,22 @@ module.exports.run = async (bot, message, args) => {
                         .addField(":earth_asia: 領地數量",`\`\`\`xl\n${guild.territories}\`\`\``,true)
                         .addField(":calendar_spiral: 創建日期",`\`\`\`xl\n${guild.createdFriendly}\`\`\``,true)
                         .addField(":seedling: 經驗值",`\`\`\`diff\n-    ${guild.xp}%    -\`\`\``,true)
-
+                        .setFooter(`頁數 | ${page} / ${pages.length}`); 
+                        
                     let guildRole1 = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
                         .addField(":bust_in_silhouette: 擁有者",`\`\`\`fix\n${tmp1}\`\`\``,true)
                         .addField(":medal: 首領",`\`\`\`fix\n${tmp2}\`\`\``,true)
                         .addField(":military_medal: 隊長",`\`\`\`fix\n${tmp3}\`\`\``,true)
+                        .setFooter(`頁數 | ${page} / ${pages.length}`); 
 
                     let guildRole2 = new Discord.RichEmbed()
                         .setColor(0x34AB00)
                         .setTitle(`${guild.name} 的資訊`)
                         .addField(":pick: 招募者",`\`\`\`fix\n${tmp4}\`\`\``,true)
                         .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,false)
+                        .setFooter(`頁數 | ${page} / ${pages.length}`); 
 
                     let pages = [
                         guildInfo, 
@@ -106,14 +109,14 @@ module.exports.run = async (bot, message, args) => {
                             backwards.on('collect', r => { 
                                 if (page === 1) return; 
                                 page--; 
-                                pages[page-1].setFooter(`Page ${page} of ${pages.length}`); 
+                                pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
                             })
                           
                             forwards.on('collect', r => { 
                                 if (page === pages.length) return; 
                                 page++; 
-                                pages[page-1].setFooter(`Page ${page} of ${pages.length}`); 
+                                pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
                             })
                         
