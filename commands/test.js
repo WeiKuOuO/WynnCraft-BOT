@@ -20,7 +20,7 @@ module.exports.run = (bot, message, args, tools) => {
    
     msg.react('⏪').then( r => { 
       msg.react('⏩') 
-     
+      
       const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
       const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
      
