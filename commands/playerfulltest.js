@@ -119,17 +119,22 @@ module.exports.run = async (bot, message, args) => {
                             
                              
                               backwards.on('collect', r => { 
+                                  const user = msg.author.id
                                   if (page === 1) return; 
                                   page--; 
                                   pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                   msg.edit(pages[page-1]) 
+                                  msg.reactions.remove(user) 
                               })
                             
                               forwards.on('collect', r => { 
+                                  const user = msg.author.id
                                   if (page === pages.length) return; 
+
                                   page++; 
                                   pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                   msg.edit(pages[page-1]) 
+                                  msg.reactions.remove(user) 
                               })
                           
                           })
