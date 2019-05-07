@@ -12,4 +12,4 @@ module.exports.run = (bot, message, args, tools) => {
 
 module.exports.help = {
     name: "everyone"
-}
+} 
