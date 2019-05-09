@@ -34,8 +34,7 @@ bot.on('ready', function() {
 }); 
 
 bot.on("ready", async () => {
-  console.log(`${bot.user.username}成功啟動了!^w^, [ ${bot.guilds.size} | ${bot.channels.size} | ${bot.users.size} ]`);
-  bot.channels.filter(c => c.name=="WynnCraft中文資訊站機器人").forEach(c => c.bulkDelete("50"))
+  bot.channels.filter(c => c.name=="wynncraft中文資訊站機器人").forEach(c => c.bulkDelete("50"))
   const statusmessage = new Discord.RichEmbed()
       .setAuthor(bot.user.username)
       .setTitle("**Bot資訊**")
@@ -53,7 +52,7 @@ bot.on("ready", async () => {
       .addField(":ping_pong: Ping", `\`\`\`xl\n偵測中...\`\`\``)
       .addField("**相關連結**",`\`\`\`diff\n+ Discord邀請連結 - https://wynncraft.pw/dc \n- 官方網站 - https://wynncraft.pw \n+ 機器人邀請連結 - https://wynncraft.pw/bot \`\`\``)
   var statusMessages = [];
-  bot.channels.filter(c => c.name === "WynnCraft中文資訊站機器人").forEach(c => c.send(statusmessage).then(m => statusMessages.push(m)));
+  bot.channels.filter(c => c.name === "wynncraft中文資訊站機器人").forEach(c => c.send(statusmessage).then(m => statusMessages.push(m)));
       
   setInterval(function(){
     cpuStat.usagePercent(async function(err){
@@ -64,7 +63,7 @@ bot.on("ready", async () => {
       const botinfo = new Discord.RichEmbed()
           .setAuthor(bot.user.username)
           .setTitle("**Bot資訊**")
-          .setDescription("\`\`\`js\n如果需要此資訊列表\n請在你的群組創建一個名為\"WynnCraft中文資訊站機器人\"的頻道\n機器人將會在下一次啟動時載入資料`\`\`")
+          .setDescription("\`\`\`js\n如果需要此資訊列表\n請在你的群組創建一個名為\"wynncraft中文資訊站機器人\"的頻道\n機器人將會在下一次啟動時載入資料`\`\`")
           .setColor("RANDOM")
           .addField(":desktop: 服務人數",`\`\`\`xl\n${bot.users.size}\`\`\``, true)
           .addField(":bust_in_silhouette: 服務伺服器數 ",`\`\`\`xl\n${bot.guilds.size}\`\`\`` , true)
