@@ -5,6 +5,8 @@ const request = require('request');
 let os = require('os')
 let cpuStat = require("cpu-stat")
 const moment = require("moment");
+const m = require("moment-duration-format");
+const ms = require("ms")
 
 const token = process.env.token
 const prefix = process.env.prefix
