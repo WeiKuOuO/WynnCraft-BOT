@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
-        const playerName = args.join("");
+/*         const playerName = args.join("");
         const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
         if(playerName == ""){
             message.channel.send("你並未輸入玩家名稱...")
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
 
                 }
             })
-        }
+        } */
     }
 
 

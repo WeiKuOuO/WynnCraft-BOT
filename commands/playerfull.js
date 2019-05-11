@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 var request = require('request');
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {/* 
         const playerName = args.join("");
         const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
         if(playerName == ""){
@@ -133,7 +133,7 @@ module.exports.run = async (bot, message, args) => {
 
                 }
             })
-        }
+        } */
     }
 
 
