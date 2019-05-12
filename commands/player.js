@@ -58,12 +58,12 @@ module.exports.run = async (bot, message, args) => {
                   message.channel.send(role1)
                 }
               }
-            } 
-          } 
+            }
+          }
         }
       }
     })
-  } 
+  }
 }
 
 
@@ -98,7 +98,7 @@ module.exports.run = async (bot, message, args) => {
 //                       .addField(`${role1} 的等級資訊`, text, true)
 //                     essage.channel.send(playerInfo)
 //                   }
-                
+
 
 module.exports.help = {
   name: 'player',
