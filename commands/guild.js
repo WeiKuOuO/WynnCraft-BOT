@@ -1,10 +1,10 @@
 const Discord = require("discord.js")
 var request = require('request');
 
-module.exports.run = async (bot, message, args) => {
+const left = bot.emoji.get("577050509316456459")
+const right = bot.emoji.get("577050517335703553")
 
-        const left = bot.emoji.get("577050509316456459")
-        const right = bot.emoji.get("577050517335703553")
+module.exports.run = async (bot, message, args) => {
 
         const guildName = args.join("");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
