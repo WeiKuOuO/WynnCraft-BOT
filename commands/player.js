@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
                     message.channel.send("你輸入的玩家可能還沒創建角色喔")
                     return
                   }
-                  if (player.data[0].classes[1].name == "assassin") {
+                  if (player.data[0].classes[0].name == "assassin") {
                     var role1 = ":dagger: 刺客 / Assassin"
                   }
                   message.channel.send(role1)
