@@ -55,6 +55,7 @@ module.exports.run = async (bot, message, args) => {
                   if (player.data[0].classes[0].name == "darkwizard") {
                     var role1 = `${mage} 黑暗巫師 / Dark Wizard`
                   }
+                  console.log(role1);
                   message.channel.send(role1);
                 }
               }
