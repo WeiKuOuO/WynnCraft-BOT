@@ -1,6 +1,9 @@
 const Discord = require("discord.js")
 var request = require('request');
 
+const left = bot.emoji.get("577050509316456459")
+const right = bot.emoji.get("577050517335703553")
+
 module.exports.run = async (bot, message, args) => {
   
         const guildName = args.join("");
@@ -99,8 +102,8 @@ module.exports.run = async (bot, message, args) => {
                       
                     message.channel.send(pages[page-1]).then(msg => { 
                         
-                        msg.react('⏪').then( r => { 
-                            msg.react('⏩') 
+                        msg.react(left).then( r => { 
+                            msg.react(right) 
                           
                             const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
                             const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
