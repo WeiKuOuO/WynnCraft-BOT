@@ -26,7 +26,8 @@ module.exports.run = async (bot, message, args) => {
                     return
                   }
                   if (player.data[0].classes[0].name == "assassin") {
-                    var role1 = ":assassin: 刺客 / Assassin"
+                    const assassin = client.emojis.get("577051297027457036");
+                    var role1 = `${assassin} 刺客 / Assassin`
                   }
                   if (player.data[0].classes[0].name == "archer") {
                     var role1 = ":bow_and_arrow:  弓箭手 / Archer"
