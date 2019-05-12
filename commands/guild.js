@@ -99,8 +99,8 @@ module.exports.run = async (bot, message, args) => {
                       
                     message.channel.send(pages[page-1]).then(msg => { 
                         
-                        msg.react('⏪').then( r => { 
-                            msg.react('⏩') 
+                        msg.react(':arrow_left~1:').then( r => { 
+                            msg.react(':arrow_right~1:') 
                           
                             const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
                             const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
