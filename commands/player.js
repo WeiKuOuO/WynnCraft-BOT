@@ -4,7 +4,10 @@ var request = require('request');
 module.exports.run = async (bot, message, args) => {
 
   const assassin = bot.emojis.get("577051297027457036");
-  
+  const warrior = bot.emojis.get("577054598062276619");
+  const archer = bot.emojis.get("577054598238306314");
+  const mage = bot.emojis.get("577055020168511488");
+
   const playerName = args.join("");
   const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
   if (playerName == "") {
@@ -32,14 +35,14 @@ module.exports.run = async (bot, message, args) => {
                     var role1 = `${assassin} 刺客 / Assassin`
                   }
                   if (player.data[0].classes[0].name == "archer") {
-                    var role1 = ":bow_and_arrow:  弓箭手 / Archer"
+                    var role1 = `${archer}  弓箭手 / Archer`
                   }
-                  // if (player.data[0].classes[0].name == "assassin") {
-                  //   var role1 = ":dagger: 刺客 / Assassin"
-                  // }
-                  // if (player.data[0].classes[0].name == "assassin") {
-                  //   var role1 = ":dagger: 刺客 / Assassin"
-                  // }
+                  if (player.data[0].classes[0].name == "warrior") {
+                    var role1 = `${warrior} 戰士 / Warrior`
+                  }
+                  if (player.data[0].classes[0].name == "mage") {
+                    var role1 = `${mage} 法師 / Mage`
+                  }
                   message.channel.send(role1)
                 }
               }
