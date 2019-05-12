@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
                     return
                   }
                   if (player.data[0].classes[0].name == "assassin") {
-                    const assassin = .emojis.get("577051297027457036");
+                    const assassin = bot.emojis.get("577051297027457036");
                     var role1 = `${assassin} 刺客 / Assassin`
                   }
                   if (player.data[0].classes[0].name == "archer") {
