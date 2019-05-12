@@ -16,12 +16,12 @@ module.exports.run = async (bot, message, args) => {
       if (player.message == "Bad Request") {
         message.channel.send("你輸入了錯誤的玩家ID")
       } else {
-        if (!player.data[0].classes[5].name) {
-          if (!player.data[0].classes[4].name) {
-            if (!player.data[0].classes[3].name) {
-              if (!player.data[0].classes[2].name) {
-                if (!player.data[0].classes[1].name) {
-                  if (!player.data[0].classes[0].name) {
+        if (!player.data[0].classes[5]) {
+          if (!player.data[0].classes[4]) {
+            if (!player.data[0].classes[3]) {
+              if (!player.data[0].classes[2]) {
+                if (!player.data[0].classes[1]) {
+                  if (!player.data[0].classes[0]) {
                     message.channel.send("你輸入的玩家可能還沒創建角色喔")
                     return
                   }
