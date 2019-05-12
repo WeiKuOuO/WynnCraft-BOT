@@ -23,9 +23,13 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("你輸入了錯誤的玩家ID")
       } else {
         if (!player.data[0].classes[5]) {
+          message.channel.send("test")
           if (!player.data[0].classes[4]) {
+            message.channel.send("test")
             if (!player.data[0].classes[3]) {
+              message.channel.send("test")
               if (!player.data[0].classes[2]) {
+                message.channel.send("test")
                 if (!player.data[0].classes[1]) {
                   if (!player.data[0].classes[0]) {
                     message.channel.send("你輸入的玩家可能還沒創建角色喔")
