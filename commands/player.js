@@ -43,6 +43,18 @@ module.exports.run = async (bot, message, args) => {
                   if (player.data[0].classes[0].name == "mage") {
                     var role1 = `${mage} 法師 / Mage`
                   }
+                  if (player.data[0].classes[0].name == "ninja") {
+                    var role1 = `${assassin} 忍者 / Ninja`
+                  }
+                  if (player.data[0].classes[0].name == "hunter") {
+                    var role1 = `${archer}  獵人 / Hunter`
+                  }
+                  if (player.data[0].classes[0].name == "knight") {
+                    var role1 = `${warrior} 騎士 / Knight`
+                  }
+                  // if (player.data[0].classes[0].name == "mage") {
+                  //   var role1 = `${mage} 法師 / Mage`
+                  // }
                   message.channel.send(role1)
                 }
               }
