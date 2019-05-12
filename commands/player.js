@@ -1,6 +1,8 @@
 const Discord = require("discord.js")
 var request = require('request');
 
+const assassin = bot.emojis.get("577051297027457036");
+
 module.exports.run = async (bot, message, args) => {
   const playerName = args.join("");
   const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
@@ -26,7 +28,6 @@ module.exports.run = async (bot, message, args) => {
                     return
                   }
                   if (player.data[0].classes[0].name == "assassin") {
-                    const assassin = bot.emojis.get("577051297027457036");
                     var role1 = `${assassin} 刺客 / Assassin`
                   }
                   if (player.data[0].classes[0].name == "archer") {
