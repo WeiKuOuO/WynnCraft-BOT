@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
                      var role1 = `${mage} 黑暗巫師 / Dark Wizard`
                   }
                   message.channel.send(role1)
-                  return;
+                  return
                 }
               }
             }
