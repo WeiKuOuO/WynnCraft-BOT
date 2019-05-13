@@ -88,10 +88,11 @@ module.exports.run = async (bot, message, args) => {
                     width: 20,
                     total: xpvalue
                   });
-                  console.log(bar.curr)
+                  bar.tick(xp0[0].xp);
+                  console.log(bar)
                   let playerInfo = new Discord.RichEmbed()
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
-                  .addField(`${role1} 的等級資訊`, `${combat}\n${bar.curr}`, true)
+                  .addField(`${role1} 的等級資訊`, `${combat}\n${bar}`, true)
 
                   
                   message.channel.send(playerInfo);
