@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 var request = require('request');
+var ProgressBar = require('progress');
 
 module.exports.run = async (bot, message, args) => {
 
@@ -74,14 +75,22 @@ module.exports.run = async (bot, message, args) => {
                     player.data[0].classes[0].professions.overall
                   ]
 
-                  const text = [
+                  const combat = [
                     `**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]`
                   ]
 
+                  var bar = new ProgressBar(`\`\`\`經驗條 [:bar] ${xp0[0].level} ${xp0[0].xp}\`\`\``, {
+                    complete: '|',
+                    incomplete: ' ',
+                    width: 20,
+                    total: xp0[0].xp
+                  });
+                  
                   let playerInfo = new Discord.RichEmbed()
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
-                  .addField(`${role1} 的等級資訊`, text, true)
+                  .addField(`${role1} 的等級資訊`, `${combat}\n${bar}`, true)
 
+                  
                   message.channel.send(playerInfo);
                 }
               }
