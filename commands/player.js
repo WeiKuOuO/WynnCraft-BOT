@@ -83,7 +83,6 @@ module.exports.run = async (bot, message, args) => {
                     complete: '|',
                     incomplete: ' ',
                     width: 20,
-                    total: 20,
                     curr: xp0[0].xp
                   });
                   
