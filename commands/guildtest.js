@@ -6,24 +6,7 @@ module.exports.run = async (bot, message, args) => {
         const left = bot.emojis.get("577050509316456459")
         const right = bot.emojis.get("577050517335703553")
 
-        var guildimages = (function() {
-            loadGuildModal()
-        })
-        function loadGuildModal(t) {
-            $("#guildModal").modal({
-                show: !0
-            }), history.pushState({}, "", "/stats/guild/" + t), $.getJSON("https://api.wynncraft.com/public_api.php?action=guildStats&command=" + t, function(t) {
-                if (t.hasOwnProperty("banner")) {
-                    $(".guildInformationContainer").addClass("col-xs-6");
-                    for (var e = {
-                            image: ["url('https://wynncraft.com/img/banners/bg_base.png')"],
-                            repeat: ["no-repeat"],
-                            position: ["0 0"]
-                        }, a = t.banner.layers.length - 1; a >= 0; a--) e.image.push("url('https://wynncraft.com/img/banners/" + t.banner.layers[a].colour.toLowerCase() + ".png')"), e.repeat.push("no-repeat"), e.position.push(banner_positions[t.banner.layers[a].pattern]);
-                    e.image.push("url('https://wynncraft.com/img/banners/" + t.banner.base.toLowerCase() + ".png')"), e.repeat.push("no-repeat"), e.position.push(banner_positions.BASE), $("#banner").css("background-image", e.image.join(",")), $("#banner").css("background-repeat", e.repeat.join(",")), $("#banner").css("background-position", e.position.join(","))
-                } else $(".bannerRenderContainer").hide(), $(".guildInformationContainer").removeClass("col-xs-6");
-            })
-        }
+
         const guildName = args.join("");
         const urlMain = "https://api.wynncraft.com/public_api.php?action=guildStats&command=" + (guildName);
         if(guildName == ""){
@@ -39,6 +22,24 @@ module.exports.run = async (bot, message, args) => {
                 if(guild.error){
                     message.channel.send("你輸入了錯誤的公會名稱,可能是大小寫錯誤了")
                 }else{
+                    var guildimages = (function() {
+                        loadGuildModal()
+                    })
+                    function loadGuildModal(t) {
+                        $("#guildModal").modal({
+                            show: !0
+                        }), history.pushState({}, "", "/stats/guild/" + t), $.getJSON("https://api.wynncraft.com/public_api.php?action=guildStats&command=" + guild.name, function(t) {
+                            if (t.hasOwnProperty("banner")) {
+                                $(".guildInformationContainer").addClass("col-xs-6");
+                                for (var e = {
+                                        image: ["url('https://wynncraft.com/img/banners/bg_base.png')"],
+                                        repeat: ["no-repeat"],
+                                        position: ["0 0"]
+                                    }, a = t.banner.layers.length - 1; a >= 0; a--) e.image.push("url('https://wynncraft.com/img/banners/" + t.banner.layers[a].colour.toLowerCase() + ".png')"), e.repeat.push("no-repeat"), e.position.push(banner_positions[t.banner.layers[a].pattern]);
+                                e.image.push("url('https://wynncraft.com/img/banners/" + t.banner.base.toLowerCase() + ".png')"), e.repeat.push("no-repeat"), e.position.push(banner_positions.BASE), $("#banner").css("background-image", e.image.join(",")), $("#banner").css("background-repeat", e.repeat.join(",")), $("#banner").css("background-position", e.position.join(","))
+                            } else $(".bannerRenderContainer").hide(), $(".guildInformationContainer").removeClass("col-xs-6");
+                        })
+                    }
                     let tmp1;
                     let tmp2;
                     let tmp3;
