@@ -79,11 +79,13 @@ module.exports.run = async (bot, message, args) => {
                     `**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]`
                   ]
 
+                  var len = parseInt(xp0[0].xp.headers['content-length'], 10);
+                  
                   var bar = new ProgressBar(`\`\`\`經驗條 [:bar] ${xp0[0].level} ${xp0[0].xp}\`\`\``, {
                     complete: '|',
                     incomplete: ' ',
                     width: 20,
-                    total: xp0[0].xp
+                    total: len
                   });
                   
                   let playerInfo = new Discord.RichEmbed()
