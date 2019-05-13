@@ -88,7 +88,7 @@ module.exports.run = async (bot, message, args) => {
                     width: 20,
                     total: xpvalue
                   });
-                  console.log(bar)
+                  console.log(bar.curr)
                   let playerInfo = new Discord.RichEmbed()
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
                   .addField(`${role1} 的等級資訊`, `${combat}\n${bar.curr}`, true)
