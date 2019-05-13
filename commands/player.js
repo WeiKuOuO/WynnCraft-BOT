@@ -75,7 +75,7 @@ module.exports.run = async (bot, message, args) => {
                   ]
 
                   const text = [
-                    `\`\`\`css\n戰鬥 / Combat | [${xp0[0].level} - ${xp0[0].xp}]\`\`\``
+                    `**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]`
                   ]
 
                   let playerInfo = new Discord.RichEmbed()
