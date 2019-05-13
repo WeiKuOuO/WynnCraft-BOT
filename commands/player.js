@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 var request = require('request');
 var ProgressBar = require('progress');
-
+var Progress = require('progressbar.js')
 module.exports.run = async (bot, message, args) => {
 
   const assassin = bot.emojis.get("577051297027457036");
