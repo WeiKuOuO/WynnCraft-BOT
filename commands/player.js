@@ -86,7 +86,7 @@ module.exports.run = async (bot, message, args) => {
                     complete: '|',
                     incomplete: ' ',
                     width: 20,
-                    total: Math.floor(xpvalue).toFixed(0)
+                    total: xpvalue
                   });
                   
                   let playerInfo = new Discord.RichEmbed()
