@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
                     function loadGuildModal(t) {
                         $("#guildModal").modal({
                             show: !0
-                        }), history.pushState({}, "", "/stats/guild/" + t), $.getJSON("https://api.wynncraft.com/public_api.php?action=guildStats&command=" + guild.name, function(t) {
+                        }), guild + t, function(t) {
                             if (t.hasOwnProperty("banner")) {
                                 $(".guildInformationContainer").addClass("col-xs-6");
                                 for (var e = {
@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
                                     }, a = t.banner.layers.length - 1; a >= 0; a--) e.image.push("url('https://wynncraft.com/img/banners/" + t.banner.layers[a].colour.toLowerCase() + ".png')"), e.repeat.push("no-repeat"), e.position.push(banner_positions[t.banner.layers[a].pattern]);
                                 e.image.push("url('https://wynncraft.com/img/banners/" + t.banner.base.toLowerCase() + ".png')"), e.repeat.push("no-repeat"), e.position.push(banner_positions.BASE), $("#banner").css("background-image", e.image.join(",")), $("#banner").css("background-repeat", e.repeat.join(",")), $("#banner").css("background-position", e.position.join(","))
                             } else $(".bannerRenderContainer").hide(), $(".guildInformationContainer").removeClass("col-xs-6");
-                        })
+                        }
                     }
                     let tmp1;
                     let tmp2;
