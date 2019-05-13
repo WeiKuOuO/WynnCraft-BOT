@@ -80,7 +80,8 @@ module.exports.run = async (bot, message, args) => {
                   ]
                   
                   var xp_value = (xp0[0].xp/5)
-                  var bar = new ProgressBar(`經驗條 [:bar]`, {
+                  console.log(xp_value)
+                  var bar = new ProgressBar(`[:bar]`, {
                     complete: '|',
                     incomplete: ' ',
                     width: 20,
