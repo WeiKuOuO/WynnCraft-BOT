@@ -80,12 +80,13 @@ module.exports.run = async (bot, message, args) => {
                   ]
                   
                   var xp_value = (xp0[0].xp/5)
-                  console.log(Math.floor(xp_value).toFixed(0))
+                  console.log(Math.floor(xp_value))
+                  var xpvalue = Math.floor(xp_value)
                   var bar = new ProgressBar(`[:bar]`, {
                     complete: '|',
                     incomplete: ' ',
                     width: 20,
-                    total: Math.floor(xp_value).toFixed(0)
+                    total: Math.floor(xpvalue).toFixed(0)
                   });
                   
                   let playerInfo = new Discord.RichEmbed()
