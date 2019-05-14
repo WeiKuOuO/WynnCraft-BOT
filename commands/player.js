@@ -82,11 +82,13 @@ module.exports.run = async (bot, message, args) => {
                   var xp_value = (xp0[0].xp/5)
                   console.log(Math.floor(xp_value))
                   var xpvalue = Math.floor(xp_value)
+                  var xp0 = xp0[0].xp
                   var bar = new ProgressBar(`[:bar]`, {
                     complete: '|',
                     incomplete: ' ',
                     width: 20,
-                    total: xpvalue
+                    total: xpvalue,
+                    curr: xp0
                   });
                   bar.tick(xp0[0].xp);
                   console.log(bar)
