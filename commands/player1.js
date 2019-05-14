@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 var request = require('request');
-
+var ProgressBar = require('progress');
+var Progress = require('progressbar.js')
 module.exports.run = async (bot, message, args) => {
 
   const assassin = bot.emojis.get("577051297027457036");
@@ -55,8 +56,46 @@ module.exports.run = async (bot, message, args) => {
                   if (player.data[0].classes[0].name == "darkwizard") {
                     var role1 = `${mage} 黑暗巫師 / Dark Wizard`
                   }
-                  console.log(role1);
-                  message.channel.send(role1);
+
+                  const xp0 = [
+                    player.data[0].classes[0].professions.combat,
+                    player.data[0].classes[0].professions.woodcutting,
+                    player.data[0].classes[0].professions.mining,
+                    player.data[0].classes[0].professions.fishing,
+                    player.data[0].classes[0].professions.farming,
+                    player.data[0].classes[0].professions.alchemism,
+                    player.data[0].classes[0].professions.armouring,
+                    player.data[0].classes[0].professions.cooking,
+                    player.data[0].classes[0].professions.jeweling,
+                    player.data[0].classes[0].professions.scribing,
+                    player.data[0].classes[0].professions.tailoring,
+                    player.data[0].classes[0].professions.weaponsmithing,
+                    player.data[0].classes[0].professions.woodworking,
+                    player.data[0].classes[0].professions.profession,
+                    player.data[0].classes[0].professions.overall
+                  ]
+
+                  const combat = [
+                    `**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]`
+                  ]
+                  
+                  var xp_value = (xp0[0].xp/5)
+                  console.log(Math.floor(xp_value))
+                  var xpvalue = Math.floor(xp_value)
+                  var bar = new ProgressBar(`[:bar]`, {
+                    complete: '|',
+                    incomplete: ' ',
+                    width: 20,
+                    total: xpvalue,
+                    curr: xp0[0].xp
+                  });
+                  console.log(bar)
+                  let playerInfo = new Discord.RichEmbed()
+                  .setTitle(`${player.data[0].username} 的玩家資訊`)
+                  .addField(`${role1} 的等級資訊`, `${combat}\n${bar}`, true)
+
+                  
+                  message.channel.send(playerInfo);
                 }
               }
             }
@@ -70,37 +109,17 @@ module.exports.run = async (bot, message, args) => {
 
 // 
 //                   if (player.data[0].classes[1].name == "assassin") {
-//                     const xp0 = [
-//                       player.data[0].classes[0].professions.combat,
-//                       player.data[0].classes[0].professions.woodcutting,
-//                       player.data[0].classes[0].professions.mining,
-//                       player.data[0].classes[0].professions.fishing,
-//                       player.data[0].classes[0].professions.farming,
-//                       player.data[0].classes[0].professions.alchemism,
-//                       player.data[0].classes[0].professions.armouring,
-//                       player.data[0].classes[0].professions.cooking,
-//                       player.data[0].classes[0].professions.jeweling,
-//                       player.data[0].classes[0].professions.scribing,
-//                       player.data[0].classes[0].professions.tailoring,
-//                       player.data[0].classes[0].professions.weaponsmithing,
-//                       player.data[0].classes[0].professions.woodworking,
-//                       player.data[0].classes[0].professions.profession,
-//                       player.data[0].classes[0].professions.overall
-//                     ]
+
 //                     const xp = [
 //                       xp0
 //                     ]
-//                     const text = [
-//                       `\`\`\`css\n戰鬥 / Combat | [${xp[0][0].level} - ${xp[0][0].xp}]\`\`\``
-//                     ]
+
 //                     var role1 = ":dagger: 刺客 / Assassin"
-//                     let playerInfo = new Discord.RichEmbed()
-//                       .setTitle(`${player.data[0].username} 的玩家資訊`)
-//                       .addField(`${role1} 的等級資訊`, text, true)
+
 //                     essage.channel.send(playerInfo)
 //                   }
 
 
 module.exports.help = {
-  name: 'player',
+  name: 'player1',
 };
