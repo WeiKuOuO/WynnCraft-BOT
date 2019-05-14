@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 var request = require('request');
 var ProgressBar = require('progress');
-
+var Progress = require('progressbar.js')
 module.exports.run = async (bot, message, args) => {
 
   const assassin = bot.emojis.get("577051297027457036");
@@ -80,14 +80,17 @@ module.exports.run = async (bot, message, args) => {
                   ]
                   
                   var xp_value = (xp0[0].xp/5)
-                  console.log(Math.floor(xp_value).toFixed(0))
+                  console.log(Math.floor(xp_value))
+                  var xpvalue = Math.floor(xp_value)
                   var bar = new ProgressBar(`[:bar]`, {
                     complete: '|',
                     incomplete: ' ',
                     width: 20,
-                    total: Math.floor(xp_value).toFixed(0)
+                    total: xpvalue,
+                    curr: xp0[0].xp
                   });
-                  
+                  bar.tick(xp0[0].xp);
+                  console.log(bar)
                   let playerInfo = new Discord.RichEmbed()
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
                   .addField(`${role1} 的等級資訊`, `${combat}\n${bar}`, true)
