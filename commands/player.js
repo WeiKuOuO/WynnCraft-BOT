@@ -1,13 +1,15 @@
 const Discord = require("discord.js")
 var request = require('request');
-var ProgressBar = require('progress');
-var Progress = require('progressbar.js')
+
 module.exports.run = async (bot, message, args) => {
 
   const assassin = bot.emojis.get("577051297027457036");
   const warrior = bot.emojis.get("577054598062276619");
   const archer = bot.emojis.get("577054598238306314");
   const mage = bot.emojis.get("577055020168511488");
+
+  const mining = bot.emojis.get("577882452287029248");
+  const woodcutting = bot.emojis.get("577883376456040489");
 
   const playerName = args.join("");
   const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
@@ -76,24 +78,12 @@ module.exports.run = async (bot, message, args) => {
                   ]
 
                   const combat = [
-                    `**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]`
+                    `　**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]\n${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[0].level}** - **${xp0[0].xp}**]`
                   ]
                   
-                  var xp_value = (xp0[0].xp/5)
-                  console.log(Math.floor(xp_value))
-                  var xpvalue = Math.floor(xp_value)
-                  var bar = new ProgressBar(`[:bar]`, {
-                    complete: '|',
-                    incomplete: ' ',
-                    width: 20,
-                    total: xpvalue,
-                    curr: xp0[0].xp
-                  });
-                  bar.tick(xp0[0].xp);
-                  console.log(bar)
                   let playerInfo = new Discord.RichEmbed()
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
-                  .addField(`${role1} 的等級資訊`, `${combat}\n${bar}`, true)
+                  .addField(`${role1} 的等級資訊`, `${combat}`, true)
 
                   
                   message.channel.send(playerInfo);
