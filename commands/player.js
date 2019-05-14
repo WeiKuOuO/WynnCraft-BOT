@@ -87,12 +87,12 @@ module.exports.run = async (bot, message, args) => {
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
                   .addField(`綜合資訊`, 
                   `
-                  **玩家階級** / **Rank** | **${player.data[0].rank}**\n
-                  **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**\n
-                  **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**\n
-                  **走路格數** / **Blocks Walked** | **${player.data[0].global.blocksWalked}格**\n
-                  **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**\n
-                  **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**\n
+                  **玩家階級** / **Rank** | **${player.data[0].rank}**
+                  **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
+                  **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**
+                  **走路格數** / **Blocks Walked** | **${player.data[0].global.blocksWalked}格**
+                  **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**
+                  **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**
                   `
                   , true)
                   .addField(`${role1} 的等級資訊`, `${profession}`, true)
