@@ -78,7 +78,7 @@ module.exports.run = async (bot, message, args) => {
                   ]
 
                   const combat = [
-                    `　**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]\n${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[0].level}** - **${xp0[0].xp}**]`
+                    `:crossed_swords:**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}**]\n${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}**]\n${mining}**挖礦** / **Mining** | [**${xp0[2].level}** - **${xp0[2].xp}**]`
                   ]
                   
                   let playerInfo = new Discord.RichEmbed()
