@@ -197,6 +197,7 @@ module.exports.run = async (bot, message, args) => {
           let playerInfo = new Discord.RichEmbed()
             .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
 
+            
           message.channel.send(playerInfo);
           if (!player.data[0].classes[3]) {
             if (player.data[0].classes[3].name == "assassin") {
