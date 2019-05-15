@@ -118,7 +118,7 @@ module.exports.run = async (bot, message, args) => {
                   ${weaponsmithing} 製劍 / Weaponsmithing | [**${xp0[11].level}** - **${xp0[11].xp}%**]
                   ${woodworking} 木工 / Woodworking | [**${xp0[12].level}** - **${xp0[12].xp}%**]
                   `
-                  , true)
+                  , true) 
 
                   
                   message.channel.send(playerInfo);
