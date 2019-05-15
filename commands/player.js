@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   const fishing = bot.emojis.get("578235365652037633");
   const farming = bot.emojis.get("578235327127355420");
 
-  const alchemism = bot.emojis.get("57823915557899468");
+  const alchemism = bot.emojis.get("578239155578994689");
   const armouring = bot.emojis.get("578242781450076160");
   const cooking = bot.emojis.get("578242781458333696");
   const jeweling = bot.emojis.get("578242781441425422");
