@@ -13,6 +13,15 @@ module.exports.run = async (bot, message, args) => {
   const fishing = bot.emojis.get("578235365652037633");
   const farming = bot.emojis.get("578235327127355420");
 
+  const alchemism = bot.emojis.get("57823915557899468");
+  const armouring = bot.emojis.get("578242781450076160");
+  const cooking = bot.emojis.get("578242781458333696");
+  const jeweling = bot.emojis.get("578242781441425422");
+  const scribing = bot.emojis.get("578242781408002058");
+  const tailoring = bot.emojis.get("578242781378510862");
+  const weaponsmithing = bot.emojis.get("578242781399744522");
+  const woodworking = bot.emojis.get("578242781470785556");
+
   const playerName = args.join("");
   const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
   if (playerName == "") {
@@ -75,8 +84,6 @@ module.exports.run = async (bot, message, args) => {
                     player.data[0].classes[0].professions.tailoring,
                     player.data[0].classes[0].professions.weaponsmithing,
                     player.data[0].classes[0].professions.woodworking,
-                    player.data[0].classes[0].professions.profession,
-                    player.data[0].classes[0].professions.overall
                   ]
                   
                   let playerInfo = new Discord.RichEmbed()
@@ -92,16 +99,24 @@ module.exports.run = async (bot, message, args) => {
                   PVP / KD | **${player.data[0].global.pvp.kills}** / **${player.data[0].global.pvp.deaths}**
                   登入次數 / Logins | **${player.data[0].global.logins}**
                   死亡次數 / Deaths | **${player.data[0].global.deaths}**
-                  遊玩時間 / Play Time | **${(player.data[0].global.playtime)/60}小時**
                   `
                   , true)
-                  .addField(`${role1} 的等級資訊`, 
+                  .addField(`${role1} 的角色資訊`, 
                   `
                   :crossed_swords: 戰鬥 / Combat | [**${xp0[0].level}** - **${xp0[0].xp}%**]
                   ${woodcutting} 伐木 / Wood Cutting | [**${xp0[1].level}** - **${xp0[1].xp}%**]
                   ${mining} 挖礦 / Mining | [**${xp0[2].level}** - **${xp0[2].xp}%**]
                   ${fishing} 釣魚 / Fishing | [**${xp0[3].level}** - **${xp0[3].xp}%**]
                   ${farming} 農業 / Farming | [**${xp0[4].level}** - **${xp0[4].xp}%**]
+
+                  ${alchemism} 藥水 / Alchemism | [**${xp0[5].level}** - **${xp0[5].xp}%**]
+                  ${armouring} 裝備 / Armouring | [**${xp0[6].level}** - **${xp0[6].xp}%**]
+                  ${cooking} 烹飪 / Cooking | [**${xp0[7].level}** - **${xp0[7].xp}%**]
+                  ${jeweling} 飾品 / Jeweling | [**${xp0[8].level}** - **${xp0[8].xp}%**]
+                  ${scribing} 卷軸 / Scribing | [**${xp0[9].level}** - **${xp0[9].xp}%**]
+                  ${tailoring} 紡織 / Tailoring | [**${xp0[10].level}** - **${xp0[10].xp}%**]
+                  ${weaponsmithing} 製劍 / Weaponsmithing | [**${xp0[11].level}** - **${xp0[11].xp}%**]
+                  ${woodworking} 木工 / Woodworking | [**${xp0[12].level}** - **${xp0[12].xp}%**]
                   `
                   , true)
 
