@@ -199,7 +199,7 @@ module.exports.run = async (bot, message, args) => {
 
 
           message.channel.send(playerInfo);
-          if (!player.data[0].classes[4]) {
+          if (!player.data[0].classes[3]) {
             if (player.data[0].classes[3].name == "assassin") {
               var role1 = `${assassin} 刺客 / Assassin`
             }
