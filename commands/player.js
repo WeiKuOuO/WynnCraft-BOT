@@ -108,7 +108,10 @@ module.exports.run = async (bot, message, args) => {
                   ${mining} 挖礦 / Mining | [**${xp0[2].level}** - **${xp0[2].xp}%**]
                   ${fishing} 釣魚 / Fishing | [**${xp0[3].level}** - **${xp0[3].xp}%**]
                   ${farming} 農業 / Farming | [**${xp0[4].level}** - **${xp0[4].xp}%**]
-
+                  `
+                  , true)
+                  .addField(`${role1} 的角色等級資訊`, 
+                  `
                   ${alchemism} 藥水 / Alchemism | [**${xp0[5].level}** - **${xp0[5].xp}%**]
                   ${armouring} 裝備 / Armouring | [**${xp0[6].level}** - **${xp0[6].xp}%**]
                   ${cooking} 烹飪 / Cooking | [**${xp0[7].level}** - **${xp0[7].xp}%**]
