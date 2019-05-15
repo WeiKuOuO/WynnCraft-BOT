@@ -76,26 +76,30 @@ module.exports.run = async (bot, message, args) => {
                     player.data[0].classes[0].professions.profession,
                     player.data[0].classes[0].professions.overall
                   ]
-
-                  const profession = [
-                    `:crossed_swords:**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}%**]\n
-                    ${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
-                    ${mining}**挖礦** / **Mining** | [**${xp0[2].level}** - **${xp0[2].xp}%**]`
-                  ]
                   
                   let playerInfo = new Discord.RichEmbed()
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
                   .addField(`綜合資訊`, 
                   `
-                  **玩家階級** / **Rank** | **${player.data[0].rank}**
-                  **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
-                  **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**
-                  **走路格數** / **Blocks Walked** | **${player.data[0].global.blocksWalked}格**
-                  **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**
-                  **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**
+                  玩家階級 / Rank | **${player.data[0].rank}**
+                  公會 / Guild | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
+                  翻箱數 / Chests Found | **${player.data[0].global.chestsFound}**
+                  走路格數 / Blocks Walked | **${player.data[0].global.blocksWalked}格**
+                  物品鑑定 / Items Identified | **${player.data[0].global.itemsIdentified}**
+                  生物擊殺數 / Mobs Killed | **${player.data[0].global.mobsKilled}**
+                  PVP / KD | **${player.data[0].global.pvp.kills}** / **${player.data[0].global.pvp.deaths}**
+                  登入次數 / Logins | **${player.data[0].global.logins}**
+                  死亡次數 / Deaths | **${player.data[0].global.deaths}**
+                  遊玩時間 / Play Time | **${(player.data[0].global.playtime)/60}**
                   `
                   , true)
-                  .addField(`${role1} 的等級資訊`, `${profession}`, true)
+                  .addField(`${role1} 的等級資訊`, 
+                  `
+                  :crossed_swords:戰鬥 / Combat | [**${xp0[0].level}** - **${xp0[0].xp}%**]\n
+                  ${woodcutting}伐木 / Wood Cutting | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
+                  ${mining}挖礦 / Mining | [**${xp0[2].level}** - **${xp0[2].xp}%**]
+                  `
+                  , true)
 
                   
                   message.channel.send(playerInfo);
