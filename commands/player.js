@@ -90,7 +90,7 @@ module.exports.run = async (bot, message, args) => {
                   PVP / KD | **${player.data[0].global.pvp.kills}** / **${player.data[0].global.pvp.deaths}**
                   登入次數 / Logins | **${player.data[0].global.logins}**
                   死亡次數 / Deaths | **${player.data[0].global.deaths}**
-                  遊玩時間 / Play Time | **${(player.data[0].global.playtime)/60}**
+                  遊玩時間 / Play Time | **${(player.data[0].global.playtime)/60}小時**
                   `
                   , true)
                   .addField(`${role1} 的等級資訊`, 
