@@ -26,47 +26,47 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("你輸入了錯誤的玩家ID")
       } else {
         if (!player.data[0].classes[5]) {
-          if (player.data[0].classes[0].name == "assassin") {
+          if (player.data[0].classes[5].name == "assassin") {
             var role1 = `${assassin} 刺客 / Assassin`
           }
-          if (player.data[0].classes[0].name == "archer") {
+          if (player.data[0].classes[5].name == "archer") {
             var role1 = `${archer}  弓箭手 / Archer`
           }
-          if (player.data[0].classes[0].name == "warrior") {
+          if (player.data[0].classes[5].name == "warrior") {
             var role1 = `${warrior} 戰士 / Warrior`
           }
-          if (player.data[0].classes[0].name == "mage") {
+          if (player.data[0].classes[5].name == "mage") {
             var role1 = `${mage} 法師 / Mage`
           }
-          if (player.data[0].classes[0].name == "ninja") {
+          if (player.data[0].classes[5].name == "ninja") {
             var role1 = `${assassin} 忍者 / Ninja`
           }
-          if (player.data[0].classes[0].name == "hunter") {
+          if (player.data[0].classes[5].name == "hunter") {
             var role1 = `${archer}  獵人 / Hunter`
           }
-          if (player.data[0].classes[0].name == "knight") {
+          if (player.data[0].classes[5].name == "knight") {
             var role1 = `${warrior} 騎士 / Knight`
           }
-          if (player.data[0].classes[0].name == "darkwizard") {
+          if (player.data[0].classes[5].name == "darkwizard") {
             var role1 = `${mage} 黑暗巫師 / Dark Wizard`
           }
 
           const xp0 = [
-            player.data[0].classes[0].professions.combat,
-            player.data[0].classes[0].professions.woodcutting,
-            player.data[0].classes[0].professions.mining,
-            player.data[0].classes[0].professions.fishing,
-            player.data[0].classes[0].professions.farming,
-            player.data[0].classes[0].professions.alchemism,
-            player.data[0].classes[0].professions.armouring,
-            player.data[0].classes[0].professions.cooking,
-            player.data[0].classes[0].professions.jeweling,
-            player.data[0].classes[0].professions.scribing,
-            player.data[0].classes[0].professions.tailoring,
-            player.data[0].classes[0].professions.weaponsmithing,
-            player.data[0].classes[0].professions.woodworking,
-            player.data[0].classes[0].professions.profession,
-            player.data[0].classes[0].professions.overall
+            player.data[0].classes[5].professions.combat,
+            player.data[0].classes[5].professions.woodcutting,
+            player.data[0].classes[5].professions.mining,
+            player.data[0].classes[5].professions.fishing,
+            player.data[0].classes[5].professions.farming,
+            player.data[0].classes[5].professions.alchemism,
+            player.data[0].classes[5].professions.armouring,
+            player.data[0].classes[5].professions.cooking,
+            player.data[0].classes[5].professions.jeweling,
+            player.data[0].classes[5].professions.scribing,
+            player.data[0].classes[5].professions.tailoring,
+            player.data[0].classes[5].professions.weaponsmithing,
+            player.data[0].classes[5].professions.woodworking,
+            player.data[0].classes[5].professions.profession,
+            player.data[0].classes[5].professions.overall
           ]
 
           const profession = [
@@ -76,63 +76,52 @@ module.exports.run = async (bot, message, args) => {
           ]
           
           let playerInfo = new Discord.RichEmbed()
-          .setTitle(`${player.data[0].username} 的玩家資訊`)
-          .addField(`綜合資訊`, 
-          `
-          **玩家階級** / **Rank** | **${player.data[0].rank}**
-          **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
-          **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**
-          **走路格數** / **Blocks Walked** | **${player.data[0].global.blocksWalked}格**
-          **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**
-          **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**
-          `
-          , true)
-          .addField(`${role1} 的等級資訊`, `${profession}`, true)
+          .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
 
           
           message.channel.send(playerInfo);
           if (!player.data[0].classes[4]) {
-            if (player.data[0].classes[0].name == "assassin") {
+            if (player.data[0].classes[4].name == "assassin") {
               var role1 = `${assassin} 刺客 / Assassin`
             }
-            if (player.data[0].classes[0].name == "archer") {
+            if (player.data[0].classes[4].name == "archer") {
               var role1 = `${archer}  弓箭手 / Archer`
             }
-            if (player.data[0].classes[0].name == "warrior") {
+            if (player.data[0].classes[4].name == "warrior") {
               var role1 = `${warrior} 戰士 / Warrior`
             }
-            if (player.data[0].classes[0].name == "mage") {
+            if (player.data[0].classes[4].name == "mage") {
               var role1 = `${mage} 法師 / Mage`
             }
-            if (player.data[0].classes[0].name == "ninja") {
+            if (player.data[0].classes[4].name == "ninja") {
               var role1 = `${assassin} 忍者 / Ninja`
             }
-            if (player.data[0].classes[0].name == "hunter") {
+            if (player.data[0].classes[4].name == "hunter") {
               var role1 = `${archer}  獵人 / Hunter`
             }
-            if (player.data[0].classes[0].name == "knight") {
+            if (player.data[0].classes[4].name == "knight") {
               var role1 = `${warrior} 騎士 / Knight`
             }
-            if (player.data[0].classes[0].name == "darkwizard") {
+            if (player.data[0].classes[4].name == "darkwizard") {
               var role1 = `${mage} 黑暗巫師 / Dark Wizard`
             }
 
             const xp0 = [
-              player.data[0].classes[0].professions.combat,
-              player.data[0].classes[0].professions.woodcutting,
-              player.data[0].classes[0].professions.mining,
-              player.data[0].classes[0].professions.fishing,
-              player.data[0].classes[0].professions.farming,
-              player.data[0].classes[0].professions.alchemism,
-              player.data[0].classes[0].professions.armouring,
-              player.data[0].classes[0].professions.cooking,
-              player.data[0].classes[0].professions.jeweling,
-              player.data[0].classes[0].professions.scribing,
-              player.data[0].classes[0].professions.tailoring,
-              player.data[0].classes[0].professions.weaponsmithing,
-              player.data[0].classes[0].professions.woodworking,
-              player.data[0].classes[0].professions.profession,
-              player.data[0].classes[0].professions.overall
+              player.data[0].classes[4].professions.combat,
+              player.data[0].classes[4].professions.woodcutting,
+              player.data[0].classes[4].professions.mining,
+              player.data[0].classes[4].professions.fishing,
+              player.data[0].classes[4].professions.farming,
+              player.data[0].classes[4].professions.alchemism,
+              player.data[0].classes[4].professions.armouring,
+              player.data[0].classes[4].professions.cooking,
+              player.data[0].classes[4].professions.jeweling,
+              player.data[0].classes[4].professions.scribing,
+              player.data[0].classes[4].professions.tailoring,
+              player.data[0].classes[4].professions.weaponsmithing,
+              player.data[0].classes[4].professions.woodworking,
+              player.data[0].classes[4].professions.profession,
+              player.data[0].classes[4].professions.overall
             ]
 
             const profession = [
@@ -142,63 +131,53 @@ module.exports.run = async (bot, message, args) => {
             ]
             
             let playerInfo = new Discord.RichEmbed()
-            .setTitle(`${player.data[0].username} 的玩家資訊`)
-            .addField(`綜合資訊`, 
-            `
-            **玩家階級** / **Rank** | **${player.data[0].rank}**
-            **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
-            **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**
-            **走路格數** / **Blocks Walked** | **${player.data[0].global.blocksWalked}格**
-            **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**
-            **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**
-            `
-            , true)
-            .addField(`${role1} 的等級資訊`, `${profession}`, true)
+            .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
+            message.channel.send(playerInfo);
 
             
-            message.channel.send(playerInfo);
             if (!player.data[0].classes[3]) {
-              if (player.data[0].classes[0].name == "assassin") {
+
+              if (player.data[0].classes[2].name == "assassin") {
                 var role1 = `${assassin} 刺客 / Assassin`
               }
-              if (player.data[0].classes[0].name == "archer") {
+              if (player.data[0].classes[2].name == "archer") {
                 var role1 = `${archer}  弓箭手 / Archer`
               }
-              if (player.data[0].classes[0].name == "warrior") {
+              if (player.data[0].classes[2].name == "warrior") {
                 var role1 = `${warrior} 戰士 / Warrior`
               }
-              if (player.data[0].classes[0].name == "mage") {
+              if (player.data[0].classes[2].name == "mage") {
                 var role1 = `${mage} 法師 / Mage`
               }
-              if (player.data[0].classes[0].name == "ninja") {
+              if (player.data[0].classes[2].name == "ninja") {
                 var role1 = `${assassin} 忍者 / Ninja`
               }
-              if (player.data[0].classes[0].name == "hunter") {
+              if (player.data[0].classes[2].name == "hunter") {
                 var role1 = `${archer}  獵人 / Hunter`
               }
-              if (player.data[0].classes[0].name == "knight") {
+              if (player.data[0].classes[2].name == "knight") {
                 var role1 = `${warrior} 騎士 / Knight`
               }
-              if (player.data[0].classes[0].name == "darkwizard") {
+              if (player.data[0].classes[2].name == "darkwizard") {
                 var role1 = `${mage} 黑暗巫師 / Dark Wizard`
               }
 
               const xp0 = [
-                player.data[0].classes[0].professions.combat,
-                player.data[0].classes[0].professions.woodcutting,
-                player.data[0].classes[0].professions.mining,
-                player.data[0].classes[0].professions.fishing,
-                player.data[0].classes[0].professions.farming,
-                player.data[0].classes[0].professions.alchemism,
-                player.data[0].classes[0].professions.armouring,
-                player.data[0].classes[0].professions.cooking,
-                player.data[0].classes[0].professions.jeweling,
-                player.data[0].classes[0].professions.scribing,
-                player.data[0].classes[0].professions.tailoring,
-                player.data[0].classes[0].professions.weaponsmithing,
-                player.data[0].classes[0].professions.woodworking,
-                player.data[0].classes[0].professions.profession,
-                player.data[0].classes[0].professions.overall
+                player.data[0].classes[2].professions.combat,
+                player.data[0].classes[2].professions.woodcutting,
+                player.data[0].classes[2].professions.mining,
+                player.data[0].classes[2].professions.fishing,
+                player.data[0].classes[2].professions.farming,
+                player.data[0].classes[2].professions.alchemism,
+                player.data[0].classes[2].professions.armouring,
+                player.data[0].classes[2].professions.cooking,
+                player.data[0].classes[2].professions.jeweling,
+                player.data[0].classes[2].professions.scribing,
+                player.data[0].classes[2].professions.tailoring,
+                player.data[0].classes[2].professions.weaponsmithing,
+                player.data[0].classes[2].professions.woodworking,
+                player.data[0].classes[2].professions.profession,
+                player.data[0].classes[2].professions.overall
               ]
 
               const profession = [
@@ -223,50 +202,50 @@ module.exports.run = async (bot, message, args) => {
 
               
               message.channel.send(playerInfo);
-              if (!player.data[0].classes[2]) {
-                if (player.data[0].classes[0].name == "assassin") {
+              if (!player.data[0].classes[1]) {
+                if (player.data[0].classes[1].name == "assassin") {
                   var role1 = `${assassin} 刺客 / Assassin`
                 }
-                if (player.data[0].classes[0].name == "archer") {
+                if (player.data[0].classes[1].name == "archer") {
                   var role1 = `${archer}  弓箭手 / Archer`
                 }
-                if (player.data[0].classes[0].name == "warrior") {
+                if (player.data[0].classes[1].name == "warrior") {
                   var role1 = `${warrior} 戰士 / Warrior`
                 }
-                if (player.data[0].classes[0].name == "mage") {
+                if (player.data[0].classes[1].name == "mage") {
                   var role1 = `${mage} 法師 / Mage`
                 }
-                if (player.data[0].classes[0].name == "ninja") {
+                if (player.data[0].classes[1].name == "ninja") {
                   var role1 = `${assassin} 忍者 / Ninja`
                 }
-                if (player.data[0].classes[0].name == "hunter") {
+                if (player.data[0].classes[1].name == "hunter") {
                   var role1 = `${archer}  獵人 / Hunter`
                 }
-                if (player.data[0].classes[0].name == "knight") {
+                if (player.data[0].classes[1].name == "knight") {
                   var role1 = `${warrior} 騎士 / Knight`
                 }
-                if (player.data[0].classes[0].name == "darkwizard") {
+                if (player.data[0].classes[1].name == "darkwizard") {
                   var role1 = `${mage} 黑暗巫師 / Dark Wizard`
                 }
-
+  
                 const xp0 = [
-                  player.data[0].classes[0].professions.combat,
-                  player.data[0].classes[0].professions.woodcutting,
-                  player.data[0].classes[0].professions.mining,
-                  player.data[0].classes[0].professions.fishing,
-                  player.data[0].classes[0].professions.farming,
-                  player.data[0].classes[0].professions.alchemism,
-                  player.data[0].classes[0].professions.armouring,
-                  player.data[0].classes[0].professions.cooking,
-                  player.data[0].classes[0].professions.jeweling,
-                  player.data[0].classes[0].professions.scribing,
-                  player.data[0].classes[0].professions.tailoring,
-                  player.data[0].classes[0].professions.weaponsmithing,
-                  player.data[0].classes[0].professions.woodworking,
-                  player.data[0].classes[0].professions.profession,
-                  player.data[0].classes[0].professions.overall
+                  player.data[0].classes[1].professions.combat,
+                  player.data[0].classes[1].professions.woodcutting,
+                  player.data[0].classes[1].professions.mining,
+                  player.data[0].classes[1].professions.fishing,
+                  player.data[0].classes[1].professions.farming,
+                  player.data[0].classes[1].professions.alchemism,
+                  player.data[0].classes[1].professions.armouring,
+                  player.data[0].classes[1].professions.cooking,
+                  player.data[0].classes[1].professions.jeweling,
+                  player.data[0].classes[1].professions.scribing,
+                  player.data[0].classes[1].professions.tailoring,
+                  player.data[0].classes[1].professions.weaponsmithing,
+                  player.data[0].classes[1].professions.woodworking,
+                  player.data[0].classes[1].professions.profession,
+                  player.data[0].classes[1].professions.overall
                 ]
-
+  
                 const profession = [
                   `:crossed_swords:**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}%**]\n
                   ${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
@@ -274,21 +253,11 @@ module.exports.run = async (bot, message, args) => {
                 ]
                 
                 let playerInfo = new Discord.RichEmbed()
-                .setTitle(`${player.data[0].username} 的玩家資訊`)
-                .addField(`綜合資訊`, 
-                `
-                **玩家階級** / **Rank** | **${player.data[0].rank}**
-                **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
-                **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**
-                **走路格數** / **Blocks Walked** | **${player.data[0].global.blocksWalked}格**
-                **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**
-                **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**
-                `
-                , true)
-                .addField(`${role1} 的等級資訊`, `${profession}`, true)
-
+                .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
                 
                 message.channel.send(playerInfo);
+
+
                 if (!player.data[0].classes[1]) {
                   if (!player.data[0].classes[0]) {
                     message.channel.send("你輸入的玩家可能還沒創建角色喔")
