@@ -10,6 +10,8 @@ module.exports.run = async (bot, message, args) => {
 
   const mining = bot.emojis.get("577882452287029248");
   const woodcutting = bot.emojis.get("577883376456040489");
+  const fishing = bot.emojis.get("578235365652037633");
+  const farming = bot.emojis.get("578235327127355420");
 
   const playerName = args.join("");
   const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
@@ -79,7 +81,7 @@ module.exports.run = async (bot, message, args) => {
                   
                   let playerInfo = new Discord.RichEmbed()
                   .setTitle(`${player.data[0].username} 的玩家資訊`)
-                  .addField(`綜合資訊`, 
+                  .addField(`:bust_in_silhouette: 綜合資訊 / All`, 
                   `
                   玩家階級 / Rank | **${player.data[0].rank}**
                   公會 / Guild | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
@@ -95,9 +97,11 @@ module.exports.run = async (bot, message, args) => {
                   , true)
                   .addField(`${role1} 的等級資訊`, 
                   `
-                  :crossed_swords:戰鬥 / Combat | [**${xp0[0].level}** - **${xp0[0].xp}%**]\n
-                  ${woodcutting}伐木 / Wood Cutting | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
-                  ${mining}挖礦 / Mining | [**${xp0[2].level}** - **${xp0[2].xp}%**]
+                  :crossed_swords: 戰鬥 / Combat | [**${xp0[0].level}** - **${xp0[0].xp}%**]
+                  ${woodcutting} 伐木 / Wood Cutting | [**${xp0[1].level}** - **${xp0[1].xp}%**]
+                  ${mining} 挖礦 / Mining | [**${xp0[2].level}** - **${xp0[2].xp}%**]
+                  ${fishing} 釣魚 / Fishing | [**${xp0[3].level}** - **${xp0[3].xp}%**]
+                  ${farming} 農業 / Farming | [**${xp0[4].level}** - **${xp0[4].xp}%**]
                   `
                   , true)
 
