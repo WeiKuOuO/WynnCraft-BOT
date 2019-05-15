@@ -22,6 +22,9 @@ module.exports.run = async (bot, message, args) => {
   const weaponsmithing = bot.emojis.get("578242781399744522");
   const woodworking = bot.emojis.get("578242781470785556");
 
+  const left = bot.emojis.get("577050509316456459")
+  const right = bot.emojis.get("577050517335703553")
+
   const playerName = args.join("");
   const urlMain = `https://api.wynncraft.com/v2/player/${playerName}/stats`
   if (playerName == "") {
@@ -87,41 +90,74 @@ module.exports.run = async (bot, message, args) => {
                   ]
                   
                   let playerInfo = new Discord.RichEmbed()
-                  .setTitle(`${player.data[0].username} 的玩家資訊`)
-                  .addField(`:bust_in_silhouette: 綜合資訊 / All`, 
-                  `
-                  玩家階級 / Rank | **${player.data[0].rank}**
-                  公會 / Guild | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
-                  翻箱數 / Chests Found | **${player.data[0].global.chestsFound}**
-                  走路格數 / Blocks Walked | **${player.data[0].global.blocksWalked}格**
-                  物品鑑定 / Items Identified | **${player.data[0].global.itemsIdentified}**
-                  生物擊殺數 / Mobs Killed | **${player.data[0].global.mobsKilled}**
-                  PVP / KD | **${player.data[0].global.pvp.kills}** / **${player.data[0].global.pvp.deaths}**
-                  登入次數 / Logins | **${player.data[0].global.logins}**
-                  死亡次數 / Deaths | **${player.data[0].global.deaths}**
-                  `
-                  , true)
-                  .addField(`${role1} 的角色資訊`, 
-                  `
-                  :crossed_swords: 戰鬥 / Combat | [**${xp0[0].level}** - **${xp0[0].xp}%**]
-                  ${woodcutting} 伐木 / Wood Cutting | [**${xp0[1].level}** - **${xp0[1].xp}%**]
-                  ${mining} 挖礦 / Mining | [**${xp0[2].level}** - **${xp0[2].xp}%**]
-                  ${fishing} 釣魚 / Fishing | [**${xp0[3].level}** - **${xp0[3].xp}%**]
-                  ${farming} 農業 / Farming | [**${xp0[4].level}** - **${xp0[4].xp}%**]
-                  `
-                  , true)
-                  .addField(`${role1} 的角色等級資訊`, 
-                  `
-                  ${alchemism} 藥水 / Alchemism | [**${xp0[5].level}** - **${xp0[5].xp}%**]
-                  ${armouring} 裝備 / Armouring | [**${xp0[6].level}** - **${xp0[6].xp}%**]
-                  ${cooking} 烹飪 / Cooking | [**${xp0[7].level}** - **${xp0[7].xp}%**]
-                  ${jeweling} 飾品 / Jeweling | [**${xp0[8].level}** - **${xp0[8].xp}%**]
-                  ${scribing} 卷軸 / Scribing | [**${xp0[9].level}** - **${xp0[9].xp}%**]
-                  ${tailoring} 紡織 / Tailoring | [**${xp0[10].level}** - **${xp0[10].xp}%**]
-                  ${weaponsmithing} 製劍 / Weaponsmithing | [**${xp0[11].level}** - **${xp0[11].xp}%**]
-                  ${woodworking} 木工 / Woodworking | [**${xp0[12].level}** - **${xp0[12].xp}%**]
-                  `
-                  , true) 
+                    .setTitle(`${player.data[0].username} 的玩家資訊`)
+                    .addField(`:bust_in_silhouette: 綜合資訊 / All`, `
+                    玩家階級 / Rank | **${player.data[0].rank}**
+                    公會 / Guild | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
+                    翻箱數 / Chests Found | **${player.data[0].global.chestsFound}**
+                    走路格數 / Blocks Walked | **${player.data[0].global.blocksWalked}格**
+                    物品鑑定 / Items Identified | **${player.data[0].global.itemsIdentified}**
+                    生物擊殺數 / Mobs Killed | **${player.data[0].global.mobsKilled}**
+                    PVP / KD | **${player.data[0].global.pvp.kills}** / **${player.data[0].global.pvp.deaths}**
+                    登入次數 / Logins | **${player.data[0].global.logins}**
+                    死亡次數 / Deaths | **${player.data[0].global.deaths}**
+                  `, true)
+
+                  let playerInfo1 = new Discord.RichEmbed()
+                    .addField(`${role1} 的角色資訊`, `
+                    :crossed_swords: 戰鬥 / Combat | [**${xp0[0].level}** - **${xp0[0].xp}%**]
+                    ${woodcutting} 伐木 / Wood Cutting | [**${xp0[1].level}** - **${xp0[1].xp}%**]
+                    ${mining} 挖礦 / Mining | [**${xp0[2].level}** - **${xp0[2].xp}%**]
+                    ${fishing} 釣魚 / Fishing | [**${xp0[3].level}** - **${xp0[3].xp}%**]
+                    ${farming} 農業 / Farming | [**${xp0[4].level}** - **${xp0[4].xp}%**]
+                  `, true)
+                    .addField(`${role1} 的角色等級資訊`, `
+                    ${alchemism} 藥水 / Alchemism | [**${xp0[5].level}** - **${xp0[5].xp}%**]
+                    ${armouring} 裝備 / Armouring | [**${xp0[6].level}** - **${xp0[6].xp}%**]
+                    ${cooking} 烹飪 / Cooking | [**${xp0[7].level}** - **${xp0[7].xp}%**]
+                    ${jeweling} 飾品 / Jeweling | [**${xp0[8].level}** - **${xp0[8].xp}%**]
+                    ${scribing} 卷軸 / Scribing | [**${xp0[9].level}** - **${xp0[9].xp}%**]
+                    ${tailoring} 紡織 / Tailoring | [**${xp0[10].level}** - **${xp0[10].xp}%**]
+                    ${weaponsmithing} 製劍 / Weaponsmithing | [**${xp0[11].level}** - **${xp0[11].xp}%**]
+                    ${woodworking} 木工 / Woodworking | [**${xp0[12].level}** - **${xp0[12].xp}%**]
+                  `, true) 
+                
+                let page = 1;
+
+                let pages = [
+                    playerInfo, 
+                    playerInfo1, 
+                ]
+                  
+                message.channel.send(pages[page-1]).then(msg => { 
+                
+                    msg.react(left).then( r => { 
+                        msg.react(right) 
+                      
+                        const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
+                        const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
+                      
+                        const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
+                        const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
+                      
+                       
+                        backwards.on('collect', r => { 
+                            if (page === 1) return; 
+                            page--; 
+                            pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                            msg.edit(pages[page-1]) 
+                        })
+                      
+                        forwards.on('collect', r => { 
+                            if (page === pages.length) return; 
+                            page++; 
+                            pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                            msg.edit(pages[page-1]) 
+                        })
+                    
+                    })
+                  
+                })
 
                   
                   message.channel.send(playerInfo);
