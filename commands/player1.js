@@ -25,32 +25,151 @@ module.exports.run = async (bot, message, args) => {
       if (player.message == "Bad Request") {
         message.channel.send("你輸入了錯誤的玩家ID")
       } else {
-        if (!player.data[0].classes[5]) {
-          if (player.data[0].classes[5].name == "assassin") {
+        if (!player.data[0].classes[4]) {
+          if (player.data[0].classes[4].name == "assassin") {
             var role1 = `${assassin} 刺客 / Assassin`
           }
-          if (player.data[0].classes[5].name == "archer") {
+          if (player.data[0].classes[4].name == "archer") {
             var role1 = `${archer}  弓箭手 / Archer`
           }
-          if (player.data[0].classes[5].name == "warrior") {
+          if (player.data[0].classes[4].name == "warrior") {
             var role1 = `${warrior} 戰士 / Warrior`
           }
-          if (player.data[0].classes[5].name == "mage") {
+          if (player.data[0].classes[4].name == "mage") {
             var role1 = `${mage} 法師 / Mage`
           }
-          if (player.data[0].classes[5].name == "ninja") {
+          if (player.data[0].classes[4].name == "ninja") {
             var role1 = `${assassin} 忍者 / Ninja`
           }
-          if (player.data[0].classes[5].name == "hunter") {
+          if (player.data[0].classes[4].name == "hunter") {
             var role1 = `${archer}  獵人 / Hunter`
           }
-          if (player.data[0].classes[5].name == "knight") {
+          if (player.data[0].classes[4].name == "knight") {
             var role1 = `${warrior} 騎士 / Knight`
           }
-          if (player.data[0].classes[5].name == "darkwizard") {
+          if (player.data[0].classes[4].name == "darkwizard") {
             var role1 = `${mage} 黑暗巫師 / Dark Wizard`
           }
-
+          if (player.data[0].classes[4].name == "assassin1") {
+            var role1 = `${assassin} 刺客 / Assassin`
+          }
+          if (player.data[0].classes[4].name == "archer1") {
+            var role1 = `${archer}  弓箭手 / Archer`
+          }
+          if (player.data[0].classes[4].name == "warrior1") {
+            var role1 = `${warrior} 戰士 / Warrior`
+          }
+          if (player.data[0].classes[4].name == "mage1") {
+            var role1 = `${mage} 法師 / Mage`
+          }
+          if (player.data[0].classes[4].name == "ninja1") {
+            var role1 = `${assassin} 忍者 / Ninja`
+          }
+          if (player.data[0].classes[4].name == "hunter1") {
+            var role1 = `${archer}  獵人 / Hunter`
+          }
+          if (player.data[0].classes[4].name == "knight1") {
+            var role1 = `${warrior} 騎士 / Knight`
+          }
+          if (player.data[0].classes[4].name == "darkwizard1") {
+            var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+          }
+          if (player.data[0].classes[4].name == "assassin2") {
+            var role1 = `${assassin} 刺客 / Assassin`
+          }
+          if (player.data[0].classes[4].name == "archer2") {
+            var role1 = `${archer}  弓箭手 / Archer`
+          }
+          if (player.data[0].classes[4].name == "warrior2") {
+            var role1 = `${warrior} 戰士 / Warrior`
+          }
+          if (player.data[0].classes[4].name == "mage2") {
+            var role1 = `${mage} 法師 / Mage`
+          }
+          if (player.data[0].classes[4].name == "ninja2") {
+            var role1 = `${assassin} 忍者 / Ninja`
+          }
+          if (player.data[0].classes[4].name == "hunter2") {
+            var role1 = `${archer}  獵人 / Hunter`
+          }
+          if (player.data[0].classes[4].name == "knight2") {
+            var role1 = `${warrior} 騎士 / Knight`
+          }
+          if (player.data[0].classes[4].name == "darkwizard2") {
+            var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+          }
+          if (player.data[0].classes[4].name == "assassin3") {
+            var role1 = `${assassin} 刺客 / Assassin`
+          }
+          if (player.data[0].classes[4].name == "archer3") {
+            var role1 = `${archer}  弓箭手 / Archer`
+          }
+          if (player.data[0].classes[4].name == "warrior3") {
+            var role1 = `${warrior} 戰士 / Warrior`
+          }
+          if (player.data[0].classes[4].name == "mage3") {
+            var role1 = `${mage} 法師 / Mage`
+          }
+          if (player.data[0].classes[4].name == "ninja3") {
+            var role1 = `${assassin} 忍者 / Ninja`
+          }
+          if (player.data[0].classes[4].name == "hunter3") {
+            var role1 = `${archer}  獵人 / Hunter`
+          }
+          if (player.data[0].classes[4].name == "knight3") {
+            var role1 = `${warrior} 騎士 / Knight`
+          }
+          if (player.data[0].classes[4].name == "darkwizard3") {
+            var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+          }
+          if (player.data[0].classes[4].name == "assassin4") {
+            var role1 = `${assassin} 刺客 / Assassin`
+          }
+          if (player.data[0].classes[4].name == "archer4") {
+            var role1 = `${archer}  弓箭手 / Archer`
+          }
+          if (player.data[0].classes[4].name == "warrior4") {
+            var role1 = `${warrior} 戰士 / Warrior`
+          }
+          if (player.data[0].classes[4].name == "mage4") {
+            var role1 = `${mage} 法師 / Mage`
+          }
+          if (player.data[0].classes[4].name == "ninja4") {
+            var role1 = `${assassin} 忍者 / Ninja`
+          }
+          if (player.data[0].classes[4].name == "hunter4") {
+            var role1 = `${archer}  獵人 / Hunter`
+          }
+          if (player.data[0].classes[4].name == "knight4") {
+            var role1 = `${warrior} 騎士 / Knight`
+          }
+          if (player.data[0].classes[4].name == "darkwizard4") {
+            var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+          }
+          if (player.data[0].classes[4].name == "assassin5") {
+            var role1 = `${assassin} 刺客 / Assassin`
+          }
+          if (player.data[0].classes[4].name == "archer5") {
+            var role1 = `${archer}  弓箭手 / Archer`
+          }
+          if (player.data[0].classes[4].name == "warrior5") {
+            var role1 = `${warrior} 戰士 / Warrior`
+          }
+          if (player.data[0].classes[4].name == "mage5") {
+            var role1 = `${mage} 法師 / Mage`
+          }
+          if (player.data[0].classes[4].name == "ninja5") {
+            var role1 = `${assassin} 忍者 / Ninja`
+          }
+          if (player.data[0].classes[4].name == "hunter5") {
+            var role1 = `${archer}  獵人 / Hunter`
+          }
+          if (player.data[0].classes[4].name == "knight5") {
+            var role1 = `${warrior} 騎士 / Knight`
+          }
+          if (player.data[0].classes[4].name == "darkwizard5") {
+            var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+          }
           const xp0 = [
             player.data[0].classes[5].professions.combat,
             player.data[0].classes[5].professions.woodcutting,
@@ -74,37 +193,158 @@ module.exports.run = async (bot, message, args) => {
             ${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
             ${mining}**挖礦** / **Mining** | [**${xp0[2].level}** - **${xp0[2].xp}%**]`
           ]
-          
-          let playerInfo = new Discord.RichEmbed()
-          .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
 
-          
+          let playerInfo = new Discord.RichEmbed()
+            .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
+
+
           message.channel.send(playerInfo);
           if (!player.data[0].classes[4]) {
-            if (player.data[0].classes[4].name == "assassin") {
+            if (player.data[0].classes[3].name == "assassin") {
               var role1 = `${assassin} 刺客 / Assassin`
             }
-            if (player.data[0].classes[4].name == "archer") {
+            if (player.data[0].classes[3].name == "archer") {
               var role1 = `${archer}  弓箭手 / Archer`
             }
-            if (player.data[0].classes[4].name == "warrior") {
+            if (player.data[0].classes[3].name == "warrior") {
               var role1 = `${warrior} 戰士 / Warrior`
             }
-            if (player.data[0].classes[4].name == "mage") {
+            if (player.data[0].classes[3].name == "mage") {
               var role1 = `${mage} 法師 / Mage`
             }
-            if (player.data[0].classes[4].name == "ninja") {
+            if (player.data[0].classes[3].name == "ninja") {
               var role1 = `${assassin} 忍者 / Ninja`
             }
-            if (player.data[0].classes[4].name == "hunter") {
+            if (player.data[0].classes[3].name == "hunter") {
               var role1 = `${archer}  獵人 / Hunter`
             }
-            if (player.data[0].classes[4].name == "knight") {
+            if (player.data[0].classes[3].name == "knight") {
               var role1 = `${warrior} 騎士 / Knight`
             }
-            if (player.data[0].classes[4].name == "darkwizard") {
+            if (player.data[0].classes[3].name == "darkwizard") {
               var role1 = `${mage} 黑暗巫師 / Dark Wizard`
             }
+            if (player.data[0].classes[3].name == "assassin1") {
+              var role1 = `${assassin} 刺客 / Assassin`
+            }
+            if (player.data[0].classes[3].name == "archer1") {
+              var role1 = `${archer}  弓箭手 / Archer`
+            }
+            if (player.data[0].classes[3].name == "warrior1") {
+              var role1 = `${warrior} 戰士 / Warrior`
+            }
+            if (player.data[0].classes[3].name == "mage1") {
+              var role1 = `${mage} 法師 / Mage`
+            }
+            if (player.data[0].classes[3].name == "ninja1") {
+              var role1 = `${assassin} 忍者 / Ninja`
+            }
+            if (player.data[0].classes[3].name == "hunter1") {
+              var role1 = `${archer}  獵人 / Hunter`
+            }
+            if (player.data[0].classes[3].name == "knight1") {
+              var role1 = `${warrior} 騎士 / Knight`
+            }
+            if (player.data[0].classes[3].name == "darkwizard1") {
+              var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+            }
+            if (player.data[0].classes[3].name == "assassin2") {
+              var role1 = `${assassin} 刺客 / Assassin`
+            }
+            if (player.data[0].classes[3].name == "archer2") {
+              var role1 = `${archer}  弓箭手 / Archer`
+            }
+            if (player.data[0].classes[3].name == "warrior2") {
+              var role1 = `${warrior} 戰士 / Warrior`
+            }
+            if (player.data[0].classes[3].name == "mage2") {
+              var role1 = `${mage} 法師 / Mage`
+            }
+            if (player.data[0].classes[3].name == "ninja2") {
+              var role1 = `${assassin} 忍者 / Ninja`
+            }
+            if (player.data[0].classes[3].name == "hunter2") {
+              var role1 = `${archer}  獵人 / Hunter`
+            }
+            if (player.data[0].classes[3].name == "knight2") {
+              var role1 = `${warrior} 騎士 / Knight`
+            }
+            if (player.data[0].classes[3].name == "darkwizard2") {
+              var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+            }
+            if (player.data[0].classes[3].name == "assassin3") {
+              var role1 = `${assassin} 刺客 / Assassin`
+            }
+            if (player.data[0].classes[3].name == "archer3") {
+              var role1 = `${archer}  弓箭手 / Archer`
+            }
+            if (player.data[0].classes[3].name == "warrior3") {
+              var role1 = `${warrior} 戰士 / Warrior`
+            }
+            if (player.data[0].classes[3].name == "mage3") {
+              var role1 = `${mage} 法師 / Mage`
+            }
+            if (player.data[0].classes[3].name == "ninja3") {
+              var role1 = `${assassin} 忍者 / Ninja`
+            }
+            if (player.data[0].classes[3].name == "hunter3") {
+              var role1 = `${archer}  獵人 / Hunter`
+            }
+            if (player.data[0].classes[3].name == "knight3") {
+              var role1 = `${warrior} 騎士 / Knight`
+            }
+            if (player.data[0].classes[3].name == "darkwizard3") {
+              var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+            }
+            if (player.data[0].classes[3].name == "assassin4") {
+              var role1 = `${assassin} 刺客 / Assassin`
+            }
+            if (player.data[0].classes[3].name == "archer4") {
+              var role1 = `${archer}  弓箭手 / Archer`
+            }
+            if (player.data[0].classes[3].name == "warrior4") {
+              var role1 = `${warrior} 戰士 / Warrior`
+            }
+            if (player.data[0].classes[3].name == "mage4") {
+              var role1 = `${mage} 法師 / Mage`
+            }
+            if (player.data[0].classes[3].name == "ninja4") {
+              var role1 = `${assassin} 忍者 / Ninja`
+            }
+            if (player.data[0].classes[3].name == "hunter4") {
+              var role1 = `${archer}  獵人 / Hunter`
+            }
+            if (player.data[0].classes[3].name == "knight4") {
+              var role1 = `${warrior} 騎士 / Knight`
+            }
+            if (player.data[0].classes[3].name == "darkwizard4") {
+              var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+            }
+            if (player.data[0].classes[3].name == "assassin5") {
+              var role1 = `${assassin} 刺客 / Assassin`
+            }
+            if (player.data[0].classes[3].name == "archer5") {
+              var role1 = `${archer}  弓箭手 / Archer`
+            }
+            if (player.data[0].classes[3].name == "warrior5") {
+              var role1 = `${warrior} 戰士 / Warrior`
+            }
+            if (player.data[0].classes[3].name == "mage5") {
+              var role1 = `${mage} 法師 / Mage`
+            }
+            if (player.data[0].classes[3].name == "ninja5") {
+              var role1 = `${assassin} 忍者 / Ninja`
+            }
+            if (player.data[0].classes[3].name == "hunter5") {
+              var role1 = `${archer}  獵人 / Hunter`
+            }
+            if (player.data[0].classes[3].name == "knight5") {
+              var role1 = `${warrior} 騎士 / Knight`
+            }
+            if (player.data[0].classes[3].name == "darkwizard5") {
+              var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+            }
+            
 
             const xp0 = [
               player.data[0].classes[4].professions.combat,
@@ -129,14 +369,13 @@ module.exports.run = async (bot, message, args) => {
               ${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
               ${mining}**挖礦** / **Mining** | [**${xp0[2].level}** - **${xp0[2].xp}%**]`
             ]
-            
+
             let playerInfo = new Discord.RichEmbed()
-            .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
+              .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
             message.channel.send(playerInfo);
 
-            
-            if (!player.data[0].classes[3]) {
 
+            if (!player.data[0].classes[3]) {
               if (player.data[0].classes[2].name == "assassin") {
                 var role1 = `${assassin} 刺客 / Assassin`
               }
@@ -161,7 +400,126 @@ module.exports.run = async (bot, message, args) => {
               if (player.data[0].classes[2].name == "darkwizard") {
                 var role1 = `${mage} 黑暗巫師 / Dark Wizard`
               }
-
+              if (player.data[0].classes[2].name == "assassin1") {
+                var role1 = `${assassin} 刺客 / Assassin`
+              }
+              if (player.data[0].classes[2].name == "archer1") {
+                var role1 = `${archer}  弓箭手 / Archer`
+              }
+              if (player.data[0].classes[2].name == "warrior1") {
+                var role1 = `${warrior} 戰士 / Warrior`
+              }
+              if (player.data[0].classes[2].name == "mage1") {
+                var role1 = `${mage} 法師 / Mage`
+              }
+              if (player.data[0].classes[2].name == "ninja1") {
+                var role1 = `${assassin} 忍者 / Ninja`
+              }
+              if (player.data[0].classes[2].name == "hunter1") {
+                var role1 = `${archer}  獵人 / Hunter`
+              }
+              if (player.data[0].classes[2].name == "knight1") {
+                var role1 = `${warrior} 騎士 / Knight`
+              }
+              if (player.data[0].classes[2].name == "darkwizard1") {
+                var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+              }
+              if (player.data[0].classes[2].name == "assassin2") {
+                var role1 = `${assassin} 刺客 / Assassin`
+              }
+              if (player.data[0].classes[2].name == "archer2") {
+                var role1 = `${archer}  弓箭手 / Archer`
+              }
+              if (player.data[0].classes[2].name == "warrior2") {
+                var role1 = `${warrior} 戰士 / Warrior`
+              }
+              if (player.data[0].classes[2].name == "mage2") {
+                var role1 = `${mage} 法師 / Mage`
+              }
+              if (player.data[0].classes[2].name == "ninja2") {
+                var role1 = `${assassin} 忍者 / Ninja`
+              }
+              if (player.data[0].classes[2].name == "hunter2") {
+                var role1 = `${archer}  獵人 / Hunter`
+              }
+              if (player.data[0].classes[2].name == "knight2") {
+                var role1 = `${warrior} 騎士 / Knight`
+              }
+              if (player.data[0].classes[2].name == "darkwizard2") {
+                var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+              }
+              if (player.data[0].classes[2].name == "assassin3") {
+                var role1 = `${assassin} 刺客 / Assassin`
+              }
+              if (player.data[0].classes[2].name == "archer3") {
+                var role1 = `${archer}  弓箭手 / Archer`
+              }
+              if (player.data[0].classes[2].name == "warrior3") {
+                var role1 = `${warrior} 戰士 / Warrior`
+              }
+              if (player.data[0].classes[2].name == "mage3") {
+                var role1 = `${mage} 法師 / Mage`
+              }
+              if (player.data[0].classes[2].name == "ninja3") {
+                var role1 = `${assassin} 忍者 / Ninja`
+              }
+              if (player.data[0].classes[2].name == "hunter3") {
+                var role1 = `${archer}  獵人 / Hunter`
+              }
+              if (player.data[0].classes[2].name == "knight3") {
+                var role1 = `${warrior} 騎士 / Knight`
+              }
+              if (player.data[0].classes[2].name == "darkwizard3") {
+                var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+              }
+              if (player.data[0].classes[2].name == "assassin4") {
+                var role1 = `${assassin} 刺客 / Assassin`
+              }
+              if (player.data[0].classes[2].name == "archer4") {
+                var role1 = `${archer}  弓箭手 / Archer`
+              }
+              if (player.data[0].classes[2].name == "warrior4") {
+                var role1 = `${warrior} 戰士 / Warrior`
+              }
+              if (player.data[0].classes[2].name == "mage4") {
+                var role1 = `${mage} 法師 / Mage`
+              }
+              if (player.data[0].classes[2].name == "ninja4") {
+                var role1 = `${assassin} 忍者 / Ninja`
+              }
+              if (player.data[0].classes[2].name == "hunter4") {
+                var role1 = `${archer}  獵人 / Hunter`
+              }
+              if (player.data[0].classes[2].name == "knight4") {
+                var role1 = `${warrior} 騎士 / Knight`
+              }
+              if (player.data[0].classes[2].name == "darkwizard4") {
+                var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+              }
+              if (player.data[0].classes[2].name == "assassin5") {
+                var role1 = `${assassin} 刺客 / Assassin`
+              }
+              if (player.data[0].classes[2].name == "archer5") {
+                var role1 = `${archer}  弓箭手 / Archer`
+              }
+              if (player.data[0].classes[2].name == "warrior5") {
+                var role1 = `${warrior} 戰士 / Warrior`
+              }
+              if (player.data[0].classes[2].name == "mage5") {
+                var role1 = `${mage} 法師 / Mage`
+              }
+              if (player.data[0].classes[2].name == "ninja5") {
+                var role1 = `${assassin} 忍者 / Ninja`
+              }
+              if (player.data[0].classes[2].name == "hunter5") {
+                var role1 = `${archer}  獵人 / Hunter`
+              }
+              if (player.data[0].classes[2].name == "knight5") {
+                var role1 = `${warrior} 騎士 / Knight`
+              }
+              if (player.data[0].classes[2].name == "darkwizard5") {
+                var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+              }
               const xp0 = [
                 player.data[0].classes[2].professions.combat,
                 player.data[0].classes[2].professions.woodcutting,
@@ -185,11 +543,11 @@ module.exports.run = async (bot, message, args) => {
                 ${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
                 ${mining}**挖礦** / **Mining** | [**${xp0[2].level}** - **${xp0[2].xp}%**]`
               ]
-              
+
               let playerInfo = new Discord.RichEmbed()
-              .setTitle(`${player.data[0].username} 的玩家資訊`)
-              .addField(`綜合資訊`, 
-              `
+                .setTitle(`${player.data[0].username} 的玩家資訊`)
+                .addField(`綜合資訊`,
+                  `
               **玩家階級** / **Rank** | **${player.data[0].rank}**
               **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
               **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**
@@ -197,13 +555,13 @@ module.exports.run = async (bot, message, args) => {
               **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**
               **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**
               `
-              , true)
-              .addField(`${role1} 的等級資訊`, `${profession}`, true)
+                  , true)
+                .addField(`${role1} 的等級資訊`, `${profession}`, true)
 
-              
+
               message.channel.send(playerInfo);
-              if (!player.data[0].classes[1]) {
-                if (player.data[0].classes[1].name == "assassin") {
+              if (!player.data[0].classes[2]) {
+                if (player.data[0].classes[2].name == "assassin") {
                   var role1 = `${assassin} 刺客 / Assassin`
                 }
                 if (player.data[0].classes[1].name == "archer") {
@@ -227,7 +585,127 @@ module.exports.run = async (bot, message, args) => {
                 if (player.data[0].classes[1].name == "darkwizard") {
                   var role1 = `${mage} 黑暗巫師 / Dark Wizard`
                 }
-  
+                if (player.data[0].classes[1].name == "assassin1") {
+                  var role1 = `${assassin} 刺客 / Assassin`
+                }
+                if (player.data[0].classes[1].name == "archer1") {
+                  var role1 = `${archer}  弓箭手 / Archer`
+                }
+                if (player.data[0].classes[1].name == "warrior1") {
+                  var role1 = `${warrior} 戰士 / Warrior`
+                }
+                if (player.data[0].classes[1].name == "mage1") {
+                  var role1 = `${mage} 法師 / Mage`
+                }
+                if (player.data[0].classes[1].name == "ninja1") {
+                  var role1 = `${assassin} 忍者 / Ninja`
+                }
+                if (player.data[0].classes[1].name == "hunter1") {
+                  var role1 = `${archer}  獵人 / Hunter`
+                }
+                if (player.data[0].classes[1].name == "knight1") {
+                  var role1 = `${warrior} 騎士 / Knight`
+                }
+                if (player.data[0].classes[1].name == "darkwizard1") {
+                  var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                }
+                if (player.data[0].classes[1].name == "assassin2") {
+                  var role1 = `${assassin} 刺客 / Assassin`
+                }
+                if (player.data[0].classes[1].name == "archer2") {
+                  var role1 = `${archer}  弓箭手 / Archer`
+                }
+                if (player.data[0].classes[1].name == "warrior2") {
+                  var role1 = `${warrior} 戰士 / Warrior`
+                }
+                if (player.data[0].classes[1].name == "mage2") {
+                  var role1 = `${mage} 法師 / Mage`
+                }
+                if (player.data[0].classes[1].name == "ninja2") {
+                  var role1 = `${assassin} 忍者 / Ninja`
+                }
+                if (player.data[0].classes[1].name == "hunter2") {
+                  var role1 = `${archer}  獵人 / Hunter`
+                }
+                if (player.data[0].classes[1].name == "knight2") {
+                  var role1 = `${warrior} 騎士 / Knight`
+                }
+                if (player.data[0].classes[1].name == "darkwizard2") {
+                  var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                }
+                if (player.data[0].classes[1].name == "assassin3") {
+                  var role1 = `${assassin} 刺客 / Assassin`
+                }
+                if (player.data[0].classes[1].name == "archer3") {
+                  var role1 = `${archer}  弓箭手 / Archer`
+                }
+                if (player.data[0].classes[1].name == "warrior3") {
+                  var role1 = `${warrior} 戰士 / Warrior`
+                }
+                if (player.data[0].classes[1].name == "mage3") {
+                  var role1 = `${mage} 法師 / Mage`
+                }
+                if (player.data[0].classes[1].name == "ninja3") {
+                  var role1 = `${assassin} 忍者 / Ninja`
+                }
+                if (player.data[0].classes[1].name == "hunter3") {
+                  var role1 = `${archer}  獵人 / Hunter`
+                }
+                if (player.data[0].classes[1].name == "knight3") {
+                  var role1 = `${warrior} 騎士 / Knight`
+                }
+                if (player.data[0].classes[1].name == "darkwizard3") {
+                  var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                }
+                if (player.data[0].classes[1].name == "assassin4") {
+                  var role1 = `${assassin} 刺客 / Assassin`
+                }
+                if (player.data[0].classes[1].name == "archer4") {
+                  var role1 = `${archer}  弓箭手 / Archer`
+                }
+                if (player.data[0].classes[1].name == "warrior4") {
+                  var role1 = `${warrior} 戰士 / Warrior`
+                }
+                if (player.data[0].classes[1].name == "mage4") {
+                  var role1 = `${mage} 法師 / Mage`
+                }
+                if (player.data[0].classes[1].name == "ninja4") {
+                  var role1 = `${assassin} 忍者 / Ninja`
+                }
+                if (player.data[0].classes[1].name == "hunter4") {
+                  var role1 = `${archer}  獵人 / Hunter`
+                }
+                if (player.data[0].classes[1].name == "knight4") {
+                  var role1 = `${warrior} 騎士 / Knight`
+                }
+                if (player.data[0].classes[1].name == "darkwizard4") {
+                  var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                }
+                if (player.data[0].classes[1].name == "assassin5") {
+                  var role1 = `${assassin} 刺客 / Assassin`
+                }
+                if (player.data[0].classes[1].name == "archer5") {
+                  var role1 = `${archer}  弓箭手 / Archer`
+                }
+                if (player.data[0].classes[1].name == "warrior5") {
+                  var role1 = `${warrior} 戰士 / Warrior`
+                }
+                if (player.data[0].classes[1].name == "mage5") {
+                  var role1 = `${mage} 法師 / Mage`
+                }
+                if (player.data[0].classes[1].name == "ninja5") {
+                  var role1 = `${assassin} 忍者 / Ninja`
+                }
+                if (player.data[0].classes[1].name == "hunter5") {
+                  var role1 = `${archer}  獵人 / Hunter`
+                }
+                if (player.data[0].classes[1].name == "knight5") {
+                  var role1 = `${warrior} 騎士 / Knight`
+                }
+                if (player.data[0].classes[1].name == "darkwizard5") {
+                  var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                }
+
                 const xp0 = [
                   player.data[0].classes[1].professions.combat,
                   player.data[0].classes[1].professions.woodcutting,
@@ -245,16 +723,16 @@ module.exports.run = async (bot, message, args) => {
                   player.data[0].classes[1].professions.profession,
                   player.data[0].classes[1].professions.overall
                 ]
-  
+
                 const profession = [
                   `:crossed_swords:**戰鬥** / **Combat** | [**${xp0[0].level}** - **${xp0[0].xp}%**]\n
                   ${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
                   ${mining}**挖礦** / **Mining** | [**${xp0[2].level}** - **${xp0[2].xp}%**]`
                 ]
-                
+
                 let playerInfo = new Discord.RichEmbed()
-                .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
-                
+                  .setTitle(`${role1} 的等級資訊`, `${profession}`, true)
+
                 message.channel.send(playerInfo);
 
 
@@ -263,28 +741,148 @@ module.exports.run = async (bot, message, args) => {
                     message.channel.send("你輸入的玩家可能還沒創建角色喔")
                     return
                   }
-                  if (player.data[0].classes[0].name == "assassin") {
+                  if (player.data[0].classes[].name == "assassin") {
                     var role1 = `${assassin} 刺客 / Assassin`
                   }
-                  if (player.data[0].classes[0].name == "archer") {
+                  if (player.data[0].classes[].name == "archer") {
                     var role1 = `${archer}  弓箭手 / Archer`
                   }
-                  if (player.data[0].classes[0].name == "warrior") {
+                  if (player.data[0].classes[].name == "warrior") {
                     var role1 = `${warrior} 戰士 / Warrior`
                   }
-                  if (player.data[0].classes[0].name == "mage") {
+                  if (player.data[0].classes[].name == "mage") {
                     var role1 = `${mage} 法師 / Mage`
                   }
-                  if (player.data[0].classes[0].name == "ninja") {
+                  if (player.data[0].classes[].name == "ninja") {
                     var role1 = `${assassin} 忍者 / Ninja`
                   }
-                  if (player.data[0].classes[0].name == "hunter") {
+                  if (player.data[0].classes[].name == "hunter") {
                     var role1 = `${archer}  獵人 / Hunter`
                   }
-                  if (player.data[0].classes[0].name == "knight") {
+                  if (player.data[0].classes[].name == "knight") {
                     var role1 = `${warrior} 騎士 / Knight`
                   }
-                  if (player.data[0].classes[0].name == "darkwizard") {
+                  if (player.data[0].classes[].name == "darkwizard") {
+                    var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                  }
+                  if (player.data[0].classes[].name == "assassin1") {
+                    var role1 = `${assassin} 刺客 / Assassin`
+                  }
+                  if (player.data[0].classes[].name == "archer1") {
+                    var role1 = `${archer}  弓箭手 / Archer`
+                  }
+                  if (player.data[0].classes[].name == "warrior1") {
+                    var role1 = `${warrior} 戰士 / Warrior`
+                  }
+                  if (player.data[0].classes[].name == "mage1") {
+                    var role1 = `${mage} 法師 / Mage`
+                  }
+                  if (player.data[0].classes[].name == "ninja1") {
+                    var role1 = `${assassin} 忍者 / Ninja`
+                  }
+                  if (player.data[0].classes[].name == "hunter1") {
+                    var role1 = `${archer}  獵人 / Hunter`
+                  }
+                  if (player.data[0].classes[].name == "knight1") {
+                    var role1 = `${warrior} 騎士 / Knight`
+                  }
+                  if (player.data[0].classes[].name == "darkwizard1") {
+                    var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                  }
+                  if (player.data[0].classes[].name == "assassin2") {
+                    var role1 = `${assassin} 刺客 / Assassin`
+                  }
+                  if (player.data[0].classes[].name == "archer2") {
+                    var role1 = `${archer}  弓箭手 / Archer`
+                  }
+                  if (player.data[0].classes[].name == "warrior2") {
+                    var role1 = `${warrior} 戰士 / Warrior`
+                  }
+                  if (player.data[0].classes[].name == "mage2") {
+                    var role1 = `${mage} 法師 / Mage`
+                  }
+                  if (player.data[0].classes[].name == "ninja2") {
+                    var role1 = `${assassin} 忍者 / Ninja`
+                  }
+                  if (player.data[0].classes[].name == "hunter2") {
+                    var role1 = `${archer}  獵人 / Hunter`
+                  }
+                  if (player.data[0].classes[].name == "knight2") {
+                    var role1 = `${warrior} 騎士 / Knight`
+                  }
+                  if (player.data[0].classes[].name == "darkwizard2") {
+                    var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                  }
+                  if (player.data[0].classes[].name == "assassin3") {
+                    var role1 = `${assassin} 刺客 / Assassin`
+                  }
+                  if (player.data[0].classes[].name == "archer3") {
+                    var role1 = `${archer}  弓箭手 / Archer`
+                  }
+                  if (player.data[0].classes[].name == "warrior3") {
+                    var role1 = `${warrior} 戰士 / Warrior`
+                  }
+                  if (player.data[0].classes[].name == "mage3") {
+                    var role1 = `${mage} 法師 / Mage`
+                  }
+                  if (player.data[0].classes[].name == "ninja3") {
+                    var role1 = `${assassin} 忍者 / Ninja`
+                  }
+                  if (player.data[0].classes[].name == "hunter3") {
+                    var role1 = `${archer}  獵人 / Hunter`
+                  }
+                  if (player.data[0].classes[].name == "knight3") {
+                    var role1 = `${warrior} 騎士 / Knight`
+                  }
+                  if (player.data[0].classes[].name == "darkwizard3") {
+                    var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                  }
+                  if (player.data[0].classes[].name == "assassin4") {
+                    var role1 = `${assassin} 刺客 / Assassin`
+                  }
+                  if (player.data[0].classes[].name == "archer4") {
+                    var role1 = `${archer}  弓箭手 / Archer`
+                  }
+                  if (player.data[0].classes[].name == "warrior4") {
+                    var role1 = `${warrior} 戰士 / Warrior`
+                  }
+                  if (player.data[0].classes[].name == "mage4") {
+                    var role1 = `${mage} 法師 / Mage`
+                  }
+                  if (player.data[0].classes[].name == "ninja4") {
+                    var role1 = `${assassin} 忍者 / Ninja`
+                  }
+                  if (player.data[0].classes[].name == "hunter4") {
+                    var role1 = `${archer}  獵人 / Hunter`
+                  }
+                  if (player.data[0].classes[].name == "knight4") {
+                    var role1 = `${warrior} 騎士 / Knight`
+                  }
+                  if (player.data[0].classes[].name == "darkwizard4") {
+                    var role1 = `${mage} 黑暗巫師 / Dark Wizard`
+                  }
+                  if (player.data[0].classes[].name == "assassin5") {
+                    var role1 = `${assassin} 刺客 / Assassin`
+                  }
+                  if (player.data[0].classes[].name == "archer5") {
+                    var role1 = `${archer}  弓箭手 / Archer`
+                  }
+                  if (player.data[0].classes[].name == "warrior5") {
+                    var role1 = `${warrior} 戰士 / Warrior`
+                  }
+                  if (player.data[0].classes[].name == "mage5") {
+                    var role1 = `${mage} 法師 / Mage`
+                  }
+                  if (player.data[0].classes[].name == "ninja5") {
+                    var role1 = `${assassin} 忍者 / Ninja`
+                  }
+                  if (player.data[0].classes[].name == "hunter5") {
+                    var role1 = `${archer}  獵人 / Hunter`
+                  }
+                  if (player.data[0].classes[].name == "knight5") {
+                    var role1 = `${warrior} 騎士 / Knight`
+                  }
+                  if (player.data[0].classes[].name == "darkwizard5") {
                     var role1 = `${mage} 黑暗巫師 / Dark Wizard`
                   }
 
@@ -311,11 +909,11 @@ module.exports.run = async (bot, message, args) => {
                     ${woodcutting}**伐木** / **Wood Cutting** | [**${xp0[1].level}** - **${xp0[1].xp}%**]\n
                     ${mining}**挖礦** / **Mining** | [**${xp0[2].level}** - **${xp0[2].xp}%**]`
                   ]
-                  
+
                   let playerInfo = new Discord.RichEmbed()
-                  .setTitle(`${player.data[0].username} 的玩家資訊`)
-                  .addField(`綜合資訊`, 
-                  `
+                    .setTitle(`${player.data[0].username} 的玩家資訊`)
+                    .addField(`綜合資訊`,
+                      `
                   **玩家階級** / **Rank** | **${player.data[0].rank}**
                   **公會** / **Guild** | **${player.data[0].guild.name}** - **${player.data[0].guild.rank}**
                   **翻箱數** / **Chests Found** | **${player.data[0].global.chestsFound}**
@@ -323,10 +921,10 @@ module.exports.run = async (bot, message, args) => {
                   **物品鑑定** / **Items Identified** | **${player.data[0].global.itemsIdentified}**
                   **生物擊殺數** / **Mobs Killed** | **${player.data[0].global.mobsKilled}**
                   `
-                  , true)
-                  .addField(`${role1} 的等級資訊`, `${profession}`, true)
+                      , true)
+                    .addField(`${role1} 的等級資訊`, `${profession}`, true)
 
-                  
+
                   message.channel.send(playerInfo);
                 }
               }
