@@ -6,7 +6,7 @@ let os = require('os')
 let cpuStat = require("cpu-stat")
 const moment = require("moment");
 const m = require("moment-duration-format");
-const ms = require("ms")
+const ms = require("ms") 
 
 const { version } = require("discord.js");
 
