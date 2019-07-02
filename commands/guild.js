@@ -121,8 +121,6 @@ module.exports.run = async (bot, message, args) => {
                           
                             const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
                             const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
-                          
-                            const reaction = collected.first();
 
                             backwards.on('collect', r => { 
                                 if (page === 1) return; 
