@@ -21,12 +21,8 @@ module.exports.run = async (bot, message, args) => {
                 if(guild.error){
                     message.channel.send("你輸入了錯誤的公會名稱,可能是大小寫錯誤了")
                 }else{
-                    let tmp1;
-                    let tmp2;
-                    let tmp3;
-                    let tmp4;
-                    let tmp5;
                     guild.members.forEach(function(member) {
+                        let tmp1;
                         if (member.rank === "OWNER") {
                             if (tmp1 == null) {
                                 tmp1 = member.name;
@@ -34,6 +30,8 @@ module.exports.run = async (bot, message, args) => {
                                 tmp1 = tmp1 + "\n" + member.name;
                             }
                         }
+
+                        let tmp2;
                         if (member.rank === "CHIEF") {
                             if (tmp2 == null) {
                                 tmp2 = member.name;
@@ -41,6 +39,8 @@ module.exports.run = async (bot, message, args) => {
                                 tmp2 = tmp2 + "\n" + member.name;
                             }
                         }
+
+                        let tmp3;
                         if (member.rank === "CAPTAIN") {
                             if (tmp3 == null) {
                                 tmp3 = member.name;
@@ -48,6 +48,8 @@ module.exports.run = async (bot, message, args) => {
                                 tmp3 = tmp3 + "\n" + member.name;
                             }
                         }
+
+                        let tmp4;
                         if (member.rank === "RECRUITER") {
                             if (tmp4 == null) {
                                 tmp4 = member.name;
@@ -55,6 +57,8 @@ module.exports.run = async (bot, message, args) => {
                                 tmp4 = tmp4 + "\n" + member.name;
                             }
                         }
+
+                        let tmp5;
                         if (member.rank === "RECRUIT") {
                             if (tmp5 == null) {
                                 tmp5 = member.name;
@@ -99,36 +103,56 @@ module.exports.run = async (bot, message, args) => {
                         guildRole1, 
                         guildRole2, 
                     ]
-                      
-                    message.channel.send(pages[page-1]).then(msg => { 
                     
-                        msg.react(left).then( r => { 
-                            msg.react(right) 
+                    message.react('👍').then(() => message.react('👎'));
+
+                    const filter = (reaction, user) => {
+	                    return ['👍', '👎'].includes(reaction.emoji.name) && user.id === message.author.id;
+                    };
+
+                    message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+	                .then(collected => {
+		            const reaction = collected.first();
+
+		                if (reaction.emoji.name === '👍') {
+		                	message.reply('you reacted with a thumbs up.');
+		                } else {
+		            	    message.reply('you reacted with a thumbs down.');
+		                }
+	                })
+	                .catch(collected => {
+	        	        message.reply('you reacted with neither a thumbs up, nor a thumbs down.');
+                	});
+
+                    // message.channel.send(pages[page-1]).then(msg => { 
+                    
+                    //     msg.react(left).then( r => { 
+                    //         msg.react(right) 
                           
-                            const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
-                            const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
+                    //         const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
+                    //         const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
                           
-                            const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
-                            const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
+                    //         const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
+                    //         const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
                           
                            
-                            backwards.on('collect', r => { 
-                                if (page === 1) return; 
-                                page--; 
-                                pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-                                msg.edit(pages[page-1]) 
-                            })
+                    //         backwards.on('collect', r => { 
+                    //             if (page === 1) return; 
+                    //             page--; 
+                    //             pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                    //             msg.edit(pages[page-1]) 
+                    //         })
                           
-                            forwards.on('collect', r => { 
-                                if (page === pages.length) return; 
-                                page++; 
-                                pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-                                msg.edit(pages[page-1]) 
-                            })
+                    //         forwards.on('collect', r => { 
+                    //             if (page === pages.length) return; 
+                    //             page++; 
+                    //             pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                    //             msg.edit(pages[page-1]) 
+                    //         })
                         
-                        })
+                    //     })
                       
-                    })
+                    // })
                 }
             })
         }  
