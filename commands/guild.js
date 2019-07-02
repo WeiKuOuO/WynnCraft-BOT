@@ -21,8 +21,13 @@ module.exports.run = async (bot, message, args) => {
                 if(guild.error){
                     message.channel.send("你輸入了錯誤的公會名稱,可能是大小寫錯誤了")
                 }else{
+                    let tmp1;
+                    let tmp2;
+                    let tmp3;
+                    let tmp4;
+                    let tmp5;
                     guild.members.forEach(function(member) {
-                        let tmp1;
+                        
                         if (member.rank === "OWNER") {
                             if (tmp1 == null) {
                                 tmp1 = member.name;
@@ -31,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
                             }
                         }
 
-                        let tmp2;
+                        
                         if (member.rank === "CHIEF") {
                             if (tmp2 == null) {
                                 tmp2 = member.name;
@@ -40,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
                             }
                         }
 
-                        let tmp3;
+                        
                         if (member.rank === "CAPTAIN") {
                             if (tmp3 == null) {
                                 tmp3 = member.name;
@@ -49,7 +54,7 @@ module.exports.run = async (bot, message, args) => {
                             }
                         }
 
-                        let tmp4;
+                        
                         if (member.rank === "RECRUITER") {
                             if (tmp4 == null) {
                                 tmp4 = member.name;
@@ -58,7 +63,7 @@ module.exports.run = async (bot, message, args) => {
                             }
                         }
 
-                        let tmp5;
+                    
                         if (member.rank === "RECRUIT") {
                             if (tmp5 == null) {
                                 tmp5 = member.name;
