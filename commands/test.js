@@ -1,4 +1,5 @@
 const Discord = require("discord.js")
+var request = require('request');
 
 module.exports.run = async (bot, message, args) => {
         const left = bot.emojis.get("577050509316456459")
