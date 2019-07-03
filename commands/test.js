@@ -102,13 +102,14 @@ module.exports.run = async (bot, message, args) => {
                     .addField(":video_game: 成員",`\`\`\`fix\n${tmp5}\`\`\``,true)
                     .setFooter(`頁數 | ${page} / ${pageslength}`); 
 
-                let pages = [
+                var pages = [
                     guildInfo, 
                     guildRole1, 
                     guildRole2, 
-                ]
-
-                const reactmsg = await message.channel.send(guildInfo).catch(e => {})
+                ]   
+            }
+        })
+        const reactmsg = await message.channel.send(guildInfo).catch(e => {})
                 await reactmsg.react(left).then(() => message.react(right))
                 const filter1 = (reaction, user) => reaction.emoji.name === left && message.author.id == user.id
                 const collector1 = reactmsg.createReactionCollector(filter1, {time: 60000});
@@ -141,8 +142,6 @@ module.exports.run = async (bot, message, args) => {
                 collector2.on('end', collected => {
                   reactmsg.clearReactions()
                 })
-            }
-        })
 }
 
 module.exports.help = {
