@@ -138,7 +138,7 @@ module.exports.run = async (bot, message, args) => {
                 //   reactmsg.clearReactions()
                 // })
 
-                collector2.on('end', collected => {
+                collector.on('end', collected => {
                   reactmsg.clearReactions()
                 })
         })
