@@ -109,7 +109,7 @@ module.exports.run = async (bot, message, args) => {
                 ]   
             }
             const reactmsg = await message.channel.send(pages[0]).catch(e => {})
-                await reactmsg.react(left).then(() => message.react(right))
+                await reactmsg.react(left).then(() => reactmsg.react(right))
                 const filter1 = (reaction, user) => reaction.emoji.name === left && message.author.id == user.id
                 const collector1 = reactmsg.createReactionCollector(filter1, {time: 60000});
     
