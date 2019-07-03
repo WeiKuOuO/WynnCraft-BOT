@@ -113,8 +113,8 @@ module.exports.run = async (bot, message, args) => {
                 // const filter1 = (reaction, user) => reaction.emoji.name == left && message.author.id == user.id
                 // const collector1 = reactmsg.createReactionCollector(filter1, {time: 600000});
     
-                const filter2 = (reaction, user) => reaction.emoji.name == right && message.author.id == user.id
-                const collector2 = reactmsg.createReactionCollector(filter2, {time: 60000});
+                const filter = (reaction, user) => reaction.emoji.name == right && message.author.id == user.id
+                const collector = reactmsg.createReactionCollector(filter, {time: 600000});
     
 	              // collector1.on('collect', async reaction => {
                 //   const user = reaction.users.last()
@@ -125,7 +125,7 @@ module.exports.run = async (bot, message, args) => {
                 //   await reactmsg.edit(pages[page-1])
                 // })
 
-                collector2.on('collect', async reaction => {
+                collector.on('collect', async reaction => {
                   const user = reaction.users.last()
                   reaction.remove(user)
                   if (page == pages.length) return; 
