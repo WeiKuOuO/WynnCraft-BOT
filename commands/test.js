@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("你並沒有輸入公會名稱")
             return
         } 
-        request(urlMain, function(err, response, guild) {
+        request(urlMain, async function(err, response, guild) {
             if(err) {
                 console.log(err);
                 return message.channel.send('在查詢時出了點問題:P');
