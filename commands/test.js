@@ -107,43 +107,42 @@ module.exports.run = async (bot, message, args) => {
                     guildRole1, 
                     guildRole2, 
                 ]
+
+                const reactmsg = await message.channel.send(guildInfo).catch(e => {})
+                await reactmsg.react(left).then(() => message.react(right))
+                const filter1 = (reaction, user) => reaction.emoji.name === left && message.author.id == user.id
+                const collector1 = reactmsg.createReactionCollector(filter1, {time: 60000});
+    
+                const filter2 = (reaction, user) => reaction.emoji.name === right && message.author.id == user.id
+                const collector2 = reactmsg.createReactionCollector(filter2, {time: 60000});
+    
+	              collector1.on('collect', async reaction => {
+                  const user = reaction.users.last()
+                  reaction.remove(user)
+                  if (page === 1) return; 
+                  page--; 
+                  pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                  await reactmsg.edit(pages[page-1])
+                })
+
+                collector2.on('collect', async reaction => {
+                  const user = reaction.users.last()
+                  reaction.remove(user)
+                  if (page === pages.length) return; 
+                  page++; 
+                  pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                  await reactmsg.edit(pages[page-1])
+                })
+
+                collector1.on('end', collected => {
+                  reactmsg.clearReactions()
+                })
+
+                collector2.on('end', collected => {
+                  reactmsg.clearReactions()
+                })
             }
         })
-
-
-    const reactmsg = await message.channel.send(guildInfo).catch(e => {})
-    await reactmsg.react(left).then(() => message.react(right))
-    const filter1 = (reaction, user) => reaction.emoji.name === left && message.author.id == user.id
-    const collector1 = reactmsg.createReactionCollector(filter1, {time: 60000});
-    
-    const filter2 = (reaction, user) => reaction.emoji.name === right && message.author.id == user.id
-    const collector2 = reactmsg.createReactionCollector(filter2, {time: 60000});
-    
-	  collector1.on('collect', async reaction => {
-        const user = reaction.users.last()
-        reaction.remove(user)
-        if (page === 1) return; 
-        page--; 
-        pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-        await reactmsg.edit(pages[page-1])
-    })
-
-    collector2.on('collect', async reaction => {
-      const user = reaction.users.last()
-      reaction.remove(user)
-      if (page === pages.length) return; 
-      page++; 
-      pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-      await reactmsg.edit(pages[page-1])
-    })
-
-    collector1.on('end', collected => {
-        reactmsg.clearReactions()
-    })
-
-    collector2.on('end', collected => {
-      reactmsg.clearReactions()
-    })
 }
 
 module.exports.help = {
