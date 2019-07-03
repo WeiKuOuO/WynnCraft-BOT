@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 
-module.exports.run = async (bot, msg, args) => {
-  const left = bot.emojis.get("577050509316456459")
+module.exports.run = async (bot, message, args) => {
+        const left = bot.emojis.get("577050509316456459")
         const right = bot.emojis.get("577050517335703553")
 
         const guildName = args.join("");
@@ -110,12 +110,12 @@ module.exports.run = async (bot, msg, args) => {
         })
 
 
-    const reactmsg = await msg.channel.send(guildInfo).catch(e => {})
+    const reactmsg = await message.channel.send(guildInfo).catch(e => {})
     await reactmsg.react(left).then(() => message.react(right))
-    const filter1 = (reaction, user) => reaction.emoji.name === left && msg.author.id == user.id
+    const filter1 = (reaction, user) => reaction.emoji.name === left && message.author.id == user.id
     const collector1 = reactmsg.createReactionCollector(filter1, {time: 60000});
     
-    const filter2 = (reaction, user) => reaction.emoji.name === right && msg.author.id == user.id
+    const filter2 = (reaction, user) => reaction.emoji.name === right && message.author.id == user.id
     const collector2 = reactmsg.createReactionCollector(filter2, {time: 60000});
     
 	  collector1.on('collect', async reaction => {
