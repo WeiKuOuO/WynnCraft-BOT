@@ -110,16 +110,16 @@ module.exports.run = async (bot, message, args) => {
             }
             const reactmsg = await message.channel.send(pages[0]).catch(e => {})
                 await reactmsg.react(left).then(() => reactmsg.react(right))
-                const filter1 = (reaction, user) => reaction.emoji.name === left && message.author.id == user.id
-                const collector1 = reactmsg.createReactionCollector(filter1, {time: 60000});
+                const filter1 = (reaction, user) => reaction.emoji.name == left && message.author.id == user.id
+                const collector1 = reactmsg.createReactionCollector(filter1, {time: 600000});
     
-                const filter2 = (reaction, user) => reaction.emoji.name === right && message.author.id == user.id
+                const filter2 = (reaction, user) => reaction.emoji.name == right && message.author.id == user.id
                 const collector2 = reactmsg.createReactionCollector(filter2, {time: 60000});
     
 	              collector1.on('collect', async reaction => {
                   const user = reaction.users.last()
                   reaction.remove(user)
-                  if (page === 1) return; 
+                  if (page == 1) return; 
                   page--; 
                   pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                   await reactmsg.edit(pages[page-1])
@@ -128,7 +128,7 @@ module.exports.run = async (bot, message, args) => {
                 collector2.on('collect', async reaction => {
                   const user = reaction.users.last()
                   reaction.remove(user)
-                  if (page === pages.length) return; 
+                  if (page == pages.length) return; 
                   page++; 
                   pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                   await reactmsg.edit(pages[page-1])
