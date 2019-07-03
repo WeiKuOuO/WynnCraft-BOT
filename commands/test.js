@@ -6,8 +6,8 @@ module.exports.run = async (bot, msg, args) => {
             .setTitle("test")
             .setFooter(msg.author.username, msg.author.avatarURL)
             .setColor("RANDOM")
-    const reactmsg = msg.channel.send(embed).catch(e => {})
-    reactmsg.react('🆕')
+    const reactmsg = await msg.channel.send(embed).catch(e => {})
+    await reactmsg.react('🆕')
     const filter = (reaction, user) => reaction.emoji.name === '🆕' && msg.author.id == user.id
 	const collector = reactmsg.createReactionCollector(filter, {time: 600000});
 	collector.on('collect', async reaction => {
@@ -17,7 +17,7 @@ module.exports.run = async (bot, msg, args) => {
             .setTitle("test")
             .setFooter(user.username, user.avatarURL)
             .setColor("RANDOM")
-        reactmsg.edit(embed)
+        await reactmsg.edit(embed)
     })
     collector.on('end', collected => {
         reactmsg.clearReactions()
