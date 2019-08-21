@@ -126,7 +126,7 @@ module.exports.run = async (bot, message, args) => {
                         STOP: '⏹',
                     }
                     
-                    client.on('message', async message => {
+                    bot.on('message', async message => {
                         const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
                             time: 60000, // stop automatically after one minute 
                         });
