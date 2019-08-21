@@ -119,14 +119,17 @@ module.exports.run = async (bot, message, args) => {
                             const backwardsFilter = (reaction, user) => reaction.emoji.id === "577050509316456459" && user.id === message.author.id;
                             const forwardsFilter = (reaction, user) => reaction.emoji.id === "577050517335703553" && user.id === message.author.id; 
                           
-                            const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
-                            const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
+                            const backwards = msg.createReactionCollector(backwardsFilter, { time: 180000 }); 
+                            const forwards = msg.createReactionCollector(forwardsFilter, { time: 180000 }); 
 
                             backwards.on('collect', r => { 
                                 if (page === 1) return; 
                                 page--; 
                                 pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
+                                msg.clearReactions();
+                                msg.react(left).then( r => { 
+                                    msg.react(right) })
                             })
                           
                             forwards.on('collect', r => { 
@@ -134,6 +137,9 @@ module.exports.run = async (bot, message, args) => {
                                 page++; 
                                 pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
+                                msg.clearReactions();
+                                msg.react(left).then( r => { 
+                                    msg.react(right)})
                             })
                             
                         })
