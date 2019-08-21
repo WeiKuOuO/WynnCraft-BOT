@@ -116,8 +116,8 @@ module.exports.run = async (bot, message, args) => {
                         msg.react(left).then( r => { 
                             msg.react(right) 
                           
-                            const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
-                            const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
+                            const backwardsFilter = (reaction, user) => reaction.emoji.id === "577050509316456459" && user.id === message.author.id;
+                            const forwardsFilter = (reaction, user) => reaction.emoji.id === "577050517335703553" && user.id === message.author.id; 
                           
                             const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
                             const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
