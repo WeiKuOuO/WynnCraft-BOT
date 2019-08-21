@@ -123,10 +123,9 @@ module.exports.run = async (bot, message, args) => {
                     const reactionControls = {
                         NEXT_PAGE: '▶',
                         PREV_PAGE: '◀',
-                        STOP: '⏹',
                     }
                     
-                    client.on('message', async message => {
+                    bot.on('message', async message => {
                         const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
                             time: 60000}) // stop automatically after one minute 
                         });
@@ -134,23 +133,16 @@ module.exports.run = async (bot, message, args) => {
                         collector.on('collect', (reaction, user) => {
                             switch (reaction.emoji.name) {
                                 case emojis.NEXT_PAGE: {
-                                    // code for displaying next page here
+                                    message.clearReactions();
                                     break;
                                 }
                                 case emojis.PREV_PAGE: {
-                                    // code for displaying previous page here
+                                    message.clearReactions();
                                     break;
-                                }
-                                case emojis.STOP: {
-                                    // stop listening for reactions
-                                    collector.stop();
-                                    break;
-                                }
-                            }        
+                                }   
+                            }     
                         });
-                        collector.on('stop', async () => {
-                            await message.clearReactions();
-                        });
+
                     
                     
                     // message.channel.send(pages[page-1]).then(msg => { 
