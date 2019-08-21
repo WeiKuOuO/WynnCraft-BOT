@@ -126,35 +126,34 @@ module.exports.run = async (bot, message, args) => {
                         STOP: '⏹',
                     }
                     
-                    bot.on('message', async message => {
-                        const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
-                            time: 60000, // stop automatically after one minute 
-                        });
+                    const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
+                        time: 60000, // stop automatically after one minute 
+                    });
                         
 
-                        message.channel.send(pages[page-1]).then(msg => { 
-                            collector.on('collect', (reaction, user) => {
-                                switch (reaction.emoji.name) {
-                                    case emojis.NEXT_PAGE: {
-                                        if (page === 1) return; 
-                                        page--; 
-                                        pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-                                        msg.edit(pages[page-1])
-                                        message.clearReactions();
-                                        break;
-                                    }
-                                    case emojis.PREV_PAGE: {
-                                        if (page === pages.length) return; 
-                                        page++; 
-                                        pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-                                        msg.edit(pages[page-1]) 
-                                        message.clearReactions();
-                                        break;
-                                    }
-                                }     
-                            });
+                    message.channel.send(pages[page-1]).then(msg => { 
+                        collector.on('collect', (reaction, user) => {
+                            switch (reaction.emoji.name) {
+                                case emojis.NEXT_PAGE: {
+                                    if (page === 1) return; 
+                                    page--; 
+                                    pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                                    msg.edit(pages[page-1])
+                                    message.clearReactions();
+                                    break;
+                                }
+                                case emojis.PREV_PAGE: {
+                                    if (page === pages.length) return; 
+                                    page++; 
+                                    pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                                    msg.edit(pages[page-1]) 
+                                    message.clearReactions();
+                                    break;
+                                }
+                            }     
                         });
-                    }
+                    });
+                
 
                     
                     
