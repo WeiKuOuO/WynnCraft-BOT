@@ -118,36 +118,71 @@ module.exports.run = async (bot, message, args) => {
                         guildRole1, 
                         guildRole2, 
                     ]
-                      
-                    message.channel.send(pages[page-1]).then(msg => { 
                     
-                        msg.react(left).then( r => { 
-                            msg.react(right) 
+
+                    const reactionControls = {
+                        NEXT_PAGE: '▶',
+                        PREV_PAGE: '◀',
+                        STOP: '⏹',
+                    }
+                    
+                    client.on('message', async message => {
+                        const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
+                            time: 60000}) // stop automatically after one minute 
+                        });
+                        
+                        collector.on('collect', (reaction, user) => {
+                            switch (reaction.emoji.name) {
+                                case emojis.NEXT_PAGE: {
+                                    // code for displaying next page here
+                                    break;
+                                }
+                                case emojis.PREV_PAGE: {
+                                    // code for displaying previous page here
+                                    break;
+                                }
+                                case emojis.STOP: {
+                                    // stop listening for reactions
+                                    collector.stop();
+                                    break;
+                                }
+                            }        
+                        });
+                        collector.on('stop', async () => {
+                            await message.clearReactions();
+                        });
+                    
+                    
+                    // message.channel.send(pages[page-1]).then(msg => { 
+                    
+                    //     msg.react(left).then( r => { 
+                    //         msg.react(right) 
                           
-                            const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
-                            const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
+                    //         const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
+                    //         const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id; 
                           
-                            const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
-                            const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
+                    //         const backwards = msg.createReactionCollector(backwardsFilter, { time: 60000 }); 
+                    //         const forwards = msg.createReactionCollector(forwardsFilter, { time: 60000 }); 
                           
                            
-                            backwards.on('collect', r => { 
-                                if (page === 1) return; 
-                                page--; 
-                                pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-                                msg.edit(pages[page-1]) 
-                            })
+                    //         backwards.on('collect', r => { 
+                    //             if (page === 1) return; 
+                    //             page--; 
+                    //             pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                    //             msg.edit(pages[page-1]) 
+                    //         })
                           
-                            forwards.on('collect', r => { 
-                                if (page === pages.length) return; 
-                                page++; 
-                                pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
-                                msg.edit(pages[page-1]) 
-                            })
+                    //         forwards.on('collect', r => { 
+                    //             if (page === pages.length) return; 
+                    //             page++; 
+                    //             pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
+                    //             msg.edit(pages[page-1]) 
+                    //         })
                         
-                        })
+                    //     })
                       
-                    })
+                    // })
+
                 }
             })
         }  
