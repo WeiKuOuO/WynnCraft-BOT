@@ -122,8 +122,7 @@ module.exports.run = async (bot, message, args) => {
 
                     const reactionControls = {
                         NEXT_PAGE: '▶',
-                        PREV_PAGE: '◀',
-                        STOP: '⏹',
+                        PREV_PAGE: '◀'
                     }
                     
                     const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
@@ -132,6 +131,11 @@ module.exports.run = async (bot, message, args) => {
                         
 
                     message.channel.send(pages[page-1]).then(msg => { 
+
+                        msg.react(NEXT_PAGE).then( r => { 
+                            msg.react(PREV_PAGE) 
+                          
+
                         collector.on('collect', (reaction, user) => {
                             switch (reaction.emoji.name) {
                                 case emojis.NEXT_PAGE: {
@@ -152,6 +156,7 @@ module.exports.run = async (bot, message, args) => {
                                 }
                             }     
                         });
+                        })
                     });
                 
 
