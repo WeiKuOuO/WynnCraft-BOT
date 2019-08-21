@@ -127,9 +127,8 @@ module.exports.run = async (bot, message, args) => {
                                 page--; 
                                 pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
-                                msg.clearReactions();
-                                msg.react(left).then( r => { 
-                                    msg.react(right) })
+                                msg.clearReactions(message.author.id);
+                                
                             })
                           
                             forwards.on('collect', r => { 
@@ -137,9 +136,8 @@ module.exports.run = async (bot, message, args) => {
                                 page++; 
                                 pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
-                                msg.clearReactions();
-                                msg.react(left).then( r => { 
-                                    msg.react(right)})
+                                msg.clearReactions(message.author.id);
+                            
                             })
                             
                         })
