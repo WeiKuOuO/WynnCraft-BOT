@@ -123,11 +123,12 @@ module.exports.run = async (bot, message, args) => {
                     const reactionControls = {
                         NEXT_PAGE: '▶',
                         PREV_PAGE: '◀',
+                        STOP: '⏹',
                     }
                     
-                    bot.on('message', async message => {
+                    client.on('message', async message => {
                         const collector = new Discord.ReactionCollector(message, (reaction, user) => Object.values(reactionControls).includes(reaction.emoji.name), {
-                            time: 60000}) // stop automatically after one minute 
+                            time: 60000, // stop automatically after one minute 
                         });
                         
                         collector.on('collect', (reaction, user) => {
@@ -139,9 +140,10 @@ module.exports.run = async (bot, message, args) => {
                                 case emojis.PREV_PAGE: {
                                     message.clearReactions();
                                     break;
-                                }   
+                                }
                             }     
                         });
+                    });
 
                     
                     
