@@ -132,8 +132,8 @@ module.exports.run = async (bot, message, args) => {
 
                     message.channel.send(pages[page-1]).then(msg => { 
 
-                        msg.react(NEXT_PAGE).then( r => { 
-                            msg.react(PREV_PAGE) 
+                        msg.react("▶").then( r => { 
+                            msg.react("◀") 
                           
 
                         collector.on('collect', (reaction, user) => {
