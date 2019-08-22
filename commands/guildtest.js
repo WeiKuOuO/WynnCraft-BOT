@@ -125,7 +125,7 @@ module.exports.run = async (bot, message, args) => {
                             backwards.on('collect', r => { 
                                 if (page === 1){
                                     msg.clearReactions();
-                                    msg.react(left).then( r => {msg.react(right)}) 
+                                    msg.react(right)
                                     return
                                 }
                                 page--; 
@@ -138,7 +138,7 @@ module.exports.run = async (bot, message, args) => {
                             forwards.on('collect', r => { 
                                 if (page === pages.length){
                                     msg.clearReactions();
-                                    msg.react(left).then( r => {msg.react(right)}) 
+                                    msg.react(left) 
                                     return;
                                 }
                                 page++; 
