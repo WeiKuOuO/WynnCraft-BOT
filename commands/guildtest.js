@@ -123,11 +123,7 @@ module.exports.run = async (bot, message, args) => {
                             const forwards = msg.createReactionCollector(forwardsFilter, { time: 180000 }); 
 
                             backwards.on('collect', r => { 
-                                if (page === 1){
-                                    msg.clearReactions();
-                                    msg.react(left)
-                                    return
-                                }
+                                if (page === 1) return
                                 page--; 
                                 pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
@@ -136,11 +132,7 @@ module.exports.run = async (bot, message, args) => {
                             })
                           
                             forwards.on('collect', r => { 
-                                if (page === pages.length){
-                                    msg.clearReactions();
-                                    msg.react(right) 
-                                    return
-                                }
+                                if (page === pages.length) return
                                 page++; 
                                 pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
                                 msg.edit(pages[page-1]) 
