@@ -125,7 +125,7 @@ module.exports.run = async (bot, message, args) => {
                             backwards.on('collect', r => { 
                                 if (page === 1){
                                     msg.clearReactions();
-                                    msg.react(right)
+                                    msg.react(left)
                                     return
                                 }
                                 page--; 
@@ -138,8 +138,8 @@ module.exports.run = async (bot, message, args) => {
                             forwards.on('collect', r => { 
                                 if (page === pages.length){
                                     msg.clearReactions();
-                                    msg.react(left) 
-                                    return;
+                                    msg.react(right) 
+                                    return
                                 }
                                 page++; 
                                 pages[page-1].setFooter(`頁數 | ${page} / ${pages.length}`); 
