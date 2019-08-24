@@ -20,7 +20,7 @@ bot.commands = new Discord.Collection();
 let index = 0;
 
 bot.on('ready', function() {
-  bot.setInterval(() => {
+  bot.setInterval(() => { 
       const statuslist = [
         `wc/help | 任何問題請WeiKu#3402 ♪`,
         `機器人製作 | 微苦 ♪`,
