@@ -32,7 +32,7 @@ bot.on('ready', function() {
   }, 3000)
 
 }); 
-
+ 
 bot.on("ready", async () => {
   bot.channels.filter(c => c.name=="wynncraft中文資訊站機器人").forEach(c => c.bulkDelete("50"))
   const statusmessage = new Discord.RichEmbed()
