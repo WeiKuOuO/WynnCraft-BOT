@@ -17,7 +17,7 @@ const bot = new Discord.Client();
 const map = new Map();
 bot.commands = new Discord.Collection();
 
-let index = 0;
+let index = 0; 
 
 bot.on('ready', function() {
   bot.setInterval(() => { 
@@ -31,7 +31,7 @@ bot.on('ready', function() {
       if (index === statuslist.length) index = 0;
   }, 3000)
 
-}); 
+});  
  
 bot.on("ready", async () => {
   bot.channels.filter(c => c.name=="wynncraft中文資訊站機器人").forEach(c => c.bulkDelete("50"))
