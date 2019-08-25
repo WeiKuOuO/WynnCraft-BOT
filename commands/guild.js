@@ -110,7 +110,7 @@ module.exports.run = async (bot, message, args) => {
                     ]
                     
 
-                
+                 
                     message.channel.send(pages[page-1]).then(msg => {
                     
                         msg.react(left).then( r => { 
