@@ -32,8 +32,13 @@ bot.on('ready', function() {
   }, 3000)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 });  
  
+=======
+}); 
+
+>>>>>>> parent of 888704b... Update index.js
 =======
 }); 
 
